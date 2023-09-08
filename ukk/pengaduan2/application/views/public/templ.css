@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  height: 60px;
+}
+
+.bgw {
+  background-color: white;
+}
+
+.bgw1 {
+  background-color: white;
+  height: 1170px;
+}
+
+.sbox {
+  background-color: rgb(201, 201, 201);
+  width: 250px;
+  border-radius: 10px;
+  margin-top: 40px;
+  border: 1px solid black;
+}
+
+.bg1 {
+  background-image: url(assets/frontend/img/bg.jpg);
+  background-repeat: no-repeat;
+  height: 1600px;
+  position: relative;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.pt {
+  float: right;
+  font-size: 20pt;
+  font-weight: 700;
+  padding-right: 80px;
+}
+
+.bord {
+  border: 1px solid red;
+}
+
+/* FOOTER CSS */
+.footer {
+  background-color: black;
+  height: 330px;
+  color: white;
+}
+
+.ft1 {
+  font-size: 17pt;
+  font-weight: 500;
+  padding-top: 40px;
+}
+
+.ft2 {
+  font-size: 17pt;
+  font-weight: 500;
+}
+
+.cn {
+  padding-top: 40px;
+  font-size: 15pt;
+  font-weight: 500;
+}
+
+.cr {
+  font-size: 13pt;
+  font-weight: 500;
+  text-align: center;
+}

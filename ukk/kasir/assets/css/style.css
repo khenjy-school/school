@@ -1,0 +1,145 @@
+#menu,
+#rincian {
+	background-color: white;
+}
+#logo {
+	margin-top: 50px;
+}
+
+#link_home {
+	width: 80px;
+	height: 80px;
+	border-radius: 15px;
+	background-color: gray;
+	display: block;
+	margin-top: 20px;
+	color: blueviolet;
+}
+
+#link_home:hover,
+.active {
+	background-color: pink;
+}
+
+#logout {
+	position: absolute;
+	bottom: 10px;
+	margin-left: 25%;
+}
+
+#logout a {
+	color: burlywood;
+	text-decoration: none;
+}
+
+#isi {
+	background-color: plum;
+}
+
+.boxCategori {
+	width: 100px;
+	height: 125px;
+	background-color: white;
+	border-radius: 15px;
+}
+
+#tombol_pembayaran {
+	width: 250px;
+	height: 75px;
+	background-color: #ff158a;
+	color: white;
+	position: absolute;
+	bottom: 10px;
+	right: 10%;
+	border-radius: 30px;
+}
+
+#loginpanel {
+	width: 636px;
+	height: 345px;
+	margin: auto;
+	border-radius: 20px;
+}
+
+#gambar {
+	overflow: hidden;
+}
+
+#form {
+	width: 325px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.inputbx {
+	height: 30px;
+	font-size: 8pt;
+	width: 150px;
+	margin: auto;
+}
+
+.menushow {
+	width: 330px;
+	height: 216px;
+
+	border: 1px solid #000000;
+	box-sizing: border-box;
+}
+
+.container .left_Side {
+	position: relative;
+	background: #003147;
+	padding: 40px;
+}
+
+.container .right_Side {
+	position: relative;
+	background: #fff;
+	padding: 40px;
+}
+
+.topmenu {
+	position: absolute;
+	width: 992px;
+	height: 80px;
+	left: 0px;
+	top: 0px;
+
+	background: #c4c4c4;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+}
+
+.toprightmenu {
+	position: absolute;
+	width: 448px;
+	height: 80px;
+	left: 992px;
+	top: 0px;
+
+	background: #c4c4c4;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+}
+
+.bgmenu {
+	position: absolute;
+	width: 992px;
+	height: 864px;
+	left: 0px;
+	top: 80px;
+
+	background: #e5e5e5;
+}
+
+.bgtulisan {
+	position: absolute;
+	width: 448px;
+	height: 864px;
+	left: 992px;
+	top: 80px;
+
+	background: #ffffff;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+}

@@ -1,0 +1,11 @@
+rencana ke depan untuk website laundry
+- menyelesaikan fitur transaksi
+- mempercantik tampilan
+- mengubah tampilan admin supaya mempunyai sidebar
+- menambahkan lebih banyak fitur lainnya
+- membuat dokumentasi website
+- mengubah struktur tabel dan database
+- menambah stored prosedur, trigger, dan view pada database
+- mengganti pengaturan website pada halaman pengaturan menjadi pengaturan outlet
+- menyelesaikan halaman semua halaman antarmuka
+- pengembangan minor lainnya

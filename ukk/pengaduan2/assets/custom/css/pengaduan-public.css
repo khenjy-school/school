@@ -1,0 +1,179 @@
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+nav {
+	height: 60px;
+}
+
+/* Title & Search Box */
+
+.sbox {
+	background-color: rgb(201, 201, 201);
+	width: 300px;
+	border-radius: 10px;
+	margin-top: 15px;
+	border: 1px solid black;
+}
+
+.pt {
+	float: right;
+	font-size: 20pt;
+	font-weight: 700;
+	padding-right: 80px;
+}
+
+.iconify {
+	margin-left: 20px;
+}
+
+.bgw {
+	background-color: white;
+	padding-top: 25px;
+	height: 130px;
+}
+
+div.col-3.bgw img {
+	padding-left: 50px;
+}
+
+/* */
+
+.bg1 {
+	background-image: url(assets/frontend/img/bg.jpg);
+	background-repeat: no-repeat;
+	min-height: 500px;
+	position: relative;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.bgw1 {
+	background-color: white;
+	height: 1170px;
+}
+
+.bg2 {
+	background-color: #525252;
+	height: 500px;
+	padding-top: 50px;
+}
+
+.bord {
+	border: 1px solid red;
+}
+
+.t1 {
+	text-align: center;
+	font-size: 25pt;
+	font-weight: 600;
+	padding-top: 70px;
+}
+
+.t2 {
+	color: #0989d3;
+	font-size: 20pt;
+	font-weight: 400;
+	padding-left: 40px;
+	font-family: "Crimson Text", serif;
+}
+
+.t3 {
+	font-size: 13pt;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	font-family: "Underdog", cursive;
+	color: white;
+}
+
+.t4 {
+	font-size: 13pt;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	font-family: "Underdog", cursive;
+	font-style: italic;
+	color: white;
+}
+
+.t5 {
+	color: #0989d3;
+	font-size: 20pt;
+	font-weight: 400;
+	padding-left: 40px;
+	font-family: "Crimson Text", serif;
+	font-style: italic;
+}
+
+.t6 {
+	font-size: 13pt;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	line-height: 1.7;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 550;
+}
+
+.t7 {
+	font-size: 13pt;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	line-height: 1.7;
+	font-style: italic;
+	font-family: "Noto Sans JP", sans-serif;
+	font-weight: 550;
+}
+
+.t8 {
+	color: #0989d3;
+	font-size: 20pt;
+	font-weight: 400;
+	padding-left: 40px;
+	font-family: "Crimson Text", serif;
+	margin-top: 40px;
+}
+
+.bordb1 {
+	border-bottom: 3px solid black;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 50px;
+	margin-right: 50px;
+	text-align: center;
+}
+
+/* FOOTER CSS */
+.footer {
+	background-color: black;
+	height: 330px;
+	color: white;
+}
+
+.ft1 {
+	font-size: 17pt;
+	font-weight: 500;
+	padding-top: 40px;
+}
+
+.ft2 {
+	font-size: 17pt;
+	font-weight: 500;
+}
+
+.cn {
+	padding-top: 40px;
+	font-size: 15pt;
+	font-weight: 500;
+}
+
+.cr {
+	font-size: 13pt;
+	font-weight: 500;
+	text-align: center;
+}

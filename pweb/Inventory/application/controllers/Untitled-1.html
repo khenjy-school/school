@@ -1,0 +1,43 @@
+<html>
+
+<div class="alert">
+Data Berhasil Ditambahkan
+<button type="button" class="close">&times;</button>
+</div>
+
+<script>
+    var closebtns = document.getElementsByClassName("close");
+    var i;
+
+for (i = 0; i < closebtns.length; i++) {
+  closebtns[i].addEventListener("click", function() {
+    this.parentElement.style.display = 'none';
+  });
+}
+</script>
+
+<style>
+    .alert{
+    background: #A2DBFA;
+    margin: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 5px;
+    color: #0F52BA;
+    font-weight: bold;
+}
+
+.close{
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    background: none;
+    font-size: 25px;
+    color: #0F52BA;
+    top: 2.5%;
+    right: 40;
+}
+
+</style>
+
+</html>

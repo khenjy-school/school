@@ -1,0 +1,37 @@
+.bord {
+    border: 1px solid red;
+}
+
+.tran_left {
+    background-color: rgba(243, 146, 18, 0.904);
+}
+
+.tran_title {
+    font-size: 2rem; font-weight: 600;
+    color: white; text-align: center;
+}
+
+.tran_silakan {
+    font-size: 2rem; font-weight: 600;
+    color: rgb(250, 246, 9); text-align: center;
+}
+
+.tran_box1 {
+    background-color: gray;
+    border: 1px solid white;
+    width: 100%; height: 15rem;
+}
+
+.tran_right {
+    background-color: rgba(78, 70, 64, 0.918);
+}
+
+.tran_pesanan {
+    font-size: 2rem; font-weight: 600;
+    color: white; text-align: center;
+}
+
+.tran_beli {
+    width: 90%; position: absolute; bottom: 20px;
+    margin-left: 25px;
+}
