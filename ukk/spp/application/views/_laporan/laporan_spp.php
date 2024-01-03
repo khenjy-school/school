@@ -24,19 +24,15 @@
         <tr>
           <th><?= $tabel6_field1_alias ?></th>
           <th><?= $tabel6_field2_alias ?></th>
-          <th><?= $tabel6_field4_alias ?></th>
-          <th><?= $tabel6_field5_alias ?></th>
           <th><?= $tabel6_field3_alias ?></th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($tabel6 as $tl6) : ?>
           <tr>
-            <td width="20%"><?= $tl6->id_spp ?></td>
-            <td width="20%"><?= $tl6->tipe ?></a></td>
-            <td width="20%"><?= $tl6->stok ?></td>
-            <td width="20%">Rp <?= number_format($tl6->harga, '2', ',', '.') ?></td>
-            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/spp/<?= $tl6->img ?>"></td>
+            <td width="20%"><?= $tl6->id_spp; ?></td>
+            <td width="20%"><?= $tl6->tahun ?></td>
+            <td width="20%"><?= $tl6->nominal ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

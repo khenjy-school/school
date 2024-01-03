@@ -24,17 +24,15 @@
         <tr>
           <th><?= $tabel5_field1_alias ?></th>
           <th><?= $tabel5_field2_alias ?></th>
-          <th><?= $tabel5_field4_alias ?></th>
-          <th><?= $tabel5_field5_alias ?></th>
+          <th><?= $tabel5_field3_alias ?></th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($tabel5 as $tl5) : ?>
           <tr>
-            <td width="25%"><?= $tl5->id_kelas ?></td>
-            <td width="25%"><?= $tl5->id_spp ?></a></td>
-            <td width="25%"><?= $tl5->status ?></td>
-            <td width="25%"><?= $tl5->keterangan ?></td>
+            <td width="20%"><?= $tl5->id_kelas; ?></td>
+            <td width="20%"><?= $tl5->nama_kelas ?></td>
+            <td width="30%"><?= $tl5->kompetensi_keahlian ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

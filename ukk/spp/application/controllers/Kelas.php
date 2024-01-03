@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 include 'Welcome.php';
 
-class Kamar extends Welcome
+class Kelas extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
@@ -135,8 +135,7 @@ class Kamar extends Welcome
 		$where = $this->tabel5_v_input1_post;
 		$data = array(
 			$this->tabel5_field2 => $this->tabel5_v_input2_post,
-			$this->tabel5_field4 => $this->tabel5_v_input4_post,
-			$this->tabel5_field5 => $this->tabel5_v_input5_post,
+			$this->tabel5_field3 => $this->tabel5_v_input3_post,
 		);
 
 		$update = $this->tl5->update($data, $where);

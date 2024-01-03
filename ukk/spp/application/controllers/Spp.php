@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 include 'Welcome.php';
 
-class spp extends Welcome
+class Spp extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
@@ -167,34 +167,10 @@ class spp extends Welcome
 		// Bisa mengupload gambar dengan tulisan yang dihapus, tentunya dengan minim data double
 
 		$this->declare();
-		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
-		$config['allowed_types'] = $this->file_type1;
-		// $config['file_name'] = $this->tabel6_v_input2_post . '.jpg';
-		$config['overwrite'] = TRUE;
-		$config['remove_spaces'] = TRUE;
-
-		$this->load->library('upload', $config);
-
-		if (!$this->upload->do_upload($this->tabel6_v_input3)) {
-			$gambar = $this->input->post($this->tabel6_v_input3_alt);
-		} else {
-
-			// Di bawah ini adalah fitur untuk menghapus file lama
-			// Dipakai atau tidaknya fitur ini masih tergantung dari kebutuhan
-			$table = $this->tl6->ambil($this->tabel6_v_input1_post)->result();
-			$img = $table[0]->img;
-			unlink($this->tabel6_v_input3_upload_path . $img);
-
-			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
-			$upload = $this->upload->data();
-			$gambar = $upload['file_name'];
-		}
-
 		$where = $this->tabel6_v_input1_post;
 		$data = array(
 			$this->tabel6_field2 => $this->tabel6_v_input2_post,
-			$this->tabel6_field3 => $gambar,
-			$this->tabel6_field5 => $this->tabel6_v_input5_post,
+			$this->tabel6_field3 => $this->tabel6_v_input3_post,
 		);
 
 		$update = $this->tl6->update($data, $where);

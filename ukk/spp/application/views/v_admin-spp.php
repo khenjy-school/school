@@ -15,8 +15,6 @@
       <tr>
         <th><?= $tabel6_field1_alias ?></th>
         <th><?= $tabel6_field2_alias ?></th>
-        <th><?= $tabel6_field5_alias ?></th>
-        <th><?= $tabel6_field4_alias ?></th>
         <th><?= $tabel6_field3_alias ?></th>
         <th>Aksi</th>
       </tr>
@@ -25,8 +23,8 @@
       <?php foreach ($tabel6 as $tl6) : ?>
         <tr>
           <td><?= $tl6->id_spp; ?></td>
-          <td><?= $tl6->tipe ?></td>
-          <td><?= $tl6->stok ?></td>
+          <td><?= $tl6->tahun ?></td>
+          <td><?= $tl6->nominal ?></td>
           <td>Rp <?= number_format($tl6->harga, '2', ',', '.') ?></td>
           <td><img class="img-fluid" style="max-height: 50px; object-fit:cover" src="img/spp/<?= $tl6->img ?>"></td>
           <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl6->id_spp; ?>">
@@ -52,8 +50,6 @@
       <tr>
         <th><?= $tabel6_field1_alias ?></th>
         <th><?= $tabel6_field2_alias ?></th>
-        <th><?= $tabel6_field5_alias ?></th>
-        <th><?= $tabel6_field4_alias ?></th>
         <th><?= $tabel6_field3_alias ?></th>
         <th>Aksi</th>
       </tr>
@@ -106,102 +102,102 @@
 
 <!-- modal edit -->
 <?php foreach ($tabel6 as $tl6) : ?>
-  <div id="ubah<?= $tl6->id_spp; ?>" class="modal fade ubah">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel6_alias ?> <?= $tl6->id_spp; ?></h5>
+  <!-- <div id="ubah<?= $tl6->id_spp; ?>" class="modal fade ubah"> -->
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit <?= $tabel6_alias ?> <?= $tl6->id_spp; ?></h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+
+      <form action="<?= site_url('spp/update') ?>" method="post" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="form-group">
+            <label><?= $tabel6_field2_alias ?></label>
+            <input class="form-control" type="text" required name="tipe" value="<?= $tl6->tipe; ?>">
+            <input type="hidden" name="id_spp" value="<?= $tl6->id_spp; ?>">
+          </div>
+
+          <div class="form-group">
+            <label><?= $tabel6_field5_alias ?> (Per hari & Per jumlah)</label>
+            <input class="form-control" type="number" required name="harga" value="<?= $tl6->harga; ?>">
+          </div>
+
+          <div class="form-group">
+            <img src="img/spp/<?= $tl6->img; ?>" width="300">
+          </div>
+          <hr>
+
+          <div class="form-group">
+            <label>Ubah <?= $tabel6_field3_alias ?></label>
+            <input class="form-control-file" type="file" name="img">
+            <input type="hidden" name="txtimg" value="<?= $tl6->img; ?>">
+          </div>
         </div>
 
-        <form action="<?= site_url('spp/update') ?>" method="post" enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="form-group">
-              <label><?= $tabel6_field2_alias ?></label>
-              <input class="form-control" type="text" required name="tipe" value="<?= $tl6->tipe; ?>">
-              <input type="hidden" name="id_spp" value="<?= $tl6->id_spp; ?>">
-            </div>
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
 
-            <div class="form-group">
-              <label><?= $tabel6_field5_alias ?> (Per hari & Per jumlah)</label>
-              <input class="form-control" type="number" required name="harga" value="<?= $tl6->harga; ?>">
-            </div>
-
-            <div class="form-group">
-              <img src="img/spp/<?= $tl6->img; ?>" width="300">
-            </div>
-            <hr>
-
-            <div class="form-group">
-              <label>Ubah <?= $tabel6_field3_alias ?></label>
-              <input class="form-control-file" type="file" name="img">
-              <input type="hidden" name="txtimg" value="<?= $tl6->img; ?>">
-            </div>
-          </div>
-
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
-
-          <div class="modal-footer">
-            <button class="btn btn-success" type="submit">Simpan Perubahan</button>
-          </div>
-        </form>
-      </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+        </div>
+      </form>
     </div>
   </div>
+  <!-- </div> -->
 <?php endforeach; ?>
 
 <!-- modal lihat -->
 <?php foreach ($tabel6 as $tl6) : ?>
-  <div id="lihat<?= $tl6->id_spp; ?>" class="modal fade lihat" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel6_alias ?> <?= $tl6->id_spp; ?></h5>
+  <!-- <div id="lihat<?= $tl6->id_spp; ?>" class="modal fade lihat" role="dialog"> -->
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><?= $tabel6_alias ?> <?= $tl6->id_spp; ?></h5>
 
-          <button class="close" data-dismiss="modal">
-            <span>&times;</span>
-          </button>
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+
+      <form>
+        <div class="modal-body">
+          <div class="form-group">
+            <label><?= $tabel6_field2_alias ?> : </label>
+            <p><?= $tl6->tipe; ?></p>
+          </div>
+          <hr>
+
+          <div class="form-group">
+            <label><?= $tabel6_field4_alias ?> : </label>
+            <p><?= $tl6->stok; ?></p>
+          </div>
+          <hr>
+
+          <div class="form-group">
+            <label><?= $tabel6_field3_alias ?> (Per hari & Per jumlah) : </label>
+            <p>Rp <?= number_format($tl6->harga, '2', ',', '.') ?></p>
+          </div>
+          <hr>
+
+          <div class="form-group">
+            <img src="img/spp/<?= $tl6->img; ?>" width="450">
+
+          </div>
+
         </div>
 
-        <form>
-          <div class="modal-body">
-            <div class="form-group">
-              <label><?= $tabel6_field2_alias ?> : </label>
-              <p><?= $tl6->tipe; ?></p>
-            </div>
-            <hr>
+        <!-- memunculkan notifikasi modal -->
+        <p id="p_lihat class=" small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
-            <div class="form-group">
-              <label><?= $tabel6_field4_alias ?> : </label>
-              <p><?= $tl6->stok; ?></p>
-            </div>
-            <hr>
-
-            <div class="form-group">
-              <label><?= $tabel6_field3_alias ?> (Per hari & Per jumlah) : </label>
-              <p>Rp <?= number_format($tl6->harga, '2', ',', '.') ?></p>
-            </div>
-            <hr>
-
-            <div class="form-group">
-              <img src="img/spp/<?= $tl6->img; ?>" width="450">
-
-            </div>
-
-          </div>
-
-          <!-- memunculkan notifikasi modal -->
-          <p id="p_lihat class=" small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
-
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-          </div>
-        </form>
-      </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </form>
     </div>
   </div>
+  <!-- </div> -->
 <?php endforeach; ?>

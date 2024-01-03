@@ -14,9 +14,8 @@
     <thead class="thead-light">
       <tr>
         <th><?= $tabel5_field1_alias ?></th>
-        <th><?= $tabel6_field2_alias ?></th>
-        <th><?= $tabel5_field4_alias ?></th>
-        <th><?= $tabel5_field5_alias ?></th>
+        <th><?= $tabel5_field2_alias ?></th>
+        <th><?= $tabel5_field3_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -27,9 +26,8 @@
           <?php if ($tl6->id_spp == $tl5->id_spp) { ?>
             <tr>
               <td><?= $tl5->id_kelas; ?></td>
-              <td><?= $tl6->tipe ?></td>
-              <td><?= $tl5->status ?></td>
-              <td><?= $tl5->keterangan ?></td>
+              <td><?= $tl5->nama_kelas ?></td>
+              <td><?= $tl5->kompetensi_keahlian ?></td>
               <td>
                 <a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl5->id_kelas; ?>">
                   <i class="fas fa-eye"></i></a>
@@ -62,8 +60,7 @@
       <tr>
         <th><?= $tabel5_field1_alias ?></th>
         <th><?= $tabel5_field2_alias ?></th>
-        <th><?= $tabel5_field4_alias ?></th>
-        <th><?= $tabel5_field5_alias ?></th>
+        <th><?= $tabel5_field3_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -73,96 +70,96 @@
 
 
 <!-- modal tambah -->
-<div id="tambah" class="modal fade tambah">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Tambah <?= $tabel5_alias ?></h5>
+<!-- <div id="tambah" class="modal fade tambah"> -->
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Tambah <?= $tabel5_alias ?></h5>
 
-        <button class="close" data-dismiss="modal">
-          <span>&times;</span>
-        </button>
+      <button class="close" data-dismiss="modal">
+        <span>&times;</span>
+      </button>
+    </div>
+
+    <form action="<?= site_url('kelas/tambah') ?>" method="post" enctype="multipart/form-data">
+      <div class="modal-body">
+
+        <!-- memilih salah satu tipe kelas yang ada -->
+        <div class="form-group">
+          <label><?= $tabel6_field2_alias ?></label>
+          <select class="form-control" required name="id_spp">
+            <option selected hidden value="">Pilih Tipe Kamar...</option>
+            <?php foreach ($tabel6 as $tl6) : ?>
+
+              <!-- mengambil nilai tipe dari tipe kelas -->
+              <option value="<?= $tl6->id_spp ?>"><?= $tl6->tipe; ?></option>
+
+            <?php endforeach ?>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><?= $tabel5_field4_alias ?></label>
+          <select class="form-control" required name="status">
+            <option selected hidden value="">Pilih <?= $tabel5_field4_alias ?>...</option>
+
+            <!-- memilih nilai status -->
+            <option value="Available">Available</option>
+            <option value="Dirty">Dirty</option>
+            <option value="Damaged">Damaged</option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label><?= $tabel5_field5_alias ?></label>
+          <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"></textarea>
+        </div>
+
       </div>
 
-      <form action="<?= site_url('kelas/tambah') ?>" method="post" enctype="multipart/form-data">
-        <div class="modal-body">
+      <!-- memunculkan notifikasi modal -->
+      <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
 
-          <!-- memilih salah satu tipe kelas yang ada -->
-          <div class="form-group">
-            <label><?= $tabel6_field2_alias ?></label>
-            <select class="form-control" required name="id_spp">
-              <option selected hidden value="">Pilih Tipe Kamar...</option>
-              <?php foreach ($tabel6 as $tl6) : ?>
-
-                <!-- mengambil nilai tipe dari tipe kelas -->
-                <option value="<?= $tl6->id_spp ?>"><?= $tl6->tipe; ?></option>
-
-              <?php endforeach ?>
-
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label><?= $tabel5_field4_alias ?></label>
-            <select class="form-control" required name="status">
-              <option selected hidden value="">Pilih <?= $tabel5_field4_alias ?>...</option>
-
-              <!-- memilih nilai status -->
-              <option value="Available">Available</option>
-              <option value="Dirty">Dirty</option>
-              <option value="Damaged">Damaged</option>
-
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label><?= $tabel5_field5_alias ?></label>
-            <textarea class="form-control" name="keterangan" placeholder="Masukkan keterangan"></textarea>
-          </div>
-
-        </div>
-
-        <!-- memunculkan notifikasi modal -->
-        <p id="p_tambah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_tambah') ?></p>
-
-        <div class="modal-footer">
-          <button class="btn btn-success" type="submit">Simpan</button>
-        </div>
-      </form>
-    </div>
+      <div class="modal-footer">
+        <button class="btn btn-success" type="submit">Simpan</button>
+      </div>
+    </form>
   </div>
 </div>
+<!-- </div> -->
 
 <!-- modal edit -->
 <?php foreach ($tabel5 as $tl5) : ?>
   <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_spp == $tl5->id_spp) { ?>
-      <div id="ubah<?= $tl5->id_kelas; ?>" class="modal fade ubah">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Edit <?= $tabel5_alias ?> <?= $tl5->id_kelas; ?></h5>
+      <!-- <div id="ubah<?= $tl5->id_kelas; ?>" class="modal fade ubah"> -->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit <?= $tabel5_alias ?> <?= $tl5->id_kelas; ?></h5>
 
-              <button class="close" data-dismiss="modal">
-                <span>&times;</span>
-              </button>
-            </div>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
 
-            <form action="<?= site_url('kelas/update') ?>" method="post" enctype="multipart/form-data">
-              <div class="modal-body">
-                <div class="form-group">
+          <form action="<?= site_url('kelas/update') ?>" method="post" enctype="multipart/form-data">
+            <div class="modal-body">
+              <div class="form-group">
 
-                  <!-- memilih salah satu tipe kelas yang ada -->
-                  <label><?= $tabel6_field2_alias ?></label>
-                  <input class="form-control" type="text" readonly name="tipe" value="<?= $tl6->tipe ?>">
-                  <input type="hidden" name="id_spp" value="<?= $tl6->id_spp ?>">
+                <!-- memilih salah satu tipe kelas yang ada -->
+                <label><?= $tabel6_field2_alias ?></label>
+                <input class="form-control" type="text" readonly name="tipe" value="<?= $tl6->tipe ?>">
+                <input type="hidden" name="id_spp" value="<?= $tl6->id_spp ?>">
 
 
-                  <!-- Fitur di bawah ini masuk harus dibahas kembali
+                <!-- Fitur di bawah ini masuk harus dibahas kembali
                   Apakah bisa mengubah id_spp tipe kelas atau tidak
                   Mengingat pengalaman kerja di PT LSI dulu
                   Jika mengubah parent table, maka child tabel tidak akan terlalu berpengaruh  -->
-                  <!-- <select class="form-control" required name="id_spp">
+                <!-- <select class="form-control" required name="id_spp">
 
                      menampilkan nilai tipe kelas yang aktif
                     <option selected hidden value="< $tl6->id_spp ?>">< $tl6->tipe; ?></option>
@@ -172,38 +169,38 @@
                     < endforeach ?>
                   </select> -->
 
-                </div>
-
-                <div class="form-group">
-                  <label><?= $tabel5_field4_alias ?></label>
-                  <select class="form-control" required name="status">
-                    <option selected hidden value="<?= $tl5->status; ?>"><?= $tl5->status; ?></option>
-
-                    <!-- memilih nilai status -->
-                    <option value="Dirty">Dirty</option>
-                    <option value="Damaged">Damaged</option>
-
-                  </select>
-                  <input type="hidden" name="id_kelas" value="<?= $tl5->id_kelas; ?>">
-                </div>
-
-                <div class="form-group">
-                  <label><?= $tabel5_field5_alias ?></label>
-                  <textarea class="form-control" name="keterangan" rows="3"><?= $tl5->keterangan; ?></textarea>
-                </div>
-
               </div>
 
-              <!-- memunculkan notifikasi modal -->
-              <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+              <div class="form-group">
+                <label><?= $tabel5_field4_alias ?></label>
+                <select class="form-control" required name="status">
+                  <option selected hidden value="<?= $tl5->status; ?>"><?= $tl5->status; ?></option>
 
-              <div class="modal-footer">
-                <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+                  <!-- memilih nilai status -->
+                  <option value="Dirty">Dirty</option>
+                  <option value="Damaged">Damaged</option>
+
+                </select>
+                <input type="hidden" name="id_kelas" value="<?= $tl5->id_kelas; ?>">
               </div>
-            </form>
-          </div>
+
+              <div class="form-group">
+                <label><?= $tabel5_field5_alias ?></label>
+                <textarea class="form-control" name="keterangan" rows="3"><?= $tl5->keterangan; ?></textarea>
+              </div>
+
+            </div>
+
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+
+            <div class="modal-footer">
+              <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+            </div>
+          </form>
         </div>
       </div>
+      <!-- </div> -->
     <?php } ?>
   <?php endforeach; ?>
 <?php endforeach; ?>
@@ -213,48 +210,48 @@
   <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_spp == $tl5->id_spp) { ?>
 
-      <div id="lihat<?= $tl5->id_kelas; ?>" class="modal fade lihat" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel5_alias ?> <?= $tl5->id_kelas; ?></h5>
+      <!-- <div id="lihat<?= $tl5->id_kelas; ?>" class="modal fade lihat" role="dialog"> -->
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><?= $tabel5_alias ?> <?= $tl5->id_kelas; ?></h5>
 
-              <button class="close" data-dismiss="modal">
-                <span>&times;</span>
-              </button>
+            <button class="close" data-dismiss="modal">
+              <span>&times;</span>
+            </button>
+          </div>
+
+          <form>
+            <div class="modal-body">
+              <div class="form-group">
+                <label><?= $tabel6_field2_alias ?> : </label>
+                <p><?= $tl6->tipe; ?></p>
+              </div>
+              <hr>
+
+              <div class="form-group">
+                <label><?= $tabel5_field4_alias ?> : </label>
+                <p><?= $tl5->status; ?></p>
+              </div>
+              <hr>
+
+              <div class="form-group">
+                <label><?= $tabel5_field5_alias ?> : </label>
+                <p><?= $tl5->keterangan; ?></p>
+              </div>
+
             </div>
 
-            <form>
-              <div class="modal-body">
-                <div class="form-group">
-                  <label><?= $tabel6_field2_alias ?> : </label>
-                  <p><?= $tl6->tipe; ?></p>
-                </div>
-                <hr>
+            <!-- memunculkan notifikasi modal -->
+            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
-                <div class="form-group">
-                  <label><?= $tabel5_field4_alias ?> : </label>
-                  <p><?= $tl5->status; ?></p>
-                </div>
-                <hr>
-
-                <div class="form-group">
-                  <label><?= $tabel5_field5_alias ?> : </label>
-                  <p><?= $tl5->keterangan; ?></p>
-                </div>
-
-              </div>
-
-              <!-- memunculkan notifikasi modal -->
-              <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
-
-              <div class="modal-footer">
-                <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-              </div>
-            </form>
-          </div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+          </form>
         </div>
       </div>
+      <!-- </div> -->
     <?php } ?>
   <?php endforeach; ?>
 <?php endforeach; ?>
@@ -264,7 +261,7 @@
 <?php foreach ($tabel5 as $tl5) : ?>
   <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_spp == $tl5->id_spp) { ?>
-      <div id="clean<?= $tl5->id_kelas ?>" class="modal fade clean">
+      <div id="clean<?= $tl5->id_kelas ?>" class="modal fade clean"> 
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -371,7 +368,7 @@
 <?php foreach ($tabel5 as $tl5) : ?>
   <?php foreach ($tabel6 as $tl6) : ?>
     <?php if ($tl6->id_spp == $tl5->id_spp) { ?>
-      <div id="maintenance<?= $tl5->id_kelas ?>" class="modal fade">
+      <!-- <div id="maintenance<?= $tl5->id_kelas ?>" class="modal fade"> -->
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -466,7 +463,7 @@
 
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     <?php } ?>
   <?php endforeach ?>
 <?php endforeach ?>

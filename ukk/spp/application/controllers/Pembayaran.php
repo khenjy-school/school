@@ -10,7 +10,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 include 'Welcome.php';
 session_write_close();
-class Pesanan extends Welcome
+class Pembayaran extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model

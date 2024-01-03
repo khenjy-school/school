@@ -74,10 +74,14 @@
   <table class="table table-light" id="data">
     <thead class="thead-light">
       <tr>
+        <th><?= $tabel8_field1_alias ?></th>
+        <th><?= $tabel8_field2_alias ?></th>
+        <th><?= $tabel8_field3_alias ?></th>
+        <th><?= $tabel8_field4_alias ?></th>
+        <th><?= $tabel8_field5_alias ?></th>
         <th><?= $tabel8_field6_alias ?></th>
-        <th><?= $tabel8_field10_alias ?></th>
-        <th><?= $tabel8_field11_alias ?></th>
-        <th><?= $tabel8_field12_alias ?></th>
+        <th><?= $tabel8_field7_alias ?></th>
+        <th><?= $tabel8_field8_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -85,10 +89,14 @@
     <tbody>
       <?php foreach ($tabel8 as $tl8) : ?>
         <tr>
-          <td><?= $tl8->tamu ?></td>
-          <td><?= $tl8->cek_in ?></td>
-          <td><?= $tl8->cek_out ?></td>
-          <td><?= $tl8->status ?></td>
+          <td><?= $tl8->id_pembayaran ?></td>
+          <td><?= $tl8->id_petugas ?></td>
+          <td><?= $tl8->nisn ?></td>
+          <td><?= $tl8->tgl_bayar ?></td>
+          <td><?= $tl8->bulan_dibayar ?></td>
+          <td><?= $tl8->tahun_dibayar ?></td>
+          <td><?= $tl8->id_spp ?></td>
+          <td><?= $tl8->jumlah_bayar ?></td>
 
           <td>
 
@@ -123,10 +131,14 @@
 
     <tfoot>
       <tr>
+        <th><?= $tabel8_field1_alias ?></th>
+        <th><?= $tabel8_field2_alias ?></th>
+        <th><?= $tabel8_field3_alias ?></th>
+        <th><?= $tabel8_field4_alias ?></th>
+        <th><?= $tabel8_field5_alias ?></th>
         <th><?= $tabel8_field6_alias ?></th>
-        <th><?= $tabel8_field10_alias ?></th>
-        <th><?= $tabel8_field11_alias ?></th>
-        <th><?= $tabel8_field12_alias ?></th>
+        <th><?= $tabel8_field7_alias ?></th>
+        <th><?= $tabel8_field8_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -138,7 +150,7 @@
   <div id="ubah<?= $tl8->id_pembayaran ?>" class="modal fade ubah">
     <?php foreach ($tabel6 as $tl6) : ?>
       <?php if ($tl6->id_spp === $tl8->id_spp) { ?>
-        <div class="modal-dialog">
+        <!-- <div class="modal-dialog"> -->
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Pesanan <?= $tl8->id_pembayaran ?></h5>
@@ -237,7 +249,7 @@
             </form>
 
           </div>
-        </div>
+        <!-- </div> -->
     <?php }
     endforeach; ?>
   </div>
@@ -248,7 +260,7 @@
   <div id="book<?= $tl8->id_pembayaran ?>" class="modal fade book">
     <?php foreach ($tabel6 as $tl6) : ?>
       <?php if ($tl6->id_spp === $tl8->id_spp) { ?>
-        <div class="modal-dialog">
+        <!-- <div class="modal-dialog"> -->
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
@@ -400,7 +412,7 @@
             </form>
 
           </div>
-        </div>
+        <!-- </div> -->
 
     <?php }
     endforeach ?>

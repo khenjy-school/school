@@ -16,8 +16,10 @@
         <th><?= $tabel9_field1_alias ?></th>
         <th><?= $tabel9_field2_alias ?></th>
         <th><?= $tabel9_field3_alias ?></th>
+        <th><?= $tabel9_field4_alias ?></th>
         <th><?= $tabel9_field5_alias ?></th>
         <th><?= $tabel9_field6_alias ?></th>
+        <th><?= $tabel9_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -26,10 +28,12 @@
       <?php foreach ($tabel9 as $tl9) : ?>
         <tr>
           <td><?= $tl9->nisn; ?></td>
+          <td><?= $tl9->nis ?></td>
           <td><?= $tl9->nama ?></td>
-          <td><?= $tl9->email ?></td>
-          <td><?= $tl9->hp ?></td>
-          <td><?= $tl9->level ?></td>
+          <td><?= $tl9->id_kelas ?></td>
+          <td><?= $tl9->alamat ?></td>
+          <td><?= $tl9->no_telp ?></td>
+          <td><?= $tl9->id_spp ?></td>
           <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl9->nisn; ?>">
               <i class="fas fa-eye"></i></a>
             <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl9->nisn; ?>">
@@ -50,8 +54,10 @@
         <th><?= $tabel9_field1_alias ?></th>
         <th><?= $tabel9_field2_alias ?></th>
         <th><?= $tabel9_field3_alias ?></th>
+        <th><?= $tabel9_field4_alias ?></th>
         <th><?= $tabel9_field5_alias ?></th>
         <th><?= $tabel9_field6_alias ?></th>
+        <th><?= $tabel9_field7_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -138,7 +144,7 @@
 <!-- modal edit -->
 <?php foreach ($tabel9 as $tl9) : ?>
   <div id="ubah<?= $tl9->nisn; ?>" class="modal fade ubah">
-    <div class="modal-dialog">
+    <!-- <div class="modal-dialog"> -->
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Edit <?= $tabel9_alias ?> <?= $tl9->nisn; ?></h5>
@@ -195,13 +201,13 @@
           </div>
         </form>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 <?php endforeach; ?>
 
 <!-- modal lihat -->
 <?php foreach ($tabel9 as $tl9) : ?>
-  <div id="lihat<?= $tl9->nisn; ?>" class="modal fade lihat" role="dialog">
+  <!-- <div id="lihat<?= $tl9->nisn; ?>" class="modal fade lihat" role="dialog"> -->
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -249,5 +255,5 @@
 
       </div>
     </div>
-  </div>
+  <!-- </div> -->
 <?php endforeach; ?>

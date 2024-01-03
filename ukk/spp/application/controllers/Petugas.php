@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 include 'Welcome.php';
 
-class User extends Welcome
+class Petugas extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
@@ -120,9 +120,6 @@ class User extends Welcome
 		$this->tabel9_v_flashdata1_msg_5 = 'Data ' . $this->tabel9_alias . ' berhasil dihapus!';
 		$this->tabel9_v_flashdata1_msg_6 = 'Data ' . $this->tabel9_alias . ' gagal dihapus!';
 
-		// deklarasi variabel menampilkan pesan modal
-		$this->tabel9_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-		$this->tabel9_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 
 		// deklarasi session
 		$this->tabel9_userdata1 = $this->tabel9_field1;

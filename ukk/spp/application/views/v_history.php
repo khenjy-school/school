@@ -87,11 +87,12 @@
     <thead class="thead-light">
       <tr>
         <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel2_field5_alias ?></th>
+        <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
-        <th><?= $tabel6_field2_alias ?></th>
-        <th><?= $tabel2_field11_alias ?></th>
-        <th><?= $tabel2_field12_alias ?></th>
-        <th><?= $tabel2_field15_alias ?></th>
+        <th><?= $tabel2_field8_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -117,11 +118,12 @@
     <tfoot>
       <tr>
         <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel2_field5_alias ?></th>
+        <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
         <th><?= $tabel2_field8_alias ?></th>
-        <th><?= $tabel2_field11_alias ?></th>
-        <th><?= $tabel2_field12_alias ?></th>
-        <th><?= $tabel2_field15_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>

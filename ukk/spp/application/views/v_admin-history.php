@@ -51,7 +51,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Dari</span>
           </div>
-          <input type="date" class="form-control" name="cek_out_min" value="<?= $cek_out_min ?>">
+          <input type="date" class="form-control" name="tgl_bayar_min" value="<?= $tgl_bayar_min ?>">
 
         </div>
       </td>
@@ -60,7 +60,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Ke</span>
           </div>
-          <input type="date" class="form-control" name="cek_out_max" value="<?= $cek_out_max ?>">
+          <input type="date" class="form-control" name="tgl_bayar_max" value="<?= $tgl_bayar_max ?>">
         </div>
 
       </td>
@@ -74,12 +74,12 @@
     <thead class="thead-light">
       <tr>
         <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel2_field5_alias ?></th>
+        <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
-        <th><?= $tabel6_field2_alias ?></th>
-        <th><?= $tabel2_field11_alias ?></th>
-        <th><?= $tabel2_field12_alias ?></th>
-        <th><?= $tabel2_field14_alias ?></th>
-        <th><?= $tabel2_field15_alias ?></th>
+        <th><?= $tabel2_field8_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -93,7 +93,6 @@
               <td><?= $tl6->tipe ?></td>
               <td><?= $tl2->cek_in ?></td>
               <td><?= $tl2->cek_out ?></td>
-              <td><?= $tl2->tgl_perubahan ?></td>
               <td><?= $tl2->user_aktif ?></td>
               <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
                   <i class="fas fa-eye"></i></a>
@@ -108,12 +107,12 @@
     <tfoot>
       <tr>
         <th><?= $tabel2_field2_alias ?></th>
+        <th><?= $tabel2_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel2_field5_alias ?></th>
+        <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
         <th><?= $tabel2_field8_alias ?></th>
-        <th><?= $tabel2_field11_alias ?></th>
-        <th><?= $tabel2_field12_alias ?></th>
-        <th><?= $tabel2_field14_alias ?></th>
-        <th><?= $tabel2_field15_alias ?></th>
       </tr>
     </tfoot>
 
@@ -126,7 +125,7 @@
   foreach ($tabel6 as $tl6) :
     if ($tl6->id_spp == $tl2->id_spp) { ?>
 
-      <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
+      <!-- <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -204,14 +203,14 @@
             </div>
 
             <!-- memunculkan notifikasi modal -->
-            <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+      <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
 
-            <div class="modal-footer">
-              <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            </div>
-          </div>
-        </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
       </div>
+      </div>
+      </div>
+      <!-- </div> -->
 <?php }
   endforeach;
 endforeach; ?>
