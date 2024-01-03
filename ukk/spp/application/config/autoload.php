@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -133,11 +133,15 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array(
-  'M_siswa' => 'sis',
-  'M_kelas' => 'kls',
-  'M_spp' => 'sp',
-  'M_pengaturan' => 'ptn',
-  'M_detail_transaksi' => 'dtl',
-  'M_transaksi' => 'trs',
-  'M_petugas' => 'ptg'
+  'M_faskamar' => 'tl1',
+  'M_history' => 'tl2',
+  'M_fashotel' => 'tl3',
+  'M_petugas' => 'tl4',
+  'M_kamar' => 'tl5',
+  'M_tipe_kamar' => 'tl6',
+  'M_pengaturan' => 'tl7',
+  'M_pesanan' => 'tl8',
+  'M_user' => 'tl9',
+  'M_transaksi' => 'tl10',
+  'M_operations' => 'tl11',
 );

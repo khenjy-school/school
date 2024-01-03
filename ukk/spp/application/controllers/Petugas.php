@@ -1,283 +1,256 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Petugas extends CI_Controller
+include 'Welcome.php';
+
+
+class Petugas extends Welcome
 {
+	// deklarasi variabel mvc
+	// deklarasi variabel model
+	private $tabel4_m = 'tl4';
 
-	public function index($id = 1)
+	// deklarasi variabel views
+	private $tabel4_v1;
+	private $tabel4_v1_title;
+	private $tabel4_v2;
+	private $tabel4_v2_title;
+	private $tabel4_v3;
+	private $tabel4_v3_title;
+
+	// deklarasi variabel controller
+	private $tabel4_c1;
+	private $tabel4_c2;
+	private $tabel4_c3;
+	private $tabel4_c4;
+	private $tabel4_c5;
+	private $tabel4_v_input1_post;
+	private $tabel4_v_input1_alt;
+	private $tabel4_v_input2_post;
+	private $tabel4_v_input3_post;
+	private $tabel4_v_input4_post;
+	private $tabel4_v_input5;
+	private $tabel4_v_input5_upload_path;
+	private $tabel4_v_input5_post;
+	private $tabel4_v_input5_alt;
+	private $tabel4_v_input6_post;
+	private $tabel4_v_input7_post;
+	private $tabel4_v_flashdata1_msg_1;
+	private $tabel4_v_flashdata1_msg_2;
+	private $tabel4_v_flashdata1_msg_3;
+	private $tabel4_v_flashdata1_msg_4;
+	private $tabel4_v_flashdata1_msg_5;
+	private $tabel4_v_flashdata1_msg_6;
+
+	// config untuk tabel
+
+	public function
+
+	declare()
 	{
-		$data = array(
-			'title' => 'Data Petugas',
-			'judul' => 'Petugas',
-			'head' => '_partials/head',
-			'konten' => 'v_admin-petugas',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'petugas' => $this->usr->ambildata()->result()
-		);
 
-		$this->load->view('template', $data);
+
+
+		// deklarasi variabel mvc
+		// deklarasi variabel model
+		$this->tabel4_m = 'tl4';
+
+		// deklarasi variabel views
+
+		$this->tabel4_v1 = 'v_' . $this->tabel4;
+		$this->tabel4_v1_title = 'Daftar ' . $this->tabel4_alias;
+		$this->tabel4_v2 = 'v_admin-' . $this->tabel4;
+		$this->tabel4_v2_title = 'Data ' . $this->tabel4_alias;
+		$this->tabel4_v3 = '_laporan/laporan_' . $this->tabel4;
+		$this->tabel4_v3_title = 'Laporan ' . $this->tabel4_alias;
+
+		// deklarasi variabel controller
+		$this->tabel4_c1 = $this->tabel4;
+		$this->tabel4_c2 = $this->tabel4 . '/tambah';
+		$this->tabel4_c3 = $this->tabel4 . '/update';
+		$this->tabel4_c4 = $this->tabel4 . '/hapus';
+		$this->tabel4_c5 = $this->tabel4 . '/laporan';
+
+
+		// tabel bagian input
+		$this->tabel4_v_input1_post = $this->input->post($this->tabel4_field1);
+		$this->tabel4_v_input1_alt = '';
+		$this->tabel4_v_input2_post = $this->input->post($this->tabel4_field2);
+		$this->tabel4_v_input3_post = $this->input->post($this->tabel4_field3);
+		$this->tabel4_v_input4_post = $this->input->post($this->tabel4_field4);
+		$this->tabel4_v_input5 = $this->tabel4_field5;
+		$this->tabel4_v_input5_upload_path = './assets/' . $this->tabel4_field5 . '/' . $this->tabel4 . '/';
+		$this->tabel4_v_input5_post = $this->input->post($this->tabel4_v_input5);
+		$this->tabel4_v_input5_alt = 'txt' . $this->tabel4_v_input5;
+
+		$this->tabel4_v_input6_post = $this->input->post($this->tabel4_field6);
+		$this->tabel4_v_input7_post = $this->input->post($this->tabel4_field7);
+
+		// deklarasi variabel bagian v_flashdata
+		$this->tabel4_v_flashdata1_msg_1 = 'Data ' . $this->tabel4_alias . ' berhasil disimpan!';
+		$this->tabel4_v_flashdata1_msg_2 = 'Data ' . $this->tabel4_alias . ' gagal disimpan!';
+		$this->tabel4_v_flashdata1_msg_3 = 'Data ' . $this->tabel4_alias . ' berhasil diubah!';
+		$this->tabel4_v_flashdata1_msg_4 = 'Data ' . $this->tabel4_alias . ' gagal diubah!';
+		$this->tabel4_v_flashdata1_msg_5 = 'Data ' . $this->tabel4_alias . ' berhasil dihapus!';
+		$this->tabel4_v_flashdata1_msg_6 = 'Data ' . $this->tabel4_alias . ' gagal dihapus!';
+
+		// deklarasi variabel menampilkan pesan modal
+		$this->tabel3_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
+		$this->tabel3_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 	}
 
-	public function profil($id = 1)
+
+
+
+	public function index($tabel7_field1 = 1)
 	{
-		$id_user = $this->session->userdata('id_user');
-		$data = array(
-			'title' => 'Profil',
-			'head' => '_partials/head',
-			'konten' => 'v_profil',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'petugas' => $this->usr->ambil($id_user)->result()
+		$this->declare();
+		$data1 = array(
+			$this->v_part1 => $this->tabel4_v2_title,
+			$this->v_part2 => $this->head,
+			$this->v_part3 => $this->tabel4_v2,
+			$this->v_part4 => $this->v_part4_msg1,
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel4' =>  $this->tl4->ambildata()->result()
 		);
 
-		$this->load->view('template', $data);
-	}
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
-	public function login($id_outlet = null, $id = 1)
-	{
-		$this->session->set_userdata('id_outlet', $id_outlet);
-		$data = array(
-			'title' => 'Login',
-			'head' => '_partials/head',
-			'pengaturan' => $this->ptn->ambil($id)->result(),
-			'outlet' => $this->olt->ambildata()->result()
-		);
-
-		$this->load->view('login', $data);
+		$this->load->view($this->v7, $data);
 	}
 
 	public function tambah()
 	{
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$id_outlet = $this->input->post('id_outlet');
+		$this->declare();
+		$config['upload_path'] = $this->tabel4_v_input5_upload_path;
+		$config['allowed_types'] = $this->file_type1;
+		$config['remove_spaces'] = TRUE;
 
-		$cekusername = $this->usr->cekusername($username, $id_outlet);
+		$this->load->library('upload', $config);
 
-		// mencari apakah jumlah data kurang dari 1
-		if ($cekusername->num_rows() < 1) {
+		if (!$this->upload->do_upload($this->tabel4_v_input5)) {
+			$gambar  = '';
+		} else {
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
+		}
 
-			// jika input konfirm sama dengan input password
-			if ($this->input->post('konfirm') === $password) {
-				$this->load->library('encryption');
+		$data = array(
+			$this->tabel4_field1 => $this->tabel4_v_input1_alt,
+			$this->tabel4_field2 => $this->tabel4_v_input2_post,
+			$this->tabel4_field3 => $this->tabel4_v_input3_post,
+			$this->tabel4_field4 => $this->tabel4_v_input4_post,
+			$this->tabel4_field5 => $gambar,
+			$this->tabel4_field6 => $this->tabel4_v_input6_post,
 
-				$data = array(
-					'nama' => $this->input->post('nama'),
-					'username' => $username,
+			// poin awal-awal adalah 0, bukan NULL
+			$this->tabel4_field7 => 0,
+		);
 
-					// mengubah password menjadi password berenkripsi
-					'password' => password_hash($password, PASSWORD_DEFAULT),
+		$simpan = $this->tl4->simpan($data);
 
-					'role' => $this->input->post('role'),
-					'id_outlet' => $this->input->post('id_outlet'),
-				);
+		if ($simpan) {
 
-				$simpan = $this->usr->simpan($data);
-
-				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
-				if ($this->session->userdata('username')) {
-
-					$this->session->set_flashdata('pesan', 'Tambah data berhasil!');
-					redirect(site_url('petugas'));
-				} else {
-
-					redirect(site_url('petugas/login'));
-				}
-
-				// jika input konfirm tidak sama dengan input password
-			} else {
-
-				// menampilkan flashdata dalam bentuk teks
-				$this->session->set_flashdata('pesan', 'Konfirmasi password salah!');
-
-				redirect($_SERVER['HTTP_REFERER']);
-			}
-
-			// jika jumlah data lebih dari 1
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_1);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
-			$this->session->set_flashdata('pesan', 'Petugasname telah digunakan!');
-			redirect($_SERVER['HTTP_REFERER']);
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_2);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
+
+		redirect(site_url($this->tabel4_c1));
 	}
 
 	public function update()
 	{
-		$where = $this->input->post('id_user');
+		$this->declare();
+		$config['upload_path'] = $this->tabel4_v_input5_upload_path;
+		$config['allowed_types'] = $this->file_type1;
+		$config['overwrite'] = TRUE;
+		$config['remove_spaces'] = TRUE;
+
+		$this->load->library('upload', $config);
+
+		if (!$this->upload->do_upload($this->tabel4_v_input5)) {
+			$gambar = $this->input->post($this->tabel4_v_input5_alt);
+		} else {
+			$table = $this->tl4->ambil($this->tabel4_v_input1_post)->result();
+			$img = $table[0]->img;
+			unlink($this->tabel4_v_input5_upload_path . $img);
+
+			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
+			$upload = $this->upload->data();
+			$gambar = $upload['file_name'];
+		}
+
+		$where = $this->tabel4_v_input1_post;
 		$data = array(
-			'nama' => $this->input->post('nama'),
-			'username' => $this->input->post('username'),
-			'role' => $this->input->post('role'),
+			$this->tabel4_field2 => $this->tabel4_v_input2_post,
+			$this->tabel4_field3 => $this->tabel4_v_input3_post,
+			$this->tabel4_field4 => $this->tabel4_v_input4_post,
+			$this->tabel4_field5 => $gambar,
+			$this->tabel4_field6 => $this->tabel4_v_input6_post,
+
+			// poin di sini saya simpan dlu, karena mungkin ada beberapa yang mau saya tambahkan ke depannya
+			$this->tabel4_field7 => $this->tabel4_v_input7_post,
 		);
 
-		$update = $this->usr->update($data, $where);
+		$update = $this->tl4->update($data, $where);
 
 		if ($update) {
 
-			$this->session->set_flashdata('pesan', 'Petugas berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_3);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
 
-			$this->session->set_flashdata('pesan', 'Petugas gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_4);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
-		// kembali ke halaman sebelumnya
-		redirect($_SERVER['HTTP_REFERER']);
+		redirect(site_url($this->tabel4_c1));
 	}
 
-	public function update_profil()
+	public function hapus($id_petugas = null)
 	{
-		$where = $this->input->post('id_user');
-		$data = array(
-			'nama' => $this->input->post('nama'),
-			'username' => $this->input->post('username'),
-			'id_outlet' => $this->input->post('id_outlet'),
-		);
+		$this->declare();
+		// mengambil data gambar di database
+		$tabel4 = $this->tl4->ambil($id_petugas)->result();
+		$img = $tabel4[0]->img;
 
-		$update = $this->usr->update($data, $where);
-
-		if ($update) {
-
-			$this->session->set_flashdata('pesan', 'Profil berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
-		} else {
-
-			$this->session->set_flashdata('pesan', 'Profil gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
-		}
-
-		// mengambil data profil yang baru dirubah
-		$petugas = $this->usr->ambil($where)->result();
-		$nama = $petugas[0]->nama;
-		$username = $petugas[0]->username;
-
-		// membuat session baru berdasarkan data yang telah diupdate
-		$this->session->set_userdata('nama', $nama);
-		$this->session->set_userdata('username', $username);
-
-		// kembali ke halaman sebelumnya sesuai dengan masing-masing petugas dengan akses yang berbeda
-		redirect($_SERVER['HTTP_REFERER']);
-	}
-
-	public function update_password()
-	{
-		$where = $this->input->post('id_user');
-
-		$cek_id = $this->usr->ambil($where);
-
-		// mencari apakah jumlah data lebih dari 0
-		if ($cek_id->num_rows() > 0) {
-			$petugas = $cek_id->result();
-			$cekpass = $petugas[0]->password;
-
-			$old_password = $this->input->post('old_password');
-
-			// memverifikasi password lama dengan password di database
-			if (password_verify($old_password, $cekpass)) {
-				$password = $this->input->post('password');
-
-				// jika konfirmasi password sama dengan password baru
-				if ($this->input->post('konfirm') === $password) {
-					$this->load->library('encryption');
-
-					$data = array(
-
-						// mengubah password menjadi password berenkripsi
-						'password' => password_hash($password, PASSWORD_DEFAULT),
-					);
-
-					$update = $this->usr->update($data, $where);
-
-					redirect($_SERVER['HTTP_REFERER']);
-
-					// jika konfirmasi password tidak sama dengan password baru
-				} else {
-
-					$this->session->set_flashdata('pesan', 'Konfirmasi password tidak sesuai!');
-					redirect($_SERVER['HTTP_REFERER']);
-				}
-
-				// jika password lama salah
-			} else {
-
-				$this->session->set_flashdata('pesan', 'Password lama salah!');
-				redirect($_SERVER['HTTP_REFERER']);
-			}
-
-			// jika jumlah data kurang dari 0
-		} else {
-
-			$this->session->set_flashdata('pesan', 'Akun tidak tersedia!');
-			redirect($_SERVER['HTTP_REFERER']);
-		}
-	}
-
-	public function hapus($id_user = null)
-	{
-		$hapus = $this->usr->hapus($id_user);
+		// menghapus data dan gambar
+		unlink($this->tabel4_v_input5_upload_path . $img);
+		$hapus = $this->tl4->hapus($id_petugas);
 
 
 		if ($hapus) {
-			$this->session->set_flashdata('pesan', 'Petugas berhasil dihapus!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_5);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		} else {
-			$this->session->set_flashdata('pesan', 'Petugas gagal dihapus!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
+
+			$this->session->set_flashdata($this->v_flashdata1, $this->tabel4_v_flashdata1_msg_6);
+			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
 
-		redirect(site_url('petugas'));
+		redirect(site_url($this->tabel4_c1));
 	}
-
-	public function ceklogin()
+	public function laporan($tabel7_field1 = 1)
 	{
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$id_outlet = $this->input->post('id_outlet');
+		$this->declare();
+		$data1 = array(
+			$this->v_part1 => $this->tabel4_v3_title,
+			$this->v_part2 => $this->head,
+			$this->v_part4 => $this->v_part4_msg1,
+			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
+			'tabel4' =>  $this->tl4->ambildata()->result()
+		);
 
-		// $username akan menjadi $par1 dan $id_outlet akan menjadi $par3 di model
-		$cekusername = $this->usr->cekusername($username, $id_outlet);
+		$this->declarew();
+		$data = array_merge($data1, $this->aliases);
 
-		// mencari apakah jumlah data kurang dari 0
-		if ($cekusername->num_rows() > 0) {
-			$petugas = $cekusername->result();
-			$cekpass = $petugas[0]->password;
-
-			// memverifikasi password dengan password di database
-			if (password_verify($password, $cekpass)) {
-				$id_user = $petugas[0]->id_user;
-				$nama = $petugas[0]->nama;
-				$username = $petugas[0]->username;
-				$id_outlet = $petugas[0]->id_outlet;
-				$role = $petugas[0]->role;
-
-				$this->session->set_userdata('id_user', $id_user);
-				$this->session->set_userdata('nama', $nama);
-				$this->session->set_userdata('username', $username);
-				$this->session->set_userdata('id_outlet', $id_outlet);
-				$this->session->set_userdata('akses', $role);
-
-				redirect(site_url('welcome'));
-
-				// jika password salah
-			} else {
-
-				$this->session->set_flashdata('pesan', 'Password Salah!');
-				redirect(site_url('petugas/login'));
-			}
-
-			// jika jumlah data lebih dari 0
-		} else {
-
-			$this->session->set_flashdata('pesan', 'Akun tidak tersedia!');
-			redirect(site_url('petugas/login'));
-		}
-	}
-
-	public function logout()
-	{
-		// menghapus session
-		session_destroy();
-		redirect(site_url('welcome'));
+		$this->load->view($this->tabel4_v3, $data);
 	}
 }

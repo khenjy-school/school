@@ -1,0 +1,238 @@
+hal yang perlu diubah
+
+dari
+		$tabel
+jadi
+		$this->tabel
+
+dari
+'_partials/head'
+jadi
+$this->head
+
+
+dari
+'template'
+jadi
+$this->v7
+
+
+dari
+userdata('id_user')
+jadi
+userdata($this->tabel9_userdata1)
+
+dari
+'pengaturan'
+jadi
+$this->tabel7
+
+dari
+'operations'
+jadi
+$this->tabel12
+tapi
+ganti nama tabel dan nomor tabel
+
+dari
+'Data 
+jadi
+$this->tabel12_v2_title
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+'v_admin-
+jadi
+$this->tabel12_v2
+
+dari
+'Laporan 
+jadi
+$this->tabel12_v3_title
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+'_laporan/laporan_'
+jadi
+$this->tabel12_v3
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+$id = 1
+jadi
+$tabel7_field1 = 1
+
+
+dari
+ptn->ambil($id)
+jadi
+ptn->ambil($tabel7_field1)
+
+dari
+('pesan'
+jadi
+($this->v_flashdata1
+
+dari
+('panggil'
+jadi
+($this->v_flashdata2
+
+dari
+'$("#element").toast("show")'
+jadi
+$this->v_flashdata2_func
+
+dari
+ berhasil disimpan!'
+jadi
+$this->tabel9_v_flashdata1_msg_1
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+ gagal disimpan!'
+jadi
+$this->tabel9_v_flashdata1_msg_2
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+ berhasil diubah!'
+jadi
+$this->tabel9_v_flashdata1_msg_3
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+ gagal diubah!'
+jadi
+$this->tabel9_v_flashdata1_msg_4
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+ berhasil dihapus!'
+jadi
+$this->tabel9_v_flashdata1_msg_5
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+ gagal dihapus!'
+jadi
+$this->tabel9_v_flashdata1_msg_6
+tapi
+ganti nomor tabel dan hapus nama tabel setelahnya
+
+dari
+redirect(site_url('operations'))
+jadi
+redirect(site_url($this->tabel9_c1))
+tapi
+ganti nama dan nomor tabel
+
+dari
+
+tambahkan
+$this->declare();
+pada setiap fungsi
+
+dari
+'akses'
+jadi
+$this->tabel9_userdata6
+
+
+dari
+'level'
+jadi
+$this->tabel9_userdata6
+
+dari
+$this->input->get('min')
+jadi
+$this->
+
+
+
+
+
+
+
+
+
+
+
+
+daftar tabel
+
+dari
+'faskamar'
+jadi
+$this->tabel1
+
+dari
+'history'
+jadi
+$this->tabel2
+
+dari
+'fashotel'
+jadi
+$this->tabel3
+
+
+dari
+'petugas'
+jadi
+$this->tabel4
+
+
+
+dari
+'kamar'
+jadi
+$this->tabel5
+
+
+dari
+'tipe_kamar'
+jadi
+$this->tabel6
+
+
+dari
+'pengaturan'
+jadi
+$this->tabel7
+
+dari
+'pesanan'
+jadi
+$this->tabel8
+
+dari
+'user'
+jadi
+$this->tabel9
+
+dari
+'transaksi'
+jadi
+$this->tabel10
+
+dari
+'operations'
+jadi
+$this->tabel11
+
+
+jangan lupa
+1. mengecek setiap kodingan
+2. mengecek variabel private apakah ada yang seharusnya nyala tapi masih belum
+3. menggunakan param dan method sesuai dengan urutan nomor field yang digunakan, jika menggunakan 2, biarkan nama aslinya
+4. Kopi deklarasi session tabel9
