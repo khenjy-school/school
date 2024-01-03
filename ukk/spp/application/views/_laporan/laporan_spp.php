@@ -22,21 +22,21 @@
     <table class="table">
       <thead class="thead">
         <tr>
-          <th><?= $tabel9_field1_alias ?></th>
-          <th><?= $tabel9_field2_alias ?></th>
-          <th><?= $tabel9_field3_alias ?></th>
-          <th><?= $tabel9_field5_alias ?></th>
-          <th><?= $tabel9_field6_alias ?></th>
+          <th><?= $tabel6_field1_alias ?></th>
+          <th><?= $tabel6_field2_alias ?></th>
+          <th><?= $tabel6_field4_alias ?></th>
+          <th><?= $tabel6_field5_alias ?></th>
+          <th><?= $tabel6_field3_alias ?></th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($tabel9 as $tl9) : ?>
+        <?php foreach ($tabel6 as $tl6) : ?>
           <tr>
-            <td width="20%"><?= $tl9->id_petugas ?></td>
-            <td width="20%"><?= $tl9->nama ?></a></td>
-            <td width="20%"><?= $tl9->email ?></td>
-            <td width="20%"><?= $tl9->hp ?></td>
-            <td width="20%"><?= $tl9->level ?></td>
+            <td width="20%"><?= $tl6->id_spp ?></td>
+            <td width="20%"><?= $tl6->tipe ?></a></td>
+            <td width="20%"><?= $tl6->stok ?></td>
+            <td width="20%">Rp <?= number_format($tl6->harga, '2', ',', '.') ?></td>
+            <td width="20%"><img class="img-fluid" style="max-height: 100px; object-fit:cover" src="img/spp/<?= $tl6->img ?>"></td>
           </tr>
         <?php endforeach ?>
       </tbody>

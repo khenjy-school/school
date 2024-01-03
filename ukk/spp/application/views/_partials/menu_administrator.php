@@ -10,7 +10,7 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Data Hotel</h6>
-        <a class="dropdown-item" href="<?= site_url('tipe_kamar') ?>"><?= $tabel6_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('spp') ?>"><?= $tabel6_alias ?></a>
         <a class="dropdown-item" href="<?= site_url('faskamar') ?>"><?= $tabel1_alias ?></a>
         <a class="dropdown-item" href="<?= site_url('fashotel') ?>"><?= $tabel3_alias ?></a>
 
@@ -33,8 +33,8 @@
       <div class="dropdown-menu dropdown-menu-right">
         <a class="dropdown-item" href="<?= site_url('pengaturan') ?>">Pengaturan</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>
-        <a class="dropdown-item" href="<?= site_url('user/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

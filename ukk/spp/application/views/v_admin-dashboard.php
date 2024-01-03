@@ -14,7 +14,7 @@
         <div class="card-body">
           <h5 class="card-title"><?= $tabel6_alias ?></h5>
           <p class="card-text" style="font-size: 32;"><?= $tabel6 ?></p>
-          <a class="text-white" href="<?= site_url('tipe_kamar') ?>">Lihat Detail >></a>
+          <a class="text-white" href="<?= site_url('spp') ?>">Lihat Detail >></a>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
         <div class="card-body">
           <h5 class="card-title"><?= $tabel8_alias ?></h5>
           <p class="card-text" style="font-size: 32;"><?= $tabel8 ?></p>
-          <a class="text-white" href="<?= site_url('pesanan') ?>">Lihat Detail >></a>
+          <a class="text-white" href="<?= site_url('pembayaran') ?>">Lihat Detail >></a>
         </div>
       </div>
     </div>

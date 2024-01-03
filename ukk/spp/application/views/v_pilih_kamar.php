@@ -19,13 +19,13 @@
     <form action="" method="get">
       <?php foreach ($tabel5 as $tl5) : ?>
         <?php foreach ($tabel6 as $tl6) : ?>
-          <?php if ($tl5->id_tipe == $tl6->id_tipe) { ?>
+          <?php if ($tl5->id_spp == $tl6->id_spp) { ?>
             <tr>
-              <td><?= $tl5->id_pesanan ?></td>
+              <td><?= $tl5->id_pembayaran ?></td>
               <td><?= $tl5->tipe ?></td>
               <td><?= $tl5->status ?></td>
               <td><?= $tl5->keterangan ?></td>
-              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl5->no_kamar; ?>">
+              <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl5->id_kelas; ?>">
                   <i class="fas fa-eye"></i></a>
               </td>
             </tr>
@@ -49,11 +49,11 @@
 
 <!-- Modal Lihat -->
 <?php foreach ($tabel5 as $tl5) : ?>
-  <div id="lihat<?= $tl5->no_kamar; ?>" class="modal fade lihat" role="dialog">
+  <div id="lihat<?= $tl5->id_kelas; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Kamar <?= $tl5->no_kamar; ?></h5>
+          <h5 class="modal-title">Kamar <?= $tl5->id_kelas; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -72,7 +72,7 @@
               <p><?= $tl5->nama; ?></p>
             </div>
 
-            <img src="img/kamar/<?= $tl5->img; ?>" width="450">
+            <img src="img/kelas/<?= $tl5->img; ?>" width="450">
           </div>
 
           <!-- memunculkan notifikasi modal -->

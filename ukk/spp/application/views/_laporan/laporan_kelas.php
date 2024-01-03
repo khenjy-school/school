@@ -20,23 +20,21 @@
 
     <!-- menampilkan data pemesan -->
     <table class="table">
-      <thead class="thead">
+      <thead class="thead-">
         <tr>
-          <th><?= $tabel9_field1_alias ?></th>
-          <th><?= $tabel9_field2_alias ?></th>
-          <th><?= $tabel9_field3_alias ?></th>
-          <th><?= $tabel9_field5_alias ?></th>
-          <th><?= $tabel9_field6_alias ?></th>
+          <th><?= $tabel5_field1_alias ?></th>
+          <th><?= $tabel5_field2_alias ?></th>
+          <th><?= $tabel5_field4_alias ?></th>
+          <th><?= $tabel5_field5_alias ?></th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($tabel9 as $tl9) : ?>
+        <?php foreach ($tabel5 as $tl5) : ?>
           <tr>
-            <td width="20%"><?= $tl9->id_petugas ?></td>
-            <td width="20%"><?= $tl9->nama ?></a></td>
-            <td width="20%"><?= $tl9->email ?></td>
-            <td width="20%"><?= $tl9->hp ?></td>
-            <td width="20%"><?= $tl9->level ?></td>
+            <td width="25%"><?= $tl5->id_kelas ?></td>
+            <td width="25%"><?= $tl5->id_spp ?></a></td>
+            <td width="25%"><?= $tl5->status ?></td>
+            <td width="25%"><?= $tl5->keterangan ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

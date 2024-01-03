@@ -36,29 +36,18 @@ class Welcome extends CI_Controller
 	// Controller yang ada di aplikasi ini, dengan begitu, aku tidak perlu khawatir jika ingin memulai projek baru
 	// Dan ingin mengubah konten di dalamnya dalam waktu yang singkat
 
-	public $tabel1 = 'faskamar';
+	public $tabel1 = 't1';
 	// deklarasi variabel bagian field
-	public $tabel1_field1 = 'id_faskamar';
-	public $tabel1_field2 = 'tipe';
-	public $tabel1_field3 = 'nama';
-	public $tabel1_field4 = 'img';
-
-	public $tabel1_alias = 'Fasilitas Kamar';
-	public $tabel1_field1_alias = 'ID Fasilitas';
-	public $tabel1_field2_alias = 'Tipe Kamar';
-	public $tabel1_field3_alias = 'Nama Fasilitas';
-	public $tabel1_field4_alias = 'Gambar';
-
 
 	// deklarasi tabel 2
 	public $tabel2 = 'history';
-	public $tabel2_alias = 'History Pemesanan';
+	public $tabel2_alias = 'History Pembayaran';
 	// deklarasi variabel bagian field
 	public $tabel2_field1 = 'id_history';
 	public $tabel2_field1_alias = 'ID History';
-	public $tabel2_field2 = 'id_pesanan';
+	public $tabel2_field2 = 'id_pembayaran';
 	public $tabel2_field2_alias = 'ID Pesanan';
-	public $tabel2_field3 = 'id_user';
+	public $tabel2_field3 = 'id_petugas';
 	public $tabel2_field3_alias = 'ID User';
 	public $tabel2_field4 = 'pemesan';
 	public $tabel2_field4_alias = 'Nama Pemesan';
@@ -78,7 +67,7 @@ class Welcome extends CI_Controller
 	public $tabel2_field11_alias = 'Cek In';
 	public $tabel2_field12 = 'cek_out';
 	public $tabel2_field12_alias = 'Cek Out';
-	public $tabel2_field13 = 'no_kamar';
+	public $tabel2_field13 = 'id_kelas';
 	public $tabel2_field13_alias = 'No Kamar';
 	public $tabel2_field14 = 'tgl_perubahan';
 	public $tabel2_field14_alias = 'Tgl Perubahan';
@@ -87,24 +76,14 @@ class Welcome extends CI_Controller
 
 
 	// deklarasi tabel 3
-	public $tabel3 = 'fashotel';
-	public $tabel3_alias = 'Fasilitas Hotel';
-	// deklarasi variabel bagian field
-	public $tabel3_field1 = 'id_fashotel';
-	public $tabel3_field1_alias = 'ID Fasilitas';
-	public $tabel3_field2 = 'nama';
-	public $tabel3_field2_alias = 'Nama';
-	public $tabel3_field3 = 'keterangan';
-	public $tabel3_field3_alias = 'Keterangan';
-	public $tabel3_field4 = 'img';
-	public $tabel3_field4_alias = 'Gambar';
+	public $tabel3 = 't3';
 
 
 	// deklarasi tabel 4
 	public $tabel4 = 'petugas';
 	public $tabel4_alias = 'Petugas';
 	// deklarasi variabel bagian field
-	public $tabel4_field1 = 'id_petugas';
+	public $tabel4_field1 = 'nisn';
 	public $tabel4_field1_alias = 'ID Petugas';
 	public $tabel4_field2 = 'nama';
 	public $tabel4_field2_alias = 'Nama';
@@ -121,14 +100,14 @@ class Welcome extends CI_Controller
 
 
 	// deklarasi tabel 5
-	public $tabel5 = 'kamar';
-	public $tabel5_alias = 'Kamar';
+	public $tabel5 = 'kelas';
+	public $tabel5_alias = 'Kelas';
 	// deklarasi variabel bagian field
-	public $tabel5_field1 = 'no_kamar';
+	public $tabel5_field1 = 'id_kelas';
 	public $tabel5_field1_alias = 'No Kamar';
-	public $tabel5_field2 = 'id_tipe';
+	public $tabel5_field2 = 'id_spp';
 	public $tabel5_field2_alias = 'ID Tipe';
-	public $tabel5_field3 = 'id_pesanan';
+	public $tabel5_field3 = 'id_pembayaran';
 	public $tabel5_field3_alias = 'ID Pesanan';
 	public $tabel5_field4 = 'status';
 	public $tabel5_field4_alias = 'Status';
@@ -141,10 +120,10 @@ class Welcome extends CI_Controller
 	public $tabel5_field5_alias = 'Keterangan';
 
 	// deklarasi tabel 6
-	public $tabel6 = 'tipe_kamar';
-	public $tabel6_alias = 'Tipe Kamar';
+	public $tabel6 = 'spp';
+	public $tabel6_alias = 'SPP';
 	// deklarasi variabel bagian field
-	public $tabel6_field1 = 'id_tipe';
+	public $tabel6_field1 = 'id_spp';
 	public $tabel6_field1_alias = 'ID Tipe Kamar';
 	public $tabel6_field2 = 'tipe';
 	public $tabel6_field2_alias = 'Tipe Kamar';
@@ -186,12 +165,12 @@ class Welcome extends CI_Controller
 
 
 	// deklarasi tabel 8
-	public $tabel8 = 'pesanan';
-	public $tabel8_alias = 'Pesanan';
+	public $tabel8 = 'pembayaran';
+	public $tabel8_alias = 'Pembayaran';
 	// deklarasi variabel bagian field
-	public $tabel8_field1 = 'id_pesanan';
+	public $tabel8_field1 = 'id_pembayaran';
 	public $tabel8_field1_alias = 'ID Pesanan';
-	public $tabel8_field2 = 'id_user';
+	public $tabel8_field2 = 'id_petugas';
 	public $tabel8_field2_alias = 'ID User';
 	public $tabel8_field3 = 'pemesan';
 	public $tabel8_field3_alias = 'Nama Pemesan';
@@ -201,7 +180,7 @@ class Welcome extends CI_Controller
 	public $tabel8_field5_alias = 'No Hp';
 	public $tabel8_field6 = 'tamu';
 	public $tabel8_field6_alias = 'Tamu';
-	public $tabel8_field7 = 'id_tipe';
+	public $tabel8_field7 = 'id_spp';
 	public $tabel8_field7_alias = 'ID Tipe Kamar';
 	public $tabel8_field8 = 'jlh';
 	public $tabel8_field8_alias = 'Jumlah';
@@ -218,15 +197,15 @@ class Welcome extends CI_Controller
 	public $tabel8_field12_value3 = 'menunggu';
 	public $tabel8_field12_value4 = 'cek in';
 	public $tabel8_field12_value5 = 'cek out';
-	public $tabel8_field13 = 'no_kamar';
+	public $tabel8_field13 = 'id_kelas';
 	public $tabel8_field13_alias = 'No Kamar';
 
 
 	// deklarasi tabel 9
-	public $tabel9 = 'user';
-	public $tabel9_alias = 'User';
+	public $tabel9 = 'petugas';
+	public $tabel9_alias = 'Petugas';
 	// deklarasi variabel bagian field
-	public $tabel9_field1 = 'id_user';
+	public $tabel9_field1 = 'id_petugas';
 	public $tabel9_field1_alias = 'ID User';
 	public $tabel9_field2 = 'nama';
 	public $tabel9_field2_alias = 'Nama';
@@ -250,45 +229,14 @@ class Welcome extends CI_Controller
 	// deklarasi tabel 10
 	// deklarasi variabel per tabel
 	// deklarasi tabel 1
-	public $tabel10 = 'transaksi';
-	public $tabel10_alias = 'Transaksi';
-	// deklarasi variabel bagian field
-	public $tabel10_field1 = 'id_transaksi';
-	public $tabel10_field1_alias = 'ID Transaksi';
-	public $tabel10_field2 = 'id_user';
-	public $tabel10_field2_alias = 'ID Resepsionis';
-	public $tabel10_field3 = 'email';
-	public $tabel10_field3_alias = 'Email';
-	public $tabel10_field4 = 'id_pesanan';
-	public $tabel10_field4_alias = 'ID Pesanan';
-	public $tabel10_field5 = 'metode';
-	public $tabel10_field5_alias = 'Metode';
-	public $tabel10_field6 = 'bayar';
-	public $tabel10_field6_alias = 'Jumlah Bayar';
-	public $tabel10_field7 = 'tgl_transaksi';
-	public $tabel10_field7_alias = 'Tgl Transaksi';
-
+	public $tabel10 = 't10';
 
 
 	// deklarasi tabel 11
 	// deklarasi variabel per tabel
 
 
-	public $tabel11 = 'operations';
-	public $tabel11_alias = 'Operasi Hotel';
-	// deklarasi variabel bagian field
-	public $tabel11_field1 = 'id_operations';
-	public $tabel11_field1_alias = 'ID Operasional';
-	public $tabel11_field2 = 'no_kamar';
-	public $tabel11_field2_alias = 'No Kamar';
-	public $tabel11_field3 = 'id_user';
-	public $tabel11_field3_alias = 'ID User';
-	public $tabel11_field4 = 'id_petugas';
-	public $tabel11_field4_alias = 'ID Petugas';
-	public $tabel11_field5 = 'keterangan';
-	public $tabel11_field5_alias = 'Keterangan';
-	public $tabel11_field6 = 'tgl_perubahan';
-	public $tabel11_field6_alias = 'Tgl Perubahan';
+	public $tabel11 = 't11';
 
 
 	// deklarasi mvc
@@ -300,7 +248,7 @@ class Welcome extends CI_Controller
 	// deklarasi controller yang tidak memiliki nama tabel pada nama file atau function
 	public $c1 = 'welcome';
 	public $c2 = 'welcome/pemesanan';
-	public $c3 = 'welcome/tipe_kamar';
+	public $c3 = 'welcome/spp';
 	public $c4 = 'welcome/fasilitas';
 	public $c5 = 'welcome/dashboard';
 	public $c6 = 'welcome/no_level';
@@ -345,7 +293,7 @@ class Welcome extends CI_Controller
 
 
 	// deklarasi views yang saat ini belum terhubung ke basis data
-	// Ada rencana untuk menggunakan _alias dari untuk membuat title kamar semakin cantik dan interaktif
+	// Ada rencana untuk menggunakan _alias dari untuk membuat title kelas semakin cantik dan interaktif
 	// Namun hal itu saat ini digunakan di halaman admin saja untuk konsistensi
 	public $head = '_partials/head';
 
@@ -394,7 +342,7 @@ class Welcome extends CI_Controller
 	public $v14_title = 'Dashboard';
 	public $v15 = 'v_fasilitas';
 	public $v15_title = 'Daftar Fasilitas';
-	public $v16 = 'v_tipe_kamar';
+	public $v16 = 'v_spp';
 	public $v16_title = 'Daftar Tipe Kamar';
 
 	// Di bawah ini adalah deklarasi field tabel yang akan menggunakan alias dari masing2, dua atau lebih alias field tabel
@@ -515,12 +463,6 @@ class Welcome extends CI_Controller
 	declarew()
 	{
 		$this->aliases = array(
-			'tabel1_alias' => 'Fasilitas Kamar',
-			'tabel1_field1_alias' => 'ID Fasilitas',
-			'tabel1_field2_alias' => 'Tipe Kamar',
-			'tabel1_field3_alias' => 'Nama Fasilitas',
-			'tabel1_field4_alias' => 'Gambar',
-
 			'tabel2_alias' => 'History Pemesanan',
 			'tabel2_field1_alias' => 'ID History',
 			'tabel2_field2_alias' => 'ID Pesangan',
@@ -538,13 +480,7 @@ class Welcome extends CI_Controller
 			'tabel2_field14_alias' => 'Tgl Perubahan',
 			'tabel2_field15_alias' => 'User Aktif',
 
-			'tabel3_alias' => 'Fasilitas Hotel',
-			'tabel3_field1_alias' => 'ID Fasilitas',
-			'tabel3_field2_alias' => 'Nama',
-			'tabel3_field3_alias' => 'Keterangan',
-			'tabel3_field4_alias' => 'Gambar',
-
-			'tabel4_alias' => 'Petugas',
+			'tabel4_alias' => 'Siswa',
 			'tabel4_field1_alias' => 'ID Petugas',
 			'tabel4_field2_alias' => 'Nama',
 			'tabel4_field3_alias' => 'Email',
@@ -553,14 +489,14 @@ class Welcome extends CI_Controller
 			'tabel4_field6_alias' => 'Role Petugas',
 			'tabel4_field7_alias' => 'Poin',
 
-			'tabel5_alias' => 'Kamar',
+			'tabel5_alias' => 'Kelas',
 			'tabel5_field1_alias' => 'No Kamar',
 			'tabel5_field2_alias' => 'ID Tipe',
 			'tabel5_field3_alias' => 'ID Pesanan',
 			'tabel5_field4_alias' => 'Status Kamar',
 			'tabel5_field5_alias' => 'Keterangan',
 
-			'tabel6_alias' => 'Tipe Kamar',
+			'tabel6_alias' => 'SPP',
 			'tabel6_field1_alias' => 'ID Tipe Kamar',
 			'tabel6_field2_alias' => 'Tipe Kamar',
 			'tabel6_field3_alias' => 'Gambar',
@@ -580,7 +516,7 @@ class Welcome extends CI_Controller
 			'tabel7_field10_alias' => 'Akun Facebook',
 			'tabel7_field11_alias' => 'Akun Instagram',
 
-			'tabel8_alias' => 'Pesanan',
+			'tabel8_alias' => 'Pembayaran',
 			'tabel8_field1_alias' => 'ID Pesanan',
 			'tabel8_field2_alias' => 'ID User',
 			'tabel8_field3_alias' => 'Nama Pemesan',
@@ -595,7 +531,7 @@ class Welcome extends CI_Controller
 			'tabel8_field12_alias' => 'Status',
 			'tabel8_field13_alias' => 'No Kamar',
 
-			'tabel9_alias' => 'User',
+			'tabel9_alias' => 'Petugas',
 			'tabel9_field1_alias' => 'ID User',
 			'tabel9_field2_alias' => 'Nama',
 			'tabel9_field3_alias' => 'Email',
@@ -603,23 +539,6 @@ class Welcome extends CI_Controller
 			'tabel9_field5_alias' => 'No Hp',
 			'tabel9_field6_alias' => 'Level User',
 			'tabel9_field7_alias' => 'Jumlah Login',
-
-			'tabel10_alias' => 'Transaksi',
-			'tabel10_field1_alias' => 'ID Transaksi',
-			'tabel10_field2_alias' => 'ID Resepsionis',
-			'tabel10_field3_alias' => 'Email',
-			'tabel10_field4_alias' => 'ID Pesanan',
-			'tabel10_field5_alias' => 'Metode',
-			'tabel10_field6_alias' => 'Jumlah Bayar',
-			'tabel10_field7_alias' => 'Tgl Transaksi',
-
-			'tabel11_alias' => 'Operasional Hotel',
-			'tabel11_field1_alias' => 'ID Operasional',
-			'tabel11_field2_alias' => 'No Kamar',
-			'tabel11_field3_alias' => 'ID User',
-			'tabel11_field4_alias' => 'ID Petugas',
-			'tabel11_field5_alias' => 'Keterangan',
-			'tabel11_field6_alias' => 'Tgl Perubahan',
 		);
 
 		// deklarasi input pada halaman publik
@@ -743,7 +662,7 @@ class Welcome extends CI_Controller
 		$this->load->view($halaman, $data);
 	}
 
-	public function tipe_kamar($id = 1)
+	public function spp($id = 1)
 	{
 		$this->declarew();
 		$data1 = array(

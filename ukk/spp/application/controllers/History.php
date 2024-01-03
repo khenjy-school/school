@@ -222,7 +222,7 @@ class History extends Welcome
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->ambil_id_user($where)->result(),
+			'tabel2' => $this->tl2->ambil_id_petugas($where)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data

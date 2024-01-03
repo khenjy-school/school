@@ -11,7 +11,7 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Reservasi</h6>
-        <a class="dropdown-item" href="<?= site_url('pesanan') ?>"><?= $tabel8_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('pembayaran') ?>"><?= $tabel8_alias ?></a>
         <a class="dropdown-item" href="<?= site_url('history') ?>"><?= $tabel2_alias ?></a>
 
         <div class="dropdown-divider"></div>
@@ -20,7 +20,7 @@
 
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">Data Hotel</h6>
-        <a class="dropdown-item" href="<?= site_url('kamar') ?>"><?= $tabel5_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('kelas') ?>"><?= $tabel5_alias ?></a>
 
       </div>
     </div>
@@ -35,8 +35,8 @@
         <h4><i class="fas fa-user"></i> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>
-        <a class="dropdown-item" href="<?= site_url('user/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

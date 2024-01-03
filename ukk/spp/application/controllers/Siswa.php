@@ -6,7 +6,7 @@ class User extends Welcome
 {
 	// deklarasi variabel mvc
 	// deklarasi variabel model
-	private $tabel9_m = 'tl9';
+	private $tabel9_m = 'tl4';
 
 	// deklarasi variabel views
 	private $tabel9_v1;
@@ -71,7 +71,7 @@ class User extends Welcome
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
-		$this->tabel9_m = 'tl9';
+		$this->tabel9_m = 'tl4';
 
 		// deklarasi variabel views
 		$this->tabel9_v1 = 'v_' . $this->tabel9;
@@ -148,7 +148,7 @@ class User extends Welcome
 			$this->v_part3 => $this->tabel9_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($id)->result(),
-			'tabel9' =>  $this->tl9->ambildata()->result()
+			'tabel9' =>  $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -163,7 +163,7 @@ class User extends Welcome
 		$param2 = $this->tabel9_v_input2_post;
 		$param4 = $this->tabel9_v_input4_post;
 
-		$method2 = $this->tl9->ceknama($param2);
+		$method2 = $this->tl4->ceknama($param2);
 
 		// mencari apakah jumlah data kurang dari 1
 		if ($method2->num_rows() < 1) {
@@ -183,7 +183,7 @@ class User extends Welcome
 					$this->tabel9_field6 => $this->tabel9_v_input6_post,
 				);
 
-				$simpan = $this->tl9->simpan($data);
+				$simpan = $this->tl4->simpan($data);
 
 				// mengarahkan pengguna ke halaman yang berbeda sesuai dengan session masing-masing
 				if ($this->session->userdata($this->tabel9_field3)) {
@@ -221,7 +221,7 @@ class User extends Welcome
 			$this->tabel9_field5 => $this->tabel9_v_input5_post,
 		);
 
-		$update = $this->tl9->update($data, $where);
+		$update = $this->tl4->update($data, $where);
 
 		if ($update) {
 
@@ -237,10 +237,10 @@ class User extends Welcome
 		redirect($_SERVER['HTTP_REFERER']);
 	}
 
-	public function hapus($id_petugas = null)
+	public function hapus($nisn = null)
 	{
 		$this->declare();
-		$hapus = $this->tl9->hapus($id_petugas);
+		$hapus = $this->tl4->hapus($nisn);
 
 
 		if ($hapus) {
@@ -267,7 +267,7 @@ class User extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($id)->result(),
-			'tabel9' =>  $this->tl9->ambildata()->result()
+			'tabel9' =>  $this->tl4->ambildata()->result()
 		);
 
 		$this->declarew();
@@ -280,7 +280,7 @@ class User extends Welcome
 	public function profil($tabel7_field1 = 1)
 	{
 		$this->declare();
-		$id_petugas = $this->session->userdata($this->tabel9_field1);
+		$nisn = $this->session->userdata($this->tabel9_field1);
 		$data1 = array(
 			$this->v_part1 => $this->v10_title,
 			$this->v_part2 => $this->head,
@@ -291,7 +291,7 @@ class User extends Welcome
 			$this->v_part3 => $this->v10,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel9' =>  $this->tl9->ambil($id_petugas)->result()
+			'tabel9' =>  $this->tl4->ambil($nisn)->result()
 		);
 
 		$this->declarew();
@@ -342,7 +342,7 @@ class User extends Welcome
 			$this->tabel9_field5 => $this->tabel9_v_input5_post,
 		);
 
-		$update = $this->tl9->update($data, $where);
+		$update = $this->tl4->update($data, $where);
 
 		if ($update) {
 
@@ -355,7 +355,7 @@ class User extends Welcome
 		}
 
 		// mengambil data profil yang baru dirubah
-		$tabel9 = $this->tl9->ambil($where)->result();
+		$tabel9 = $this->tl4->ambil($where)->result();
 		$nama = $tabel9[0]->nama;
 		$email = $tabel9[0]->email;
 		$hp = $tabel9[0]->hp;
@@ -374,7 +374,7 @@ class User extends Welcome
 		$this->declare();
 		$where = $this->tabel9_v_input1_post;
 
-		$cek_id = $this->tl9->ambil($where);
+		$cek_id = $this->tl4->ambil($where);
 
 		// mencari apakah jumlah data lebih dari 0
 		if ($cek_id->num_rows() > 0) {
@@ -397,7 +397,7 @@ class User extends Welcome
 						$this->tabel9_field4 => password_hash($param4, PASSWORD_DEFAULT),
 					);
 
-					$update = $this->tl9->update($data, $where);
+					$update = $this->tl4->update($data, $where);
 
 					redirect($_SERVER['HTTP_REFERER']);
 
@@ -434,7 +434,7 @@ class User extends Welcome
 		$param2 = $this->tabel9_v_input2_post;
 		$param4 = $this->tabel9_v_input4_post;
 
-		$method2 = $this->tl9->ceknama($param2);
+		$method2 = $this->tl4->ceknama($param2);
 
 		// mencari apakah jumlah data kurang dari 0
 		if ($method2->num_rows() > 0) {
@@ -443,16 +443,16 @@ class User extends Welcome
 
 			// memverifikasi password dengan password di database
 			if (password_verify($param4, $method4)) {
-				$id_petugas = $tabel9[0]->id_petugas;
+				$nisn = $tabel9[0]->nisn;
 				$nama = $tabel9[0]->nama;
 				$email = $tabel9[0]->email;
 				$hp = $tabel9[0]->hp;
 				$level = $tabel9[0]->level;
 				$login_count = $tabel9[0]->login_count;
 
-				$updateCount = $this->tl9->updateCount($id_petugas);
+				$updateCount = $this->tl4->updateCount($nisn);
 
-				$this->session->set_userdata($this->tabel9_userdata1, $id_petugas);
+				$this->session->set_userdata($this->tabel9_userdata1, $nisn);
 				$this->session->set_userdata($this->tabel9_userdata2, $nama);
 				$this->session->set_userdata($this->tabel9_userdata3, $email);
 				$this->session->set_userdata($this->tabel9_userdata5, $hp);
@@ -495,13 +495,13 @@ class User extends Welcome
 
 		// 	// memverifikasi password dengan password di database
 		// 	if (password_verify($password, $cekpass)) {
-		// 		$id_petugas = $tabel9[0]->id_petugas;
+		// 		$nisn = $tabel9[0]->nisn;
 		// 		$nama = $tabel9[0]->nama;
 		// 		$email = $tabel9[0]->email;
 		// 		$hp = $tabel9[0]->hp;
 		// 		$level = $tabel9[0]->level;
 
-		// 		$this->session->set_userdata('id_petugas', $id_petugas);
+		// 		$this->session->set_userdata('nisn', $nisn);
 		// 		$this->session->set_userdata('nama', $nama);
 		// 		$this->session->set_userdata('email', $email);
 		// 		$this->session->set_userdata('hp', $hp);

@@ -8,10 +8,7 @@
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome') ?>">Home</a>
   </li>
   <li id="" class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/tipe_kamar') ?>"><?= $tabel6_alias ?></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/fasilitas') ?>"><?= $tabel3_alias ?></a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/spp') ?>"><?= $tabel6_alias ?></a>
   </li>
 
   <li class="nav-item">
@@ -21,18 +18,16 @@
       </a>
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Reservasi</h6>
-        <a class="dropdown-item" href="<?= site_url('pesanan/daftar') ?>">Daftar Reservasi</a>
-        <a class="dropdown-item" href="<?= site_url('transaksi/daftar') ?>">Transaksi</a>
+        <a class="dropdown-item" href="<?= site_url('pembayaran/daftar') ?>">Daftar Reservasi</a>
 
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">History</h6>
         <a class="dropdown-item" href="<?= site_url('history/daftar') ?>">History Reservasi</a>
-        <a class="dropdown-item" href="<?= site_url('transaksi/daftar_history') ?>">History Transaksi</a>
 
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
         <!-- <a id="introBaru" type="button" class="dropdown-item">Quick Tour</a> -->
-        <a class="dropdown-item" href="<?= site_url('user/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

@@ -22,24 +22,24 @@
           <td><?= $tl8->cek_out ?></td>
           <td><?= $tl8->status ?></td>
           <td>
-            <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tl8->id_pesanan ?>" href="#">
+            <a class="btn btn-light text-info" data-toggle="modal" data-target="#lihat<?= $tl8->id_pembayaran ?>" href="#">
               <i class="fas fa-eye"></i></a>
 
             <?php foreach ($tabel5 as $tl5) : ?>
-              <?php if ($tl8->id_pesanan == $tl5->id_pesanan) { ?>
-                <a class="btn btn-light text-info" data-toggle="modal" data-target="#kamar<?= $tl8->id_pesanan ?>" href="#">
+              <?php if ($tl8->id_pembayaran == $tl5->id_pembayaran) { ?>
+                <a class="btn btn-light text-info" data-toggle="modal" data-target="#kelas<?= $tl8->id_pembayaran ?>" href="#">
                   <i class="fas fa-bed"></i></a>
               <?php } ?>
             <?php endforeach ?>
 
             <?php if ($tl8->status == 'belum bayar') { ?>
-              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $tl8->id_pesanan ?>" href="#">
+              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $tl8->id_pembayaran ?>" href="#">
                 <i class="fas fa-shopping-cart"></i></a>
             <?php } elseif (
               $tl8->status == 'menunggu'
               || $tl8->status == 'cek in'
             ) { ?>
-              <a class="btn btn-light text-info" href="<?= site_url('pesanan/print/' . $tl8->id_pesanan) ?>" target="_blank">
+              <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
                 <i class="fas fa-print"></i></a>
 
             <?php } ?>
@@ -66,11 +66,11 @@
 <!-- modal bayar -->
 <?php foreach ($tabel8 as $tl8) : ?>
 
-  <div id="bayar<?= $tl8->id_pesanan ?>" class="modal fade bayar">
+  <div id="bayar<?= $tl8->id_pembayaran ?>" class="modal fade bayar">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Transaksi untuk Pesanan <?= $tl8->id_pesanan ?></h5>
+          <h5 class="modal-title">Transaksi untuk Pesanan <?= $tl8->id_pembayaran ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -84,7 +84,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field1_alias ?></label>
-                  <p><?= $tl8->id_pesanan ?></p>
+                  <p><?= $tl8->id_pembayaran ?></p>
                 </div>
                 <hr>
 
@@ -119,7 +119,7 @@
                 <div class="form-group">
                   <label><?= $tabel6_field2_alias ?></label>
                   <?php foreach ($tabel6 as $tl6) :
-                    if ($tl6->id_tipe === $tl8->id_tipe) { ?>
+                    if ($tl6->id_spp === $tl8->id_spp) { ?>
                       <p><?= $tl6->tipe ?></p>
                     <?php } ?>
                   <?php endforeach ?>
@@ -148,7 +148,7 @@
                 <div class="form-group">
                   <label><?= $tabel8_field9_alias ?></label>
                   <p>Rp <?= number_format($tl8->harga_total, '2', ',', '.') ?></p>
-                  <input type="hidden" name="id_pesanan" value="<?= $tl8->id_pesanan ?>">
+                  <input type="hidden" name="id_pembayaran" value="<?= $tl8->id_pembayaran ?>">
                 </div>
 
                 <div class="form-group">
@@ -187,13 +187,13 @@
 <!-- modal lihat -->
 <?php foreach ($tabel8 as $tl8) :
   foreach ($tabel6 as $tl6) :
-    if ($tl6->id_tipe == $tl8->id_tipe) { ?>
+    if ($tl6->id_spp == $tl8->id_spp) { ?>
 
-      <div id="lihat<?= $tl8->id_pesanan ?>" class="modal fade lihat">
+      <div id="lihat<?= $tl8->id_pembayaran ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pesanan ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -205,7 +205,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel8_field1_alias ?></label>
-                    <p><?= $tl8->id_pesanan ?></p>
+                    <p><?= $tl8->id_pembayaran ?></p>
                   </div>
                   <hr>
 
@@ -268,18 +268,18 @@
 endforeach ?>
 
 
-<!-- modal lihat kamar -->
-<!-- Aku ingin merubah modal ini menjadi modal yang memberikan informasi khusus mengenai kamar yang sudah dipesan -->
+<!-- modal lihat kelas -->
+<!-- Aku ingin merubah modal ini menjadi modal yang memberikan informasi khusus mengenai kelas yang sudah dipesan -->
 <!-- Aku mau yang ada di sini isinya bagus dan interaktif -->
 <?php foreach ($tabel8 as $tl8) :
   foreach ($tabel6 as $tl6) :
-    if ($tl6->id_tipe == $tl8->id_tipe) { ?>
+    if ($tl6->id_spp == $tl8->id_spp) { ?>
 
-      <div id="kamar<?= $tl8->id_pesanan ?>" class="modal fade lihat">
+      <div id="kelas<?= $tl8->id_pembayaran ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pesanan ?></h5>
+              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
@@ -291,7 +291,7 @@ endforeach ?>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel8_field1_alias ?></label>
-                    <p><?= $tl8->id_pesanan ?></p>
+                    <p><?= $tl8->id_pembayaran ?></p>
                   </div>
                   <hr>
 
@@ -327,11 +327,11 @@ endforeach ?>
 
                 <div class="col-md-6">
                   <?php foreach ($tabel5 as $tl5) : ?>
-                    <?php if ($tl8->id_pesanan == $tl5->id_pesanan) { ?>
+                    <?php if ($tl8->id_pembayaran == $tl5->id_pembayaran) { ?>
 
                       <div class="form-group">
                         <label><?= $tabel5_field1_alias ?></label>
-                        <p><?= $tl5->no_kamar ?></p>
+                        <p><?= $tl5->id_kelas ?></p>
                       </div>
                       <hr>
 

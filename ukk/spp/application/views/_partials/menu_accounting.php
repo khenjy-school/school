@@ -8,7 +8,7 @@
       <a class="nav-link text-decoration-none font-weight-bold" data-toggle="dropdown" href="#">Master Data <i class="fas fa-caret-down"></i></a>
 
       <div class="dropdown-menu dropdown-menu-right">
-        <h6 class="dropdown-header">Transaksi</h6>  
+        <h6 class="dropdown-header">Transaksi</h6>
         <a class="dropdown-item" href="<?= site_url('transaksi') ?>">Transaksi Aktif</a>
         <a class="dropdown-item" href="<?= site_url('transaksi/history') ?>">Transaksi History</a>
       </div>
@@ -25,8 +25,8 @@
         <h4><i class="fas fa-user-tie"></i> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="<?= site_url('user/profil') ?>">Profil</a>
-        <a class="dropdown-item" href="<?= site_url('user/logout') ?>">Logout</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/profil') ?>">Profil</a>
+        <a class="dropdown-item" href="<?= site_url('petugas/logout') ?>">Logout</a>
       </div>
     </div>
   </li>

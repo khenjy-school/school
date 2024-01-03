@@ -1,4 +1,4 @@
-<!-- halaman print untuk pesanan -->
+<!-- halaman print untuk pembayaran -->
 
 <base href="<?= base_url('assets/') ?>">
 <!DOCTYPE html>
@@ -16,12 +16,12 @@
       <p class="text-center"><?= $tl7->alamat; ?></p>
     <?php endforeach; ?>
 
-    <!-- menampilkan data pesanan sebagai ps -->
+    <!-- menampilkan data pembayaran sebagai ps -->
     <?php foreach ($tabel10 as $tl10) : ?>
       <?php foreach ($tabel2 as $tl2) : ?>
         <?php foreach ($tabel6 as $tl6) : ?>
 
-          <?php if ($tl10->id_pesanan === $tl2->id_pesanan && $tl2->id_tipe === $tl6->id_tipe) { ?>
+          <?php if ($tl10->id_pembayaran === $tl2->id_pembayaran && $tl2->id_spp === $tl6->id_spp) { ?>
 
             <!-- menampilkan data pemesan -->
             <table class="table">
@@ -35,7 +35,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td width="25%"><?= $tl2->id_pesanan ?></td>
+                  <td width="25%"><?= $tl2->id_pembayaran ?></td>
                   <td width="25%"><?= $tl2->pemesan ?></a>
                   <td width="25%"><?= $tl2->email ?></td>
                   <td width="25%"><?= $tl2->hp ?></td>
@@ -65,7 +65,7 @@
               </tbody>
             </table>
 
-            <!-- menampilkan harga total dari tabel pesanan -->
+            <!-- menampilkan harga total dari tabel pembayaran -->
             <table class="table">
               <thead class="thead">
                 <tr>

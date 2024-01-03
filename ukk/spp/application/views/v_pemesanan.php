@@ -1,7 +1,7 @@
 <img src="img/hotel.jpg" class="img-fluid rounded">
 
 
-<form action="<?= site_url('pesanan/tambah') ?>" method="post">
+<form action="<?= site_url('pembayaran/tambah') ?>" method="post">
 
   <!-- form ini berisi data yang sudah diinput sebelumnya dari halaman home -->
   <div class="row justify-content-center align-items-end mt-2">
@@ -50,10 +50,10 @@
 
   <hr>
 
-  <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pesanan yang telah dilakukan. -->
-  <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kamar  -->
-  <!-- dan mendapatkan pesanan yang terpisah masing-masing -->
-  <!-- Sebenarnya lebih baik jika menggunakan tabel pesanan dan tabel detail pesanan -->
+  <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
+  <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kelas  -->
+  <!-- dan mendapatkan pembayaran yang terpisah masing-masing -->
+  <!-- Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
   <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
   <!-- Fitur ini akan diselesaikan ketika sudah ada pemahaman mengenai cara kerja array -->
   <!-- 
@@ -66,16 +66,16 @@
 
     <div class="col-md-6">
 
-      <!-- menentukan id_user jika user sudah membuat akun atau belum -->
+      <!-- menentukan id_petugas jika user sudah membuat akun atau belum -->
       <div class="form-group">
         <label>Pemesan</label>
         <input class="form-control" type="text" required name="pemesan" placeholder="Masukkan nama pemesan" value="<?= $this->session->userdata('nama') ?>">
-        <?php if ($this->session->userdata('id_user')) { ?>
-          <input type="hidden" name="id_user" value="<?= $this->session->userdata('id_user') ?>">
+        <?php if ($this->session->userdata('id_petugas')) { ?>
+          <input type="hidden" name="id_petugas" value="<?= $this->session->userdata('id_petugas') ?>">
         <?php } else { ?>
 
-          <!-- value 0 di id_user untuk pengguna tanpa akun -->
-          <input type="hidden" name="id_user" value="0">
+          <!-- value 0 di id_petugas untuk pengguna tanpa akun -->
+          <input type="hidden" name="id_petugas" value="0">
 
         <?php } ?>
       </div>
@@ -98,10 +98,10 @@
 
       <div class="form-group">
         <label><?= $tabel6_field2_alias ?></label>
-        <select class="form-control" required name="id_tipe">
+        <select class="form-control" required name="id_spp">
           <option selected hidden value="">Pilih <?= $tabel6_field2_alias ?>...</option>
           <?php foreach ($tabel6 as $tl6) : ?>
-            <option value="<?= $tl6->id_tipe; ?>"><?= $tl6->tipe ?></option>
+            <option value="<?= $tl6->id_spp; ?>"><?= $tl6->tipe ?></option>
           <?php endforeach ?>
         </select>
       </div>

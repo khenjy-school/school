@@ -25,19 +25,19 @@
     <tbody>
       <?php foreach ($tabel9 as $tl9) : ?>
         <tr>
-          <td><?= $tl9->id_petugas; ?></td>
+          <td><?= $tl9->nisn; ?></td>
           <td><?= $tl9->nama ?></td>
           <td><?= $tl9->email ?></td>
           <td><?= $tl9->hp ?></td>
           <td><?= $tl9->level ?></td>
-          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl9->id_petugas; ?>">
+          <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl9->nisn; ?>">
               <i class="fas fa-eye"></i></a>
-            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl9->id_petugas; ?>">
+            <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl9->nisn; ?>">
               <i class="fas fa-edit"></i></a>
 
             <!-- Sebelumnya saya sudah membahas ini di v_admin_spp
           Saya akan mempending fitur ini dengan alasan yang sama dalam waktu yang belum ditentukan -->
-            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('petugas/hapus/' . $tl9->id_petugas) ?>">
+            <!-- <a class="btn btn-light text-danger" onclick="return confirm('Hapus user?')" href="< site_url('petugas/hapus/' . $tl9->nisn) ?>">
             <i class="fas fa-trash"></i></a> -->
 
           </td>
@@ -137,11 +137,11 @@
 
 <!-- modal edit -->
 <?php foreach ($tabel9 as $tl9) : ?>
-  <div id="ubah<?= $tl9->id_petugas; ?>" class="modal fade ubah">
+  <div id="ubah<?= $tl9->nisn; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Edit <?= $tabel9_alias ?> <?= $tl9->id_petugas; ?></h5>
+          <h5 class="modal-title">Edit <?= $tabel9_alias ?> <?= $tl9->nisn; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>
@@ -156,7 +156,7 @@
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
               </div>
               <input class="form-control" type="text" required name="nama" value="<?= $tl9->nama; ?>">
-              <input type="hidden" name="id_petugas" value="<?= $tl9->id_petugas; ?>">
+              <input type="hidden" name="nisn" value="<?= $tl9->nisn; ?>">
             </div>
 
             <div class="input-group">
@@ -201,11 +201,11 @@
 
 <!-- modal lihat -->
 <?php foreach ($tabel9 as $tl9) : ?>
-  <div id="lihat<?= $tl9->id_petugas; ?>" class="modal fade lihat" role="dialog">
+  <div id="lihat<?= $tl9->nisn; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><?= $tabel9_alias ?> <?= $tl9->id_petugas; ?></h5>
+          <h5 class="modal-title"><?= $tabel9_alias ?> <?= $tl9->nisn; ?></h5>
 
           <button class="close" data-dismiss="modal">
             <span>&times;</span>

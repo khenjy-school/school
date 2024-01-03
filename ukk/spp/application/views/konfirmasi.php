@@ -33,11 +33,11 @@
         </div>
 
 
-        <!-- mengecek apakah ada pesanan yang telah dilakukan -->
-        <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pesanan yang telah dilakukan. -->
-        <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kamar  -->
-        <!-- dan mendapatkan pesanan yang terpisah masing-masing -->
-        <!-- Sebenarnya lebih baik jika menggunakan tabel pesanan dan tabel detail pesanan -->
+        <!-- mengecek apakah ada pembayaran yang telah dilakukan -->
+        <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
+        <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kelas  -->
+        <!-- dan mendapatkan pembayaran yang terpisah masing-masing -->
+        <!-- Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
         <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
         <!-- Fitur ini akan diselesaikan ketika sudah ada pemahaman mengenai cara kerja array -->
       <?php } elseif (isset($tabel8)) { ?>
@@ -47,9 +47,9 @@
 
         <div class="col-md">
           <h1 class="text-center">Pesanan Berhasil</h1>
-          <p class="text-center">Id Pesanan Anda adalah <?= $tabel8->id_pesanan ?></p>
+          <p class="text-center">Id Pesanan Anda adalah <?= $tabel8->id_pembayaran ?></p>
           <p class="text-center">Cari data reservasi Anda dengan menggunakan <br>
-            id pesanan dan email anda <br>
+            id pembayaran dan email anda <br>
             untuk mencetak bukti reservasi</p>
 
           <div class="d-flex justify-content-center">
@@ -65,7 +65,7 @@
 
 
       <?php } else { ?>
-        <!-- anda mengakses halaman konfirmasi tapi tidak memiliki pesanan apapun -->
+        <!-- anda mengakses halaman konfirmasi tapi tidak memiliki pembayaran apapun -->
         <div class="col-md">
           <h1 class="text-center">Anda tidak melakukan pemesanan atau transaksi apapun</h1>
 

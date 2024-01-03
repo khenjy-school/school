@@ -32,7 +32,7 @@
       <tbody>
         <?php foreach ($tabel9 as $tl9) : ?>
           <tr>
-            <td width="20%"><?= $tl9->id_petugas ?></td>
+            <td width="20%"><?= $tl9->nisn ?></td>
             <td width="20%"><?= $tl9->nama ?></a></td>
             <td width="20%"><?= $tl9->email ?></td>
             <td width="20%"><?= $tl9->hp ?></td>

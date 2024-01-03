@@ -2,7 +2,7 @@
 <base href="<?= base_url('assets/') ?>">
 
 <!-- memastikan user memiliki id  -->
-<?php if (!$this->session->userdata('id_user')) {
+<?php if (!$this->session->userdata('id_petugas')) {
   session_destroy();
 }  ?>
 
@@ -65,11 +65,11 @@
             </div>
 
             <!-- form mencari data reservasi, method get utk menampilkan apa yg diinput pengguna di halaman tujuan -->
-            <form action="<?= site_url('pesanan/cari') ?>" method="get">
+            <form action="<?= site_url('pembayaran/cari') ?>" method="get">
               <div class="modal-body">
                 <div class="form-group">
                   <label><?= $tabel8_field1_alias ?></label>
-                  <input class="form-control" type="text" required name="id_pesanan" placeholder="Masukkan id pesanan">
+                  <input class="form-control" type="text" required name="id_pembayaran" placeholder="Masukkan id pembayaran">
                 </div>
 
                 <div class="form-group">
@@ -115,10 +115,7 @@
               <h3>Jelajahi</h3>
               <ul class="list-unstyled">
                 <li>
-                  <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/tipe_kamar') ?>"><?= $tabel6_alias ?></a><br>
-                </li>
-                <li>
-                  <a class="text-decoration-none text-dark" href="<?= site_url('welcome/fasilitas') ?>"><?= $tabel3_alias ?></a>
+                  <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/spp') ?>"><?= $tabel6_alias ?></a><br>
                 </li>
               </ul>
             </div>
@@ -212,7 +209,7 @@
     1. Membuat guided tour yang bisa pergi ke halaman lain -->
 
 
-    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan tamu untuk mengetahui fitur-fitur yang berhubungan dengan pesanan -->
+    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan tamu untuk mengetahui fitur-fitur yang berhubungan dengan pembayaran -->
 
     <!-- Intro user publik -->
     <script>
@@ -257,12 +254,12 @@
             // }, 
             {
               element: document.getElementById('tour1'),
-              intro: 'Anda sekarang sudah bisa mencari serta mengelola pesanan Anda!',
+              intro: 'Anda sekarang sudah bisa mencari serta mengelola pembayaran Anda!',
               position: 'bottom'
             },
             {
               element: document.getElementById('tour2'),
-              intro: 'Anda bisa memesan kamar di sini.',
+              intro: 'Anda bisa memesan kelas di sini.',
               position: 'top'
             }
 

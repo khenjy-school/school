@@ -18,7 +18,7 @@
         <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
 
         <!-- form login -->
-        <form action="<?= site_url('user/ceklogin') ?>" method="post">
+        <form action="<?= site_url('petugas/ceklogin') ?>" method="post">
           <!-- <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -46,7 +46,7 @@
           <!-- tombol login dan signup -->
           <div class="form-group d-flex justify-content-around">
             <button class="btn btn-success login" type="submit">Login</button>
-            <a class="btn btn-secondary login" type="button" href="<?= site_url('user/signup') ?>">Sign Up</a>
+            <a class="btn btn-secondary login" type="button" href="<?= site_url('petugas/signup') ?>">Sign Up</a>
           </div>
 
         </form>

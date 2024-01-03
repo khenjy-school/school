@@ -98,9 +98,9 @@
     <tbody>
       <?php foreach ($tabel2 as $tl2) : ?>
         <?php foreach ($tabel6 as $tl6) : ?>
-          <?php if ($tl6->id_tipe === $tl2->id_tipe) { ?>
+          <?php if ($tl6->id_spp === $tl2->id_spp) { ?>
             <tr>
-              <td><?= $tl2->id_pesanan ?></td>
+              <td><?= $tl2->id_pembayaran ?></td>
               <td><?= $tl2->tamu ?></td>
               <td><?= $tl6->tipe ?></td>
               <td><?= $tl2->cek_in ?></td>
@@ -131,7 +131,7 @@
 <!-- modal lihat -->
 <?php foreach ($tabel2 as $tl2) : ?>
   <?php foreach ($tabel6 as $tl6) : ?>
-    <?php if ($tl6->id_tipe == $tl2->id_tipe) { ?>
+    <?php if ($tl6->id_spp == $tl2->id_spp) { ?>
       <div id="lihat<?= $tl2->id_history ?>" class="modal fade lihat">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -148,7 +148,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field2_alias ?></label>
-                    <p><?= $tl2->id_pesanan ?></p>
+                    <p><?= $tl2->id_pembayaran ?></p>
                   </div>
                   <hr>
 

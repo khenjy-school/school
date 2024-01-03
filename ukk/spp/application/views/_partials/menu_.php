@@ -10,12 +10,9 @@ semoga suatu saat akan berhasil :) -->
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome') ?>">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/tipe_kamar') ?>"><?= $tabel6_alias ?></a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/spp') ?>"><?= $tabel6_alias ?></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/fasilitas') ?>"><?= $tabel3_alias ?></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('user/login') ?>">Login</a>
+    <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('petugas/login') ?>">Login</a>
   </li>
 </ul>

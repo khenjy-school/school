@@ -5,15 +5,15 @@
     <?php foreach ($tabel9 as $tl9) : ?>
 
       <!-- tombol untuk memunculkan modal memperbaiki password -->
-      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $tl9->id_user ?>">
+      <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#password<?= $tl9->id_petugas ?>">
         <i class="fas fa-edit"></i> Ubah <?= $tabel9_field4_alias ?></a>
 
       <!-- form ini terpisah dengan form ubah password untuk keamanan sesama :) -->
-      <form action="<?= site_url('user/update_profil') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url('petugas/update_profil') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label><?= $tabel9_field2_alias ?></label>
           <input class="form-control pengaturan" type="text" name="nama" value="<?= $tl9->nama; ?>">
-          <input type="hidden" name="id_user" value="<?= $tl9->id_user; ?>">
+          <input type="hidden" name="id_petugas" value="<?= $tl9->id_petugas; ?>">
         </div>
 
         <div class="form-group">
@@ -29,7 +29,7 @@
         <div class="form-group">
           <button class="btn btn-success" onclick="return confirm('Ubah data profil?')" type="submit">Simpan Perubahan</button>
         </div>
-        <small>*Merubah email ini tidak akan merubah email yang ada di pesanan</small>
+        <small>*Merubah email ini tidak akan merubah email yang ada di pembayaran</small>
       </form>
     <?php endforeach; ?>
   </div>
@@ -42,7 +42,7 @@
 
 <!-- modal edit password-->
 <?php foreach ($tabel9 as $tl9) : ?>
-  <div id="password<?= $tl9->id_user ?>" class="modal fade password">
+  <div id="password<?= $tl9->id_petugas ?>" class="modal fade password">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -52,7 +52,7 @@
             <span>&times;</span>
           </button>
         </div>
-        <form action="<?= site_url('user/update_password') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url('petugas/update_password') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="input-group">
@@ -60,7 +60,7 @@
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
               </div>
               <input class="form-control" type="password" required name="old_password" placeholder="Masukkan password lama">
-              <input type="hidden" name="id_user" value="<?= $tl9->id_user; ?>">
+              <input type="hidden" name="id_petugas" value="<?= $tl9->id_petugas; ?>">
             </div>
 
             <div class="input-group">
