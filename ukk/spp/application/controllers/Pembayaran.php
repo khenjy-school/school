@@ -187,7 +187,7 @@ class Pembayaran extends Welcome
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
 			'tabel8' =>  $this->tl8->filter($param1)->result(),
 			// 'tabel9' =>  $this->tl9->ambildata()->result(),  // session sudah cukup
-			'tabel4' =>  $this->tl4->ambildata()->result(),
+			'tabel4' =>  $this->tl4->ambil($param1)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
@@ -233,7 +233,7 @@ class Pembayaran extends Welcome
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 		}
 
-		redirect(site_url($this->tabel8_c9));
+		redirect(site_url($this->tabel8_c1));
 	}
 
 	public function update()

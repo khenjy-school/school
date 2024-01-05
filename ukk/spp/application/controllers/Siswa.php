@@ -69,9 +69,11 @@ class Siswa extends Welcome
 		$this->tabel4_v_input1_post = $this->input->post($this->tabel4_field1);
 		$this->tabel4_v_input1_alt = '';
 		$this->tabel4_v_input2_post = $this->input->post($this->tabel4_field2);
-		$this->tabel4_v_input3_post = $this->input->post($this->tabel4_v_input3_post);
+		$this->tabel4_v_input3_post = $this->input->post($this->tabel4_field3);
 		$this->tabel4_v_input4_post = $this->input->post($this->tabel4_field4);
 		$this->tabel4_v_input5_post = $this->input->post($this->tabel4_field5);
+		$this->tabel4_v_input6_post = $this->input->post($this->tabel4_field6);
+		$this->tabel4_v_input7_post = $this->input->post($this->tabel4_field7);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel4_v_flashdata1_msg_1 = 'Data ' . $this->tabel4_alias . ' berhasil disimpan!';
@@ -108,7 +110,7 @@ class Siswa extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			$this->tabel4_field1 => $this->tabel4_v_input1_alt,
+			$this->tabel4_field1 => $this->tabel4_v_input1_post,
 			$this->tabel4_field2 => $this->tabel4_v_input2_post,
 			$this->tabel4_field3 => $this->tabel4_v_input3_post,
 			$this->tabel4_field4 => $this->tabel4_v_input4_post,
@@ -144,8 +146,13 @@ class Siswa extends Welcome
 		$this->declare();
 		$where = $this->tabel4_v_input1_post;
 		$data = array(
+			$this->tabel4_field1 => $this->tabel4_v_input1_post,
 			$this->tabel4_field2 => $this->tabel4_v_input2_post,
 			$this->tabel4_field3 => $this->tabel4_v_input3_post,
+			$this->tabel4_field4 => $this->tabel4_v_input4_post,
+			$this->tabel4_field5 => $this->tabel4_v_input5_post,
+			$this->tabel4_field6 => $this->tabel4_v_input6_post,
+			$this->tabel4_field7 => $this->tabel4_v_input7_post,
 		);
 
 		$update = $this->tl4->update($data, $where);

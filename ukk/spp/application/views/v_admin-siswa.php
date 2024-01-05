@@ -82,7 +82,7 @@
         </button>
       </div>
 
-      <form action="<?= site_url('petugas/tambah') ?>" method="post">
+      <form action="<?= site_url('siswa/tambah') ?>" method="post">
         <div class="modal-body">
           <div class="input-group">
             <div class="input-group-prepend">
@@ -140,7 +140,7 @@
             </div>
 
             <!-- hanya admin yang bisa menentukan level user -->
-            <select class="form-control" required name="id_kelas">
+            <select class="form-control" required name="id_spp">
               <option value="" selected hidden>Pilih <?= $tabel4_field7_alias ?></option>
               <?php foreach ($tabel6 as $tl6) : ?>
                 <option value="<?= $tl6->id_spp ?>"><?= $tl6->tahun ?> - Rp <?= number_format($tl6->nominal, '2', ',', '.') ?></option>
@@ -165,7 +165,7 @@
 <!-- modal edit -->
 <?php foreach ($tabel4 as $tl4) : ?>
   <div id="ubah<?= $tl4->nisn; ?>" class="modal fade ubah">
-    <!-- <div class="modal-dialog"> -->
+    <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit <?= $tabel4_alias ?> <?= $tl4->nisn; ?></h5>
@@ -176,7 +176,7 @@
       </div>
 
       <!-- administrator tidak dapat mengubah password akun lain -->
-      <form action="<?= site_url('petugas/update') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url('siswa/update') ?>" method="post" enctype="multipart/form-data">
         <div class="modal-body">
           <div class="input-group">
             <div class="input-group-prepend">
@@ -222,13 +222,13 @@
         </div>
       </form>
     </div>
-    <!-- </div> -->
+    </div>
   </div>
 <?php endforeach; ?>
 
 <!-- modal lihat -->
 <?php foreach ($tabel4 as $tl4) : ?>
-  <!-- <div id="lihat<?= $tl4->nisn; ?>" class="modal fade lihat" role="dialog"> -->
+  <div id="lihat<?= $tl4->nisn; ?>" class="modal fade lihat" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -276,5 +276,5 @@
 
     </div>
   </div>
-  <!-- </div> -->
+  </div>
 <?php endforeach; ?>

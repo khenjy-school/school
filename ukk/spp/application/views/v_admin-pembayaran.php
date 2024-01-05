@@ -16,7 +16,7 @@
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
   <!-- Mengecek data menggunakan tanggal cek in -->
-  <form action="<?= site_url('siswa/cari') ?>" method="get">
+  <form action="<?= site_url('pembayaran') ?>" method="get">
     <tr>
 
       <td class="pr-2"><?= $tabel8_field3_alias ?></td>
@@ -93,6 +93,12 @@
 <div class="table-responsive">
   <table class="table table-light" id="data">
     <thead class="thead-light">
+      <tr class="table-info text-center">
+        <td colspan="9">
+          <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#entri">
+            + Tambah Entri</a>
+        </td>
+      </tr>
       <tr>
         <th><?= $tabel8_field1_alias ?></th>
         <th><?= $tabel8_field2_alias ?></th>
@@ -107,12 +113,7 @@
     </thead>
 
     <tbody>
-      <tr class="table-info text-center">
-        <td colspan="9">
-          <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#entri">
-            + Tambah Entri</a>
-        </td>
-      </tr>
+
       <?php foreach ($tabel8 as $tl8) : ?>
         <tr>
           <td><?= $tl8->id_pembayaran ?></td>
@@ -127,29 +128,29 @@
           <td>
 
             <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-            <?php switch ($tl8->status) {
+            <!-- switch ($tl8->status) {
               case 'pending': ?>
                 <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pembayaran ?>">
                   <i class="fas fa-bell-concierge"></i></a>
-              <?php break;
+               break;
 
               case 'menungggu': ?>
                 <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
                   <i class="fas fa-edit"></i></a>
-              <?php break;
+               break;
 
               case 'cek in': ?>
                 <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
                   <i class="fas fa-edit"></i></a>
-              <?php break;
+               break;
 
               case 'cek out': ?>
                 <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url('pembayaran/hapus/' . $tl8->id_pembayaran) ?>">
                   <i class="fas fa-trash"></i></a>
-              <?php break;
+               break;
 
               default: ?>
-            <?php } ?>
+             } ?> -->
 
             <!-- tombol print, hasil print akan muncul di tab baru 
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
@@ -192,7 +193,7 @@
         </button>
       </div>
 
-      <form action="<?= site_url('transaksi/tambah') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url('pembayaran/tambah') ?>" method="post" enctype="multipart/form-data">
 
         <div class="modal-body">
           <div class="row">
@@ -205,6 +206,8 @@
                     <div class="form-group">
                       <label><?= $tabel4_field1_alias ?></label>
                       <p><?= $tl4->nisn ?></p>
+                      <input type="hidden" name="nisn" value="<?= $tl4->nisn ?>">
+                      <input type="hidden" name="id_petugas" value="<?= $this->session->userdata('id_petugas') ?>">
                     </div>
                     <hr>
 
@@ -266,12 +269,12 @@
 
                     <div class="form-group">
                       <label><?= $tabel8_field5_alias ?> </label>
-                      <input class="form-control" readonly type="number" required name="bulan" placeholder="Masukkan <?= $tabel8_field5_alias ?>">
+                      <input class="form-control" type="text" required name="bulan_dibayar" placeholder="Masukkan <?= $tabel8_field5_alias ?>">
                     </div>
 
                     <div class="form-group">
                       <label><?= $tabel8_field6_alias ?> </label>
-                      <input class="form-control" readonly type="number" required name="tahun" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
+                      <input class="form-control" type="number" required name="tahun_dibayar" value="<?= $tl6->tahun ?>" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
                     </div>
 
                     <div class="form-group">
