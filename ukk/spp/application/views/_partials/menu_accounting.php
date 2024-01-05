@@ -1,4 +1,4 @@
-<!-- menu navigasi untuk pengguna dgn level resepsionis -->
+<!-- menu navigasi untuk pengguna dgn level petugas -->
 <ul class="navbar-nav ml-auto">
   <li class="nav-item">
     <a class="nav-link text-decoration-none font-weight-bold" href="<?= site_url('welcome/dashboard') ?>">Dashboard</a>
@@ -9,8 +9,7 @@
 
       <div class="dropdown-menu dropdown-menu-right">
         <h6 class="dropdown-header">Transaksi</h6>
-        <a class="dropdown-item" href="<?= site_url('transaksi') ?>">Transaksi Aktif</a>
-        <a class="dropdown-item" href="<?= site_url('transaksi/history') ?>">Transaksi History</a>
+        <a class="dropdown-item" href="<?= site_url('pembayaran') ?>"><?= $tabel8_alias ?></a>
       </div>
     </div>
   </li>

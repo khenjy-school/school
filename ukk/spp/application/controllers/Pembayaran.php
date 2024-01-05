@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 // Masih banyak fitur-fitur yang kurang pada fitur pembayaran seperti fitur cancel pembayaran.
 // Dan juga seharusnya ketika user melakukan pembayaran seharusnya stok kelas tidak langsung berkurang
-// // Melainkan harus menunggu resepsionis membooking kelas untuk customer terlebih dulu
+// // Melainkan harus menunggu petugas membooking kelas untuk customer terlebih dulu
 // Saya baru berpikir untuk mengubah juga query sql pada trigger tambah kelas
 // Yaitu untuk menambah stok kelas dan input ke history jika status pesannanya NOT IN (pending)
 // Hal ini akan diperbaiki pada waktu-waktu mendatang. 
@@ -42,34 +42,19 @@ class Pembayaran extends Welcome
 	private $tabel8_c15;
 	// deklarasi variabel views
 	private $tabel8_v_input1_post;
+	private $tabel8_v_input1;
 	private $tabel8_v_input1_alt;
 	private $tabel8_v_input1_get;
 	private $tabel8_v_input2_post;
 	private $tabel8_v_input3_post;
 	private $tabel8_v_input3_get;
+	private $tabel8_v_input3;
 	private $tabel8_v_input4_post;
 	private $tabel8_v_input4_get;
 	private $tabel8_v_input5_post;
 	private $tabel8_v_input6_post;
 	private $tabel8_v_input7_post;
 	private $tabel8_v_input8_post;
-	private $tabel8_v_input9_post;
-	private $tabel8_v_input10;
-	private $tabel8_v_input10_post;
-	private $tabel8_v_input10_get;
-	private $tabel8_v_input10_filter1;
-	private $tabel8_v_input10_filter1_get;
-	private $tabel8_v_input10_filter2;
-	private $tabel8_v_input10_filter2_get;
-	private $tabel8_v_input11;
-	private $tabel8_v_input11_post;
-	private $tabel8_v_input11_get;
-	private $tabel8_v_input11_filter1;
-	private $tabel8_v_input11_filter1_get;
-	private $tabel8_v_input11_filter2;
-	private $tabel8_v_input11_filter2_get;
-	private $tabel8_v_input12_post;
-	private $tabel8_v_input13_post;
 	private $tabel8_v_flashdata1_msg_1;
 	private $tabel8_v_flashdata1_msg_2;
 	private $tabel8_v_flashdata1_msg_3;
@@ -134,7 +119,7 @@ class Pembayaran extends Welcome
 		$this->tabel8_c9 = $this->tabel8 . '/konfirmasi';
 		$this->tabel8_c10 = $this->tabel8 . '/print';
 		$this->tabel8_c11 = $this->tabel8 . '/filter';
-		$this->tabel8_c12 = $this->tabel8 . '/filter_tamu';
+		$this->tabel8_c12 = $this->tabel8 . '/filter_siswa';
 		$this->tabel8_c13 = $this->tabel8 . '/book';
 
 
@@ -142,32 +127,17 @@ class Pembayaran extends Welcome
 		$this->tabel8_v_input1_post = $this->input->post($this->tabel8_field1);
 		$this->tabel8_v_input1_get = $this->input->get($this->tabel8_field1);
 		$this->tabel8_v_input1_alt = '';
+		$this->tabel8_v_input1 = $this->tabel8_field1;
 		$this->tabel8_v_input2_post = $this->input->post($this->tabel8_field2);
 		$this->tabel8_v_input3_post = $this->input->post($this->tabel8_field3);
 		$this->tabel8_v_input3_get = $this->input->get($this->tabel8_field3);
+		$this->tabel8_v_input3 = $this->tabel8_field3;
 		$this->tabel8_v_input4_post = $this->input->post($this->tabel8_field4);
 		$this->tabel8_v_input4_get = $this->input->get($this->tabel8_field4);
 		$this->tabel8_v_input5_post = $this->input->post($this->tabel8_field5);
 		$this->tabel8_v_input6_post = $this->input->post($this->tabel8_field6);
 		$this->tabel8_v_input7_post = $this->input->post($this->tabel8_field7);
 		$this->tabel8_v_input8_post = $this->input->post($this->tabel8_field8);
-		$this->tabel8_v_input9_post = $this->input->post($this->tabel8_field9);
-		$this->tabel8_v_input10 = $this->tabel8_field10;
-		$this->tabel8_v_input10_get = $this->input->get($this->tabel8_v_input10);
-		$this->tabel8_v_input10_post = $this->input->post($this->tabel8_v_input10);
-		$this->tabel8_v_input10_filter1 = $this->tabel8_v_input10 . '_min';
-		$this->tabel8_v_input10_filter1_get = $this->input->get($this->tabel8_v_input10_filter1);
-		$this->tabel8_v_input10_filter2 = $this->tabel8_v_input10 . '_max';
-		$this->tabel8_v_input10_filter2_get = $this->input->get($this->tabel8_v_input10_filter2);
-		$this->tabel8_v_input11 = $this->tabel8_field11;
-		$this->tabel8_v_input11_get = $this->input->get($this->tabel8_v_input11);
-		$this->tabel8_v_input11_post = $this->input->post($this->tabel8_v_input11);
-		$this->tabel8_v_input11_filter1 = $this->tabel8_v_input11 . '_min';
-		$this->tabel8_v_input11_filter1_get = $this->input->get($this->tabel8_v_input11_filter1);
-		$this->tabel8_v_input11_filter2 = $this->tabel8_v_input11 . '_max';
-		$this->tabel8_v_input11_filter2_get = $this->input->get($this->tabel8_v_input11_filter2);
-		$this->tabel8_v_input12_post = $this->input->post($this->tabel8_field12);
-		$this->tabel8_v_input13_post = $this->input->post($this->tabel8_field13);
 
 
 		// deklarasi variabel bagian v_flashdata
@@ -207,10 +177,7 @@ class Pembayaran extends Welcome
 		$this->declare();
 
 		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel8_v_input10_filter1_get;
-		$param2 = $this->tabel8_v_input10_filter2_get;
-		$param3 = $this->tabel8_v_input11_filter1_get;
-		$param4 = $this->tabel8_v_input11_filter2_get;
+		$param1 = $this->tabel8_v_input3_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel8_v2_title,
@@ -218,15 +185,13 @@ class Pembayaran extends Welcome
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel8' =>  $this->tl8->ambildata()->result(),
-			'tabel5' =>  $this->tl5->ambildata()->result(),
+			'tabel8' =>  $this->tl8->filter($param1)->result(),
+			// 'tabel9' =>  $this->tl9->ambildata()->result(),  // session sudah cukup
+			'tabel4' =>  $this->tl4->ambildata()->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4
+			$this->tabel8_v_input3 => $param1,
 		);
 
 		$this->declarew();
@@ -241,59 +206,6 @@ class Pembayaran extends Welcome
 		$param4 = $this->tabel8_v_input4_post;
 		$param8 = $this->tabel8_v_input8_post;
 
-		$param10 = $this->tabel8_v_input10_post; //cek in
-		$param11 = $this->tabel8_v_input11_post; //cek out
-
-		// di bawah ini adalah fungsi untuk memesan kelas hotel
-		$startTimeStamp = strtotime($param10);
-		$endTimeStamp = strtotime($param11);
-
-		$timedif = $endTimeStamp - $startTimeStamp;
-		$numberdays = $timedif / 60 / 60 / 24; // 86400 seconds in one day
-
-		$where = $this->tabel8_v_input7_post;
-		$tabel6 = $this->tl6->ambil_harga($where)->result();
-
-		// rumus harga total pembayaran (bisa dijadikan sebuah fungsi jika menggunakan rumus yang kompleks)
-		$harga_total = ($numberdays * $tabel6[0]->harga);
-
-		//mengecek apakah ada pembayaran yang telah dilakukan -->
-		//Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
-		//Dengan fitur ini, tamu dapat memesan lebih dari satu kelas  -->
-		//dan mendapatkan pembayaran yang terpisah masing-masing -->
-		//Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
-		//Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
-		//Fitur ini akan diselesaikan ketika sudah ada pemahaman mengenai cara kerja array -->
-
-		// if (isset($this->tabel8_v_input1_post) and is_array($this->tabel8_v_input1_post)) {
-		// 	foreach($this->tabel8_v_input1_post as $tp) {
-
-		// 	}
-		// }
-
-		// $da = array(
-		// 	for($i = 0; $i < $this->tabel8_v_input8_post; $i++) {
-		// 		array(
-		// 			$this->tabel8_field1 => $this->tabel8_v_input1_alt,
-		// 			$this->tabel8_field2 => $this->tabel8_v_input2_post,
-		// 			$this->tabel8_field3 => $this->tabel8_v_input3_post,
-		// 		$this->tabel8_field4 => $param4,
-		// 		$this->tabel8_field5 => $this->tabel8_v_input5_post,
-		// 		$this->tabel8_field6 => $this->tabel8_v_input6_post,
-		// 		$this->tabel8_field7 => $this->tabel8_v_input7_post,
-		// 		$this->tabel8_field8 => $param8,
-		// 		$this->tabel8_field9 => $harga_total,
-		// 		$this->tabel8_field10 => $this->tabel8_v_input10_post,
-		// 		$this->tabel8_field11 => $this->tabel8_v_input11_post,
-
-
-
-		// 		// status akan kuubah menjadi pending karena resepsionis wajib memilihkan kelas untuk user
-		// 		$this->tabel8_field12 => $this->tabel8_field12_value1,
-		// 		// 'status' => "belum bayar"
-		// 	} 	
-		// 	);
-
 		$data = array(
 			$this->tabel8_field1 => $this->tabel8_v_input1_alt,
 			$this->tabel8_field2 => $this->tabel8_v_input2_post,
@@ -303,13 +215,7 @@ class Pembayaran extends Welcome
 			$this->tabel8_field6 => $this->tabel8_v_input6_post,
 			$this->tabel8_field7 => $this->tabel8_v_input7_post,
 			$this->tabel8_field8 => $param8,
-			$this->tabel8_field9 => $harga_total,
-			$this->tabel8_field10 => $this->tabel8_v_input10_post,
-			$this->tabel8_field11 => $this->tabel8_v_input11_post,
 
-			// status akan kuubah menjadi pending karena resepsionis wajib memilihkan kelas untuk user
-			$this->tabel8_field12 => $this->tabel8_field12_value1,
-			// 'status' => "belum bayar"
 		);
 
 		// membuat session supaya nilainya dapat digunakan selama waktu yang ditentukan dalam detik
@@ -339,20 +245,9 @@ class Pembayaran extends Welcome
 	public function hapus($id_pembayaran = null)
 	{
 		$this->declare();
-		$where = $this->tabel8_v_input1_post;
-		$status = $this->tabel8_v_input12_post;
-
 		$hapus = $this->tl8->hapus($id_pembayaran);
 
-		// memasukkan nama resepsionis yang melakukan operasi
-		$data = array(
-			$this->tabel2_field14 => $this->session->userdata($this->tabel9_userdata2)
-		);
-
-		// mengupdate history dengan nama user yang aktif
-		$update_history = $this->tl2->update_history($data, $where);
-
-		if ($hapus && $update_history) {
+		if ($hapus) {
 
 			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
 			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
@@ -443,70 +338,6 @@ class Pembayaran extends Welcome
 	}
 
 
-	// bagian update status untuk sementara kubiarkan tidak menggunakan variabel untuk sementara waktu
-	// hal ini ditujukan untuk keperluan penelitian penggunaan array
-	public function update_status()
-	{
-		$where = $this->input->post('id_pembayaran');
-		$data = array(
-			'status' => $this->input->post('status')
-		);
-
-		// jika status pembayaran cek in
-		if ($this->input->post('status') == 'cek in') {
-
-			// hanya merubah status pembayaran
-			$update = $this->tl8->update($data, $where);
-
-			// jika status pembayaran cek out
-		} elseif ($this->input->post('status') == 'cek out') {
-
-			// menghapus data pembayaran supaya trigger tambah_kamar dapat berjalan
-			$hapus = $this->tl8->hapus($where);
-
-			// memasukkan nama resepsionis yang melakukan operasi
-			$data = array(
-				'user_aktif' => $this->session->userdata('nama')
-			);
-
-			// mengupdate pembayaran dengan nama user yang aktif
-			$update = $this->tl2->update_history($data, $where);
-		}
-
-		if ($update) {
-
-			$this->session->set_flashdata('pesan', 'Status pembayaran berhasil diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
-		} else {
-
-			$this->session->set_flashdata('pesan', 'Status pembayaran gagal diubah!');
-			$this->session->set_flashdata('panggil', '$("#element").toast("show")');
-		}
-
-		redirect(site_url('pembayaran'));
-	}
-
-	public function konfirmasi($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->tempdata($this->tabel9_tempdata3);
-		$data1 = array(
-			$this->v_part1 => $this->v1_title1,
-			$this->v_part2 => $this->head,
-			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-
-			// mengembalikan data baris terakhir/terbaru sesuai ketentuan dalam database untuk ditampilkan
-			'tabel8' =>  $this->tl8->ambil_email($where)->last_row(),
-		);
-
-		$this->declarew();
-		$data = array_merge($data1, $this->aliases);
-
-		$this->load->view($this->v1, $data);
-	}
-
-
 	public function print($id_pembayaran = null, $tabel7_field1 = 1)
 	{
 		$this->declare();
@@ -523,106 +354,5 @@ class Pembayaran extends Welcome
 		$data = array_merge($data1, $this->aliases);
 
 		$this->load->view($this->v4, $data);
-	}
-
-	public function filter($tabel7_field1 = 1)
-	{
-		$this->declare();
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel8_v_input10_filter1_get;
-		$param2 = $this->tabel8_v_input10_filter2_get;
-		$param3 = $this->tabel8_v_input11_filter1_get;
-		$param4 = $this->tabel8_v_input11_filter2_get;
-
-		$data1 = array(
-			$this->v_part1 => $this->tabel8_v2_title,
-			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->tabel8_v2,
-			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel8' =>  $this->tl8->filter($param1, $param2, $param3, $param4)->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4
-		);
-
-		$this->declarew();
-		$data = array_merge($data1, $this->aliases);
-
-		$this->load->view($this->v7, $data);
-	}
-
-
-	public function filter_tamu($tabel7_field1 = 1)
-	{
-		$this->declare();
-		$where = $this->session->userdata($this->tabel9_userdata1);
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel8_v_input10_filter1_get;
-		$param2 = $this->tabel8_v_input10_filter2_get;
-		$param3 = $this->tabel8_v_input11_filter1_get;
-		$param4 = $this->tabel8_v_input11_filter2_get;
-
-		$data1 = array(
-			$this->v_part1 => $this->v13_title,
-			$this->v_part2 => $this->head,
-			$this->v_part3 => $this->v13,
-			$this->v_part4 => $this->v_part4_msg1,
-			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel8' =>  $this->tl8->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel8_v_input10_filter1 => $param1,
-			$this->tabel8_v_input10_filter2 => $param2,
-			$this->tabel8_v_input11_filter1 => $param3,
-			$this->tabel8_v_input11_filter2 => $param4
-		);
-
-		$this->declarew();
-		$data = array_merge($data1, $this->aliases);
-
-		$this->load->view($this->v7, $data);
-	}
-
-	// Ini adalah fitur untuk membooking kelas berdasarkan pembayaran oleh resepsionis
-	// Pada fitur ini, saya akan mencoba menggunakan gabungan dari jumlah kelas dan tipe kelas, 
-	// Oleh karena itu bakal ada 2 fungsi yang menggunakan parameter ini yakni, book dan ubah status. 
-	// Semoga besok bisa kelar karena ini merupakan fitur yang paling rumit di antara yang lain
-	public function book($tabel7_field1 = 1)
-	{
-		$this->declare();
-		// hanya merubah status pembayaran berdasarkan id pembayaran
-		$where = $this->tabel8_v_input1_post;
-		$data = array(
-			$this->tabel8_field12 => $this->tabel8_field12_value2,
-			$this->tabel8_field13 => $this->tabel8_v_input13_post
-
-		);
-
-		$update = $this->tl8->update($data, $where);
-
-		// hanya merubah id pembayaran di tabel kelas berdasarkan no kelas
-		$param = $this->tabel8_v_input13_post;
-		$id_kelas = array(
-			$this->tabel5_field3 => $this->tabel8_v_input1_post,
-			$this->tabel5_field4 => $this->tabel5_field4_value2,
-		);
-		$update_kamar = $this->tl5->update($id_kelas, $param);
-
-
-		if ($update_kamar) {
-
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_3);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-		} else {
-
-			$this->session->set_flashdata($this->v_flashdata1, $this->tabel8_v_flashdata1_msg_4);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
-		}
-
-		redirect(site_url($this->tabel8_c1));
 	}
 }

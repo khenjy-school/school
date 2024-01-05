@@ -1,6 +1,12 @@
-<?php if ($this->session->userdata('level') <> 'administrator') {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+  case 'administrator':
+    // case 'petugas':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
@@ -45,12 +51,12 @@
 
         <div class="form-group">
           <label><?= $tabel7_field10_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan link" value="<?= $tl7->fb; ?>">
+          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan <?= $tabel7_field10_alias ?>" value="<?= $tl7->fb; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field11_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan link" value="<?= $tl7->ig; ?>">
+          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan <?= $tabel7_field11_alias ?>" value="<?= $tl7->ig; ?>">
         </div>
 
         <div class="form-group">

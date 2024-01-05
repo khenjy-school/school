@@ -35,26 +35,19 @@ class M_pembayaran extends CI_Model
 		return $this->db->get($this->tabel);
 	}
 
-	public function filter($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max)
+	public function filter($param1)
 	{
 		$filter = "SELECT * FROM pembayaran WHERE 
 		
-		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		 OR 
-		
-		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
-		";
+		nisn LIKE '%" . $param1 . "%'";
 		return $this->db->query($filter);
 	}
 
-	public function filter_tamu($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
+	public function filter_siswa($param1, $where)
 	{
 		$filter = "SELECT * FROM pembayaran WHERE 
-		id_petugas IN ('" . $where . "') AND
-		cek_in BETWEEN '" . $cek_in_min . "' AND '" . $cek_in_max . "'
-		OR
-		cek_out BETWEEN '" . $cek_out_min . "' AND '" . $cek_out_max . "'
-		";
+		id_siswa IN ('" . $where . "') AND
+		nisn LIKE  '%" . $param1 . "%'";
 		return $this->db->query($filter);
 	}
 

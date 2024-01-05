@@ -22,13 +22,13 @@
 
 
               <div class="modal-footer">
-                <php if ($this->session->userdata('level') == 'tamu' && $this->session->userdata('level') <> 'resepsionis' && $this->session->userdata('level') <> 'accounting') { ?>
-                  <a id="introTamu" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
+                <php if ($this->session->userdata('level') == 'siswa' && $this->session->userdata('level') <> 'petugas' && $this->session->userdata('level') <> 'accounting') { ?>
+                  <a id="introsiswa" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
                 <php } elseif ($this->session->userdata('level') == 'administrator') { ?>
                   <a id="introAdministrator" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
 
-                <php } elseif ($this->session->userdata('level') == 'resepsionis') { ?>
-                  <a id="introResepsionis" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
+                <php } elseif ($this->session->userdata('level') == 'petugas') { ?>
+                  <a id="intropetugas" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>
 
                 <php } elseif ($this->session->userdata('level') == 'accounting') { ?>
                   <a id="introAccounting" data-dismiss="modal" class="btn btn-success">Mulai Tour</a>

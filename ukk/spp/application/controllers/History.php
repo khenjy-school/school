@@ -124,24 +124,6 @@ class History extends Welcome
 		$this->tabel2_v_input7_post = $this->input->post($this->tabel2_field7);
 		$this->tabel2_v_input8_post = $this->input->post($this->tabel2_field8);
 		$this->tabel2_v_input9_post = $this->input->post($this->tabel2_field9);
-		$this->tabel2_v_input10_post = $this->input->post($this->tabel2_field10);
-		// ini adalah filter
-		$this->tabel2_v_input11 = $this->tabel2_field11;
-		$this->tabel2_v_input11_post = $this->input->post($this->tabel2_field11);
-		$this->tabel2_v_input11_filter1 = $this->tabel2_v_input11 . '_min';
-		$this->tabel2_v_input11_filter1_get = $this->input->get($this->tabel2_v_input11_filter1);
-		$this->tabel2_v_input11_filter2 = $this->tabel2_v_input11 . '_max';
-		$this->tabel2_v_input11_filter2_get = $this->input->get($this->tabel2_v_input11_filter2);
-		//ini adalah filter
-		$this->tabel2_v_input12 = $this->tabel2_field12;
-		$this->tabel2_v_input12_post = $this->input->post($this->tabel2_field12);
-		$this->tabel2_v_input12_filter1 = $this->tabel2_v_input12 . '_min';
-		$this->tabel2_v_input12_filter1_get = $this->input->get($this->tabel2_v_input12_filter1);
-		$this->tabel2_v_input12_filter2 = $this->tabel2_v_input12 . '_max';
-		$this->tabel2_v_input12_filter2_get = $this->input->get($this->tabel2_v_input12_filter2);
-		$this->tabel2_v_input13_post = $this->input->post($this->tabel2_field13);
-		$this->tabel2_v_input14_post = $this->input->post($this->tabel2_field14);
-		$this->tabel2_v_input15_post = $this->input->post($this->tabel2_field15);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel2_v_flashdata1_msg_1 = 'Data ' . $this->tabel2_alias . ' berhasil disimpan!';
@@ -270,7 +252,7 @@ class History extends Welcome
 	}
 
 
-	public function filter_tamu($tabel7_field1 = 1)
+	public function filter_siswa($tabel7_field1 = 1)
 	{
 		$this->declare();
 		$where = $this->tabel9_userdata1;
@@ -286,7 +268,7 @@ class History extends Welcome
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->filter_tamu($param1, $param2, $param3, $param4, $where)->result(),
+			'tabel2' => $this->tl2->filter_siswa($param1, $param2, $param3, $param4, $where)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data

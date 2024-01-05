@@ -32,7 +32,7 @@
           <tr>
             <td width="20%"><?= $tl6->id_spp; ?></td>
             <td width="20%"><?= $tl6->tahun ?></td>
-            <td width="20%"><?= $tl6->nominal ?></td>
+            <td width="20%">Rp <?= number_format($tl6->nominal, '2', ',', '.') ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

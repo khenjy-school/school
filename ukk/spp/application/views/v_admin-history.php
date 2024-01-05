@@ -1,73 +1,15 @@
-<?php if ($this->session->userdata('level') <> 'resepsionis') {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+  case 'administrator':
+  case 'petugas':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
-
-<!-- tabel fiter history -->
-<table class="mb-4">
-
-  <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <!-- Mengecek data menggunakan tanggal cek in -->
-  <form action="<?= site_url('history/filter') ?>" method="get">
-    <tr>
-
-      <td class="pr-2"><?= $tabel2_field11_alias ?></td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Dari</span>
-          </div>
-          <input type="date" class="form-control" name="cek_in_min" value="<?= $cek_in_min ?>">
-        </div>
-      </td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Ke</span>
-          </div>
-          <input type="date" class="form-control" name="cek_in_max" value="<?= $cek_in_max ?>">
-        </div>
-      </td>
-
-      <td>
-        <button class="btn btn-success" type="submit">
-          <a type="submit"><i class="fas fa-search"></i></a>
-        </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('history') ?>">
-          <i class="fas fa-redo"></i></a>
-      </td>
-
-    </tr>
-
-    <!-- Mengecek data menggunakan tanggal cek out -->
-    <!-- method get supaya nilai dari filter bisa tampil nanti -->
-    <tr>
-
-      <td class="pr-2"><?= $tabel2_field12_alias ?></td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Dari</span>
-          </div>
-          <input type="date" class="form-control" name="tgl_bayar_min" value="<?= $tgl_bayar_min ?>">
-
-        </div>
-      </td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Ke</span>
-          </div>
-          <input type="date" class="form-control" name="tgl_bayar_max" value="<?= $tgl_bayar_max ?>">
-        </div>
-
-      </td>
-
-    </tr>
-  </form>
-</table>
 
 <div class="table-responsive">
   <table class="table table-light" id="data">
@@ -75,11 +17,12 @@
       <tr>
         <th><?= $tabel2_field2_alias ?></th>
         <th><?= $tabel2_field3_alias ?></th>
-        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel2_field4_alias ?></th>
         <th><?= $tabel2_field5_alias ?></th>
         <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
         <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field9_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -89,11 +32,13 @@
           if ($tl6->id_spp == $tl2->id_spp) { ?>
             <tr>
               <td><?= $tl2->id_pembayaran ?></td>
-              <td><?= $tl2->tamu ?></td>
-              <td><?= $tl6->tipe ?></td>
-              <td><?= $tl2->cek_in ?></td>
-              <td><?= $tl2->cek_out ?></td>
-              <td><?= $tl2->user_aktif ?></td>
+              <td><?= $tl2->id_petugas ?></td>
+              <td><?= $tl2->nisn ?></td>
+              <td><?= $tl2->tgl_bayar ?></td>
+              <td><?= $tl2->bulan_dibayar ?></td>
+              <td><?= $tl2->tahun_dibayar ?></td>
+              <td><?= $tl2->id_spp ?></td>
+              <td><?= $tl2->jumlah_bayar ?></td>
               <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
                   <i class="fas fa-eye"></i></a>
                 <a class="btn btn-light text-danger" onclick="return confirm('Hapus data history?')" href="<?= site_url('history/hapus/' . $tl2->id_history) ?>">
@@ -108,11 +53,12 @@
       <tr>
         <th><?= $tabel2_field2_alias ?></th>
         <th><?= $tabel2_field3_alias ?></th>
-        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel2_field4_alias ?></th>
         <th><?= $tabel2_field5_alias ?></th>
         <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
         <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field9_alias ?></th>
       </tr>
     </tfoot>
 
@@ -172,7 +118,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field7_alias ?></label>
-                    <p><?= $tl2->tamu ?></p>
+                    <p><?= $tl2->siswa ?></p>
                   </div>
                   <hr>
 

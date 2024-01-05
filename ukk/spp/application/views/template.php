@@ -103,58 +103,64 @@
     <div class="container-fluid bg-light border" style="bottom: 0; margin-top: 20px">
       <div class="container">
 
-        <!-- menampilkan footer untuk umum  -->
-        <?php if ($this->session->userdata('level') <> 'administrator' && $this->session->userdata('level') <> 'resepsionis' && $this->session->userdata('level') <> 'accounting') { ?>
-          <div class="row justify-content-center">
-            <div class="col-lg-4 pt-3">
-              <img src="img/<?= $tl7->logo; ?>" height="50">
-              <p class="small pt-2">@2017-2022 <?= $tl7->nama ?>. All Rights Reserved.</p>
+        <!-- menampilkan footer khusus jika level adalah petugas, admin, dan sebagainya  -->
+        <?php switch ($this->session->userdata('level')) {
+          case 'administrator':
+          case 'petugas':
+          case 'accounting':
+        ?>
+            <div class="row justify-content-center align-content-center">
+              <p class="pt-2">@2017-2022 | <?= $tl7->nama ?></p>
             </div>
+          <?php break;
 
-            <div class="col-lg-3 pt-3">
-              <h3>Jelajahi</h3>
-              <ul class="list-unstyled">
-                <li>
-                  <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/spp') ?>"><?= $tabel6_alias ?></a><br>
-                </li>
-              </ul>
+          default: ?>
+
+            <!-- menampilkan footer untuk umum  -->
+            <div class="row justify-content-center">
+              <div class="col-lg-4 pt-3">
+                <img src="img/<?= $tl7->logo; ?>" height="50">
+                <p class="small pt-2">@2017-2022 <?= $tl7->nama ?>. All Rights Reserved.</p>
+              </div>
+
+              <div class="col-lg-3 pt-3">
+                <h3>Jelajahi</h3>
+                <ul class="list-unstyled">
+                  <li>
+                    <a type="button" id="nextPage" class="text-decoration-none text-dark" href="<?= site_url('welcome/spp') ?>"><?= $tabel6_alias ?></a><br>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 pt-3">
+                <h3>Alamat</h3>
+                <ul class="list-unstyled">
+                  <li>
+                    <?= $tl7->hp ?>
+                  </li>
+                  <li>
+                    <?= $tl7->email ?>
+                  </li>
+                  <li>
+                    <?= $tl7->alamat ?>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-lg-2 pt-3">
+                <h3>Ikuti</h3>
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="text-decoration-none text-primary" href="<?= $tl7->fb ?>" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                  </li>
+                  <li>
+                    <a class="text-decoration-none text-danger" href="<?= $tl7->ig ?>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-
-            <div class="col-lg-3 pt-3">
-              <h3>Alamat</h3>
-              <ul class="list-unstyled">
-                <li>
-                  <?= $tl7->hp ?>
-                </li>
-                <li>
-                  <?= $tl7->email ?>
-                </li>
-                <li>
-                  <?= $tl7->alamat ?>
-                </li>
-              </ul>
-            </div>
-
-            <div class="col-lg-2 pt-3">
-              <h3>Ikuti</h3>
-              <ul class="list-unstyled">
-                <li>
-                  <a class="text-decoration-none text-primary" href="<?= $tl7->fb ?>" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-                </li>
-                <li>
-                  <a class="text-decoration-none text-danger" href="<?= $tl7->ig ?>" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- menampilkan footer khusus jika level adalah resepsionis, admin, dan sebagainya  -->
-        <?php } else { ?>
-
-          <div class="row justify-content-center align-content-center">
-            <p class="pt-2">@2017-2022 | <?= $tl7->nama ?></p>
-          </div>
-        <?php } ?>
+        <?php }
+        ?>
 
       </div>
     </div>
@@ -209,7 +215,7 @@
     1. Membuat guided tour yang bisa pergi ke halaman lain -->
 
 
-    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan tamu untuk mengetahui fitur-fitur yang berhubungan dengan pembayaran -->
+    <!-- Fitur di bawah ini adalah fitur oboarding yang berfungsi mengarahkan siswa untuk mengetahui fitur-fitur yang berhubungan dengan pembayaran -->
 
     <!-- Intro user publik -->
     <script>
@@ -237,13 +243,13 @@
       });
     </script>
 
-    <!-- Intro user tamu -->
+    <!-- Intro user siswa -->
     <script>
       // Initialize Intro.js
       // Wait for the DOM to be ready
 
       // Bind a click event to the button
-      $("#introTamu").on("click", function() {
+      $("#introsiswa").on("click", function() {
         var intro = introJs();
         intro.setOptions({
           steps: [

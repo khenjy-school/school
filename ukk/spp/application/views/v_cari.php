@@ -49,7 +49,7 @@ Fitur sedang tahap pengembangan
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field6_alias ?></label>
-                  <p><?= $tl8->tamu ?></p>
+                  <p><?= $tl8->siswa ?></p>
                 </div>
 
                 <div class="form-group">
@@ -153,7 +153,7 @@ Fitur sedang tahap pengembangan
             <div class="col-md-6">
               <div class="form-group">
                 <label><?= $tabel8_field6_alias ?></label>
-                <p><?= $tl8->tamu ?></p>
+                <p><?= $tl8->siswa ?></p>
               </div>
 
               <div class="form-group">

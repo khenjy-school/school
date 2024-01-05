@@ -26,7 +26,7 @@
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
             <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama">
-            <input type="hidden" name="level" value="tamu">
+            <input type="hidden" name="level" value="siswa">
           </div>
 
           <div class="input-group">

@@ -67,8 +67,6 @@ class Kelas extends Welcome
 		$this->tabel5_v_input1_alt = '';
 		$this->tabel5_v_input2_post = $this->input->post($this->tabel5_field2);
 		$this->tabel5_v_input3_post = $this->input->post($this->tabel5_field3);
-		$this->tabel5_v_input4_post = $this->input->post($this->tabel5_field4);
-		$this->tabel5_v_input5_post = $this->input->post($this->tabel5_field5);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel5_v_flashdata1_msg_1 = 'Data ' . $this->tabel5_alias . ' berhasil disimpan!';
@@ -77,10 +75,6 @@ class Kelas extends Welcome
 		$this->tabel5_v_flashdata1_msg_4 = 'Data ' . $this->tabel5_alias . ' gagal diubah!';
 		$this->tabel5_v_flashdata1_msg_5 = 'Data ' . $this->tabel5_alias . ' berhasil dihapus!';
 		$this->tabel5_v_flashdata1_msg_6 = 'Data ' . $this->tabel5_alias . ' gagal dihapus!';
-
-		// deklarasi variabel menampilkan pesan modal
-		$this->tabel5_v_flashdata3_msg_1 =  $this->tabel5_field4_alias . ' ' . $this->tabel5_alias . ' tidak bisa diupload';
-		$this->tabel5_v_flashdata4_msg_1 = $this->tabel5_field4_alias . ' ' . $this->tabel5_alias . ' tidak bisa diupload';
 	}
 
 
@@ -111,9 +105,7 @@ class Kelas extends Welcome
 		$data = array(
 			$this->tabel5_field1 => $this->tabel5_v_input1_alt,
 			$this->tabel5_field2 => $this->tabel5_v_input2_post,
-			// $this->tabel5_field3 => NULL,
-			$this->tabel5_field4 => $this->tabel5_v_input4_post,
-			$this->tabel5_field5 => $this->tabel5_v_input5_post
+			$this->tabel5_field3 => $this->tabel5_v_input3_post,
 		);
 
 		$simpan = $this->tl5->simpan($data);

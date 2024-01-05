@@ -44,7 +44,7 @@
               </tbody>
             </table>
 
-            <!-- menampilkan data tamu -->
+            <!-- menampilkan data siswa -->
             <table class="table">
               <thead class="thead">
                 <tr>
@@ -56,7 +56,7 @@
               </thead>
               <tbody>
                 <tr>
-                  <td width="25%"><?= $tl8->tamu ?></td>
+                  <td width="25%"><?= $tl8->siswa ?></td>
                   <td width="25%"><?= $tl6->tipe ?></a>
                   <td width="25%"><?= $tl8->cek_in ?></td>
                   <td width="25%"><?= $tl8->cek_out ?></td>
@@ -111,7 +111,7 @@
 
   </div>
 
-  <p class="text-center">Kirimkan bukti ini ke resepsionis untuk diproses</p>
+  <p class="text-center">Kirimkan bukti ini ke petugas untuk diproses</p>
 
   <script src="jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.min.js"></script>

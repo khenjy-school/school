@@ -35,7 +35,7 @@
 
         <!-- mengecek apakah ada pembayaran yang telah dilakukan -->
         <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
-        <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kelas  -->
+        <!-- Dengan fitur ini, siswa dapat memesan lebih dari satu kelas  -->
         <!-- dan mendapatkan pembayaran yang terpisah masing-masing -->
         <!-- Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
         <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->

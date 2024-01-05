@@ -1,6 +1,13 @@
-<?php if ($this->session->userdata('level') <> 'tamu') {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+    // case 'administrator':
+    // case 'petugas':
+  case 'siswa':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>

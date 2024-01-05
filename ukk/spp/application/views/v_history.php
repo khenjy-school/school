@@ -1,13 +1,22 @@
-<?php if ($this->session->userdata('level') <> 'tamu') {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+  case 'administrator':
+    break;
+    // case 'petugas':
+    //   break;
+  case 'siswa':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
 <!-- method get supaya nilai dari filter bisa tampil nanti -->
 <!-- tabel fiter history -->
-<form action="<?= site_url('history/filter_tamu') ?>" method="get">
+<form action="<?= site_url('history/filter_siswa') ?>" method="get">
 
   <div class="row">
     <div class="col-md-auto">
@@ -93,6 +102,7 @@
         <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
         <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field9_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -102,11 +112,13 @@
           <?php if ($tl6->id_spp === $tl2->id_spp) { ?>
             <tr>
               <td><?= $tl2->id_pembayaran ?></td>
-              <td><?= $tl2->tamu ?></td>
-              <td><?= $tl6->tipe ?></td>
-              <td><?= $tl2->cek_in ?></td>
-              <td><?= $tl2->cek_out ?></td>
-              <td><?= $tl2->user_aktif ?></td>
+              <td><?= $tl2->id_petugas ?></td>
+              <td><?= $tl2->nisn ?></td>
+              <td><?= $tl2->tgl_bayar ?></td>
+              <td><?= $tl2->bulan_dibayar ?></td>
+              <td><?= $tl2->tahun_dibayar ?></td>
+              <td><?= $tl2->id_spp ?></td>
+              <td><?= $tl2->jumlah_bayar ?></td>
               <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl2->id_history ?>">
                   <i class="fas fa-eye"></i></a>
               </td>
@@ -124,6 +136,7 @@
         <th><?= $tabel2_field6_alias ?></th>
         <th><?= $tabel2_field7_alias ?></th>
         <th><?= $tabel2_field8_alias ?></th>
+        <th><?= $tabel2_field9_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
@@ -175,7 +188,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel2_field7_alias ?></label>
-                    <p><?= $tl2->tamu ?></p>
+                    <p><?= $tl2->siswa ?></p>
                   </div>
                   <hr>
 

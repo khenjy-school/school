@@ -1,6 +1,12 @@
-<?php if ($this->session->userdata('level') <> 'administrator') {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+  case 'administrator':
+    // case 'petugas':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
@@ -116,8 +122,8 @@
             <!-- hanya admin yang bisa menentukan level user -->
             <select class="form-control" required name="level">
               <option value="" selected hidden>Pilih <?= $tabel9_field6_alias ?></option>
-              <option value="tamu">tamu</option>
-              <option value="resepsionis">resepsionis</option>
+              <option value="siswa">siswa</option>
+              <option value="petugas">petugas</option>
               <option value="accounting">accounting</option>
               <option value="administrator">administrator</option>
             </select>
@@ -179,8 +185,8 @@
               </div>
               <select class="form-control" required name="level">
                 <option selected hidden><?= $tl9->level; ?></option>
-                <option value="tamu">tamu</option>
-                <option value="resepsionis">resepsionis</option>
+                <option value="siswa">siswa</option>
+                <option value="petugas">petugas</option>
                 <option value="accounting">accounting</option>
                 <option value="administrator">administrator</option>
               </select>

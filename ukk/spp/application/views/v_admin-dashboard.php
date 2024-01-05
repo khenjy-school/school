@@ -1,88 +1,93 @@
 <!-- mengarahkan ke no_level jika user tidak memiliki level -->
-<?php if (!$this->session->userdata('level')) {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+  case 'administrator':
+  case 'petugas':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
 <div class="row">
 
   <!-- menampilkan data untuk administrator -->
-  <?php if ($this->session->userdata('level') == 'administrator') { ?>
-    <div class="col-lg-3 mt-2">
-      <div class="card text-white bg-primary">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel6_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel6 ?></p>
-          <a class="text-white" href="<?= site_url('spp') ?>">Lihat Detail >></a>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-lg-3 mt-2">
-      <div class="card text-white bg-secondary">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel1_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel1 ?></p>
-          <a class="text-white" href="<?= site_url('faskamar') ?>">Lihat Detail >></a>
+  <?php switch ($this->session->userdata('level')) {
+    case 'administrator': ?>
+      <div class="col-lg-3 mt-2">
+        <div class="card text-white bg-primary">
+          <div class="card-body">
+            <h5 class="card-title"><?= $tabel6_alias ?></h5>
+            <p class="card-text" style="font-size: 32;"><?= $tabel6 ?></p>
+            <a class="text-white" href="<?= site_url('spp') ?>">Lihat Detail >></a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-lg-3 mt-2">
-      <div class="card text-white bg-success">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel3_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel3 ?></p>
-          <a class="text-white" href="<?= site_url('fashotel') ?>">Lihat Detail >></a>
+      <div class="col-lg-3 mt-2">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title"><?= $tabel9_alias ?></h5>
+            <p class="card-text" style="font-size: 32;"><?= $tabel9 ?></p>
+            <a class="text-white" href="<?= site_url('user') ?>">Lihat Detail >></a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-lg-3 mt-2">
-      <div class="card text-white bg-danger">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel9_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel9 ?></p>
-          <a class="text-white" href="<?= site_url('user') ?>">Lihat Detail >></a>
+      <div class="col-lg-3 mt-2">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title"><?= $tabel4_alias ?></h5>
+            <p class="card-text" style="font-size: 32;"><?= $tabel4 ?></p>
+            <a class="text-white" href="<?= site_url('petugas') ?>">Lihat Detail >></a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-lg-3 mt-2">
-      <div class="card text-white bg-danger">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel4_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel4 ?></p>
-          <a class="text-white" href="<?= site_url('petugas') ?>">Lihat Detail >></a>
+      <div class="col-lg-3 mt-2">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h5 class="card-title"><?= $tabel5_alias ?></h5>
+            <p class="card-text" style="font-size: 32;"><?= $tabel5 ?></p>
+            <a class="text-white" href="<?= site_url('kelas') ?>">Lihat Detail >></a>
+          </div>
         </div>
       </div>
-    </div>
+    <?php break;
 
-    <!-- menampilkan data untuk resepsionis -->
-  <?php } elseif (($this->session->userdata('level') == 'resepsionis')) { ?>
-    <div class="col-lg-2 mt-2">
-      <div class="card text-white bg-primary">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel8_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel8 ?></p>
-          <a class="text-white" href="<?= site_url('pembayaran') ?>">Lihat Detail >></a>
+    case 'petugas': ?>
+      <div class="col-lg-2 mt-2">
+        <div class="card text-white bg-primary">
+          <div class="card-body">
+            <h5 class="card-title"><?= $tabel8_alias ?></h5>
+            <p class="card-text" style="font-size: 32;"><?= $tabel8 ?></p>
+            <a class="text-white" href="<?= site_url('pembayaran') ?>">Lihat Detail >></a>
+          </div>
         </div>
       </div>
-    </div>
+    <?php break;
 
-  <?php } elseif (($this->session->userdata('level') == 'accounting')) { ?>
-    <div class="col-lg-2 mt-2">
-      <div class="card text-white bg-success">
-        <div class="card-body">
-          <h5 class="card-title"><?= $tabel10_alias ?></h5>
-          <p class="card-text" style="font-size: 32;"><?= $tabel10 ?></p>
-          <a class="text-white" href="<?= site_url('transaksi') ?>">Lihat Detail >></a>
+    case 'accounting': ?>
+      <div class="col-lg-2 mt-2">
+        <div class="card text-white bg-success">
+          <div class="card-body">
+            <h5 class="card-title"><?= $tabel10_alias ?></h5>
+            <p class="card-text" style="font-size: 32;"><?= $tabel10 ?></p>
+            <a class="text-white" href="<?= site_url('transaksi') ?>">Lihat Detail >></a>
+          </div>
         </div>
       </div>
-    </div>
+    <?php break;
+
+
+    default: ?>
+
 
   <?php } ?>
+
 
 </div>
 

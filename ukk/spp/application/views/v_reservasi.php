@@ -17,7 +17,7 @@
     <tbody>
       <?php foreach ($tabel8 as $tl8) : ?>
         <tr>
-          <td><?= $tl8->tamu ?></td>
+          <td><?= $tl8->siswa ?></td>
           <td><?= $tl8->cek_in ?></td>
           <td><?= $tl8->cek_out ?></td>
           <td><?= $tl8->status ?></td>
@@ -32,20 +32,21 @@
               <?php } ?>
             <?php endforeach ?>
 
-            <?php if ($tl8->status == 'belum bayar') { ?>
-              <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $tl8->id_pembayaran ?>" href="#">
-                <i class="fas fa-shopping-cart"></i></a>
-            <?php } elseif (
-              $tl8->status == 'menunggu'
-              || $tl8->status == 'cek in'
-            ) { ?>
-              <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
-                <i class="fas fa-print"></i></a>
+            <?php switch ($tl8->status) {
+              case 'belum bayar': ?>
+                <a class="btn btn-danger text-light" data-toggle="modal" data-target="#bayar<?= $tl8->id_pembayaran ?>" href="#">
+                  <i class="fas fa-shopping-cart"></i></a>
+              <?php break;
+
+              case 'menunggu':
+              case 'cek in': ?>
+                <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
+                  <i class="fas fa-print"></i></a>
+              <?php break;
+
+              default: ?>
 
             <?php } ?>
-
-
-
           </td>
         </tr>
       <?php endforeach ?>
@@ -112,7 +113,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label><?= $tabel8_field6_alias ?></label>
-                  <p><?= $tl8->tamu ?></p>
+                  <p><?= $tl8->siswa ?></p>
                 </div>
                 <hr>
 
@@ -230,7 +231,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><?= $tabel8_field6_alias ?></label>
-                    <p><?= $tl8->tamu ?></p>
+                    <p><?= $tl8->siswa ?></p>
                   </div>
                   <hr>
 
@@ -315,7 +316,7 @@ endforeach ?>
 
                   <div class="form-group">
                     <label><?= $tabel8_field6_alias ?></label>
-                    <p><?= $tl8->tamu ?></p>
+                    <p><?= $tl8->siswa ?></p>
                   </div>
                   <hr>
 

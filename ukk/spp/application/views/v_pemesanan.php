@@ -51,7 +51,7 @@
   <hr>
 
   <!-- Di bawah ini adalah fitur yang ditetapkan sebagai unfinished, yakni fitur untuk mengelola array dari jumlah pembayaran yang telah dilakukan. -->
-  <!-- Dengan fitur ini, tamu dapat memesan lebih dari satu kelas  -->
+  <!-- Dengan fitur ini, siswa dapat memesan lebih dari satu kelas  -->
   <!-- dan mendapatkan pembayaran yang terpisah masing-masing -->
   <!-- Sebenarnya lebih baik jika menggunakan tabel pembayaran dan tabel detail pembayaran -->
   <!-- Namun hal itu hanya akan mempersulit masalah yang sudah ada -->
@@ -92,8 +92,8 @@
       </div>
 
       <div class="form-group">
-        <label>Tamu</label>
-        <input class="form-control" type="text" required name="tamu" placeholder="Masukkan nama tamu">
+        <label>siswa</label>
+        <input class="form-control" type="text" required name="siswa" placeholder="Masukkan nama siswa">
       </div>
 
       <div class="form-group">

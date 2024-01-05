@@ -52,7 +52,7 @@ class M_history extends CI_Model
 		return $this->db->query($filter);
 	}
 
-	public function filter_tamu($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
+	public function filter_siswa($cek_in_min, $cek_in_max, $cek_out_min, $cek_out_max, $where)
 	{
 		$filter = "SELECT * FROM history WHERE 
 		id_petugas IN ('" . $where . "') AND

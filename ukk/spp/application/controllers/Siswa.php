@@ -93,7 +93,9 @@ class Siswa extends Welcome
 			$this->v_part3 => $this->tabel4_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel4' =>  $this->tl4->ambildata()->result()
+			'tabel4' =>  $this->tl4->ambildata()->result(),
+			'tabel5' =>  $this->tl5->ambildata()->result(),
+			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 
 		$this->declarew();

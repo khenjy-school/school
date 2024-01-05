@@ -181,8 +181,8 @@ class Welcome extends CI_Controller
 	public $tabel9_field6_value1 = '';
 	public $tabel9_field6_value2 = 'accounting';
 	public $tabel9_field6_value3 = 'administrator';
-	public $tabel9_field6_value4 = 'resepsionis';
-	public $tabel9_field6_value5 = 'tamu';
+	public $tabel9_field6_value4 = 'petugas';
+	public $tabel9_field6_value5 = 'siswa';
 	public $tabel9_field7 = 'login_count';
 	public $tabel9_field7_alias = 'Jumlah Login';
 
@@ -431,7 +431,7 @@ class Welcome extends CI_Controller
 			'tabel2_field4_alias' => 'Nama Pemesan',
 			'tabel2_field5_alias' => 'Email',
 			'tabel2_field6_alias' => 'No HP',
-			'tabel2_field7_alias' => 'Tamu',
+			'tabel2_field7_alias' => 'siswa',
 			'tabel2_field8_alias' => 'Tipe',
 			'tabel2_field9_alias' => 'Jumlah',
 			'tabel2_field10_alias' => 'Harga Total',
@@ -518,72 +518,74 @@ class Welcome extends CI_Controller
 	// fungsi pertama yang akan diload oleh website
 	public function index($id = 1)
 	{
-
 		$this->declarew();
 		// mengarahkan pengguna ke halaman masing-masing sesuai level
-		if (
-			$this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value2
-			|| $this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value3
-			|| $this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value4
-		) {
+		switch ($this->session->userdata($this->tabel9_userdata6)) {
+			case $this->tabel9_field6_value2:
+			case $this->tabel9_field6_value3:
+			case $this->tabel9_field6_value4:
 
-			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+				$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
+				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 
-			redirect(site_url($this->c5));
-		} else {
-			$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
-			$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
+				redirect(site_url($this->c5));
+				break;
 
-			// When you're the one who's developing this app, it's quite annoying to see this message over and over again.\
-			// The feature below isn't working as expected
-			// if ($this->session->userdata($this->tabel9_userdata7) < 2) {
-			// 	$this->session->set_flashdata($this->v_flashdata14, $this->v_flashdata14_msg1);
-			// 	$this->session->set_flashdata($this->v_flashdata_n, $this->v_flashdata_n_func1);
-			// } else {
-			// }
+			default:
+				$this->session->set_flashdata($this->v_flashdata1, $this->v_flashdata1_msg1);
+				$this->session->set_flashdata($this->v_flashdata_a, $this->v_flashdata_a_func1);
 
+				// When you're the one who's developing this app, it's quite annoying to see this message over and over again.\
+				// The feature below isn't working as expected
+				// if ($this->session->userdata($this->tabel9_userdata7) < 2) {
+				// 	$this->session->set_flashdata($this->v_flashdata14, $this->v_flashdata14_msg1);
+				// 	$this->session->set_flashdata($this->v_flashdata_n, $this->v_flashdata_n_func1);
+				// } else {
+				// }
 
-			$data1 = array(
+				$data1 = array(
 
-				$this->v_part1 => $this->v8_title,
-				$this->v_part3 => $this->v8,
-				$this->v_part2 => $this->head,
-				$this->v_part4 => $this->v_part4_msg1,
-				'tabel7' => $this->tl7->ambil($id)->result(),
-			);
+					$this->v_part1 => $this->v8_title,
+					$this->v_part3 => $this->v8,
+					$this->v_part2 => $this->head,
+					$this->v_part4 => $this->v_part4_msg1,
+					'tabel7' => $this->tl7->ambil($id)->result(),
+				);
 
-			$data = array_merge($data1, $this->aliases);
+				$data = array_merge($data1, $this->aliases);
 
-			$this->load->view($this->v7, $data);
+				$this->load->view($this->v7, $data);
 		}
 	}
 
 	public function pemesanan($id = 1)
 	{
 		$this->declarew();
-		if ($this->session->userdata($this->tabel9_userdata6) === $this->tabel9_field6_value5) {
-			$data1 = array(
-				$this->v_part1 => $this->v9_title,
-				$this->v_part2 => $this->head,
-				$this->v_part3 => $this->v9,
-				'tabel7' => $this->tl7->ambil($id)->result(),
-				'tabel6' =>  $this->tl6->ambildata()->result(),
-				$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
-				$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
-				$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
-			);
+		switch ($this->session->userdata($this->tabel9_userdata6)) {
+			case $this->tabel9_field6_value5:
+				$data1 = array(
+					$this->v_part1 => $this->v9_title,
+					$this->v_part2 => $this->head,
+					$this->v_part3 => $this->v9,
+					'tabel7' => $this->tl7->ambil($id)->result(),
+					'tabel6' =>  $this->tl6->ambildata()->result(),
+					$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
+					$this->tabel8_v_input11 => $this->tabel8_v_input11_get,
+					$this->tabel8_v_input8 => $this->tabel8_v_input8_get,
+				);
 
-			$halaman = $this->v7;
-		} else {
-			$data1 = array(
-				$this->v_part1 => $this->v2_title,
-				$this->v_part2 => $this->head,
-				$this->v_part4 => $this->v_part4_msg1,
-				'tabel7' => $this->tl7->ambil($id)->result()
+				$halaman = $this->v7;
+				break;
+				
+			default:
+				$data1 = array(
+					$this->v_part1 => $this->v2_title,
+					$this->v_part2 => $this->head,
+					$this->v_part4 => $this->v_part4_msg1,
+					'tabel7' => $this->tl7->ambil($id)->result()
 
-			);
-			$halaman = $this->v2;
+				);
+				$halaman = $this->v2;
 		}
 
 		$this->declarew();
@@ -647,6 +649,7 @@ class Welcome extends CI_Controller
 			'tabel8' =>  $this->tl8->ambildata()->num_rows(),
 			// 'tabel10' =>  $this->tl10->ambildata()->num_rows(),
 			'tabel4' =>  $this->tl4->ambildata()->num_rows(),
+			'tabel5' =>  $this->tl5->ambildata()->num_rows(),
 			'tabel9' =>  $this->tl9->ambildata()->num_rows(),
 			$this->tabel8_v_input10 => $this->tabel8_v_input10_get,
 			$this->tabel8_v_input11 => $this->tabel8_v_input11_get,

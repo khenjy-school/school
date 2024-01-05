@@ -9,15 +9,15 @@
         Master Data <i class="fas fa-caret-down"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <h6 class="dropdown-header">Data Hotel</h6>
+        <h6 class="dropdown-header">Pembayaran</h6>
         <a class="dropdown-item" href="<?= site_url('spp') ?>"><?= $tabel6_alias ?></a>
-        <a class="dropdown-item" href="<?= site_url('faskamar') ?>"><?= $tabel1_alias ?></a>
-        <a class="dropdown-item" href="<?= site_url('fashotel') ?>"><?= $tabel3_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('pembayaran') ?>"><?= $tabel8_alias ?></a>
 
         <div class="dropdown-divider"></div>
-        <h6 class="dropdown-header">Operasional Hotel</h6>
-        <a class="dropdown-item" href="<?= site_url('petugas') ?>"><?= $tabel4_alias ?></a>
-        <a class="dropdown-item" href="<?= site_url('user') ?>"><?= $tabel9_alias ?></a>
+        <h6 class="dropdown-header">Operasional Sekolah</h6>
+        <a class="dropdown-item" href="<?= site_url('siswa') ?>"><?= $tabel4_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('kelas') ?>"><?= $tabel5_alias ?></a>
+        <a class="dropdown-item" href="<?= site_url('petugas') ?>"><?= $tabel9_alias ?></a>
       </div>
     </div>
   </li>

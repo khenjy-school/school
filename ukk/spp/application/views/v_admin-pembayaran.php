@@ -1,74 +1,94 @@
-<?php if ($this->session->userdata('level') <> 'resepsionis') {
-  redirect(site_url('welcome/no_level'));
-} ?>
+<?php switch ($this->session->userdata('level')) {
+  case 'administrator':
+  case 'petugas':
+    break;
+
+  default:
+    redirect(site_url('welcome/no_level'));
+}
+?>
 
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
-<!-- tabel fiter pembayaran -->
-<table class="mb-4">
+<!-- tabel fiter history -->
+<table class="mb-8">
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
-  <form action="<?= site_url('pembayaran/filter') ?>" method="get">
+  <!-- Mengecek data menggunakan tanggal cek in -->
+  <form action="<?= site_url('siswa/cari') ?>" method="get">
     <tr>
 
-      <td class="pr-2"><?= $tabel8_field10_alias ?></td>
+      <td class="pr-2"><?= $tabel8_field3_alias ?></td>
       <td class="pr-2">
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">Dari</span>
+            <span class="input-group-text">Masukkan</span>
           </div>
-          <input type="date" class="form-control" name="cek_in_min" value="<?= $cek_in_min ?>">
+          <input type="text" class="form-control" name="nisn" value="<?= $nisn ?>">
         </div>
       </td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Ke</span>
-          </div>
-          <input type="date" class="form-control" name="cek_in_max" value="<?= $cek_in_max ?>">
-        </div>
-      </td>
-
       <td>
         <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('pembayaran') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url('history') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
     </tr>
 
-
     <!-- Mengecek data menggunakan tanggal cek out -->
     <!-- method get supaya nilai dari filter bisa tampil nanti -->
-    <tr>
-
-      <td class="pr-2"><?= $tabel8_field11_alias ?></td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Dari</span>
-          </div>
-          <input type="date" class="form-control" name="cek_out_min" value="<?= $cek_out_min ?>">
-
-        </div>
-      </td>
-      <td class="pr-2">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Ke</span>
-          </div>
-          <input type="date" class="form-control" name="cek_out_max" value="<?= $cek_out_max ?>">
-        </div>
-
-      </td>
-
-
-    </tr>
   </form>
 </table>
+
+<h1>Biodata Siswa<?= $phase ?></h1>
+<hr>
+
+<div class="table-responsive">
+  <table class="table table-light" id="data">
+    <thead></thead>
+    <tbody>
+      <?php foreach ($tabel4 as $tl4) : ?>
+        <tr>
+          <td class="table-secondary table-active"><?= $tabel4_field1_alias ?></td>
+          <td class="table-light"><?= $tl4->nisn ?></td>
+        </tr>
+
+        <tr>
+          <td class="table-secondary table-active"><?= $tabel4_field2_alias ?></td>
+          <td class="table-light"><?= $tl4->nis ?></td>
+        </tr>
+
+        <tr>
+          <td class="table-secondary table-active"><?= $tabel4_field3_alias ?></td>
+          <td class="table-light"><?= $tl4->nama ?></td>
+        </tr>
+
+        <tr>
+          <td class="table-secondary table-active"><?= $tabel4_field4_alias ?></td>
+          <td class="table-light"><?= $tl4->id_kelas ?></td>
+        </tr>
+
+        <tr>
+          <td class="table-secondary table-active"><?= $tabel4_field5_alias ?></td>
+          <td class="table-light"><?= $tl4->alamat ?></td>
+        </tr>
+
+        <tr>
+          <td class="table-secondary table-active"><?= $tabel4_field6_alias ?></td>
+          <td class="table-light"><?= $tl4->no_telp ?></td>
+        </tr>
+      <?php endforeach ?>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
+
+<br><br>
+<h1>Pembayaran SPP<?= $phase ?></h1>
+<hr>
 
 <div class="table-responsive">
   <table class="table table-light" id="data">
@@ -87,6 +107,12 @@
     </thead>
 
     <tbody>
+      <tr class="table-info text-center">
+        <td colspan="9">
+          <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#entri">
+            + Tambah Entri</a>
+        </td>
+      </tr>
       <?php foreach ($tabel8 as $tl8) : ?>
         <tr>
           <td><?= $tl8->id_pembayaran ?></td>
@@ -101,19 +127,28 @@
           <td>
 
             <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-            <?php if ($tl8->status == 'pending') { ?>
-              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pembayaran ?>">
-                <i class="fas fa-bell-concierge"></i></a>
-            <?php } elseif ($tl8->status == 'menunggu') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
-                <i class="fas fa-edit"></i></a>
-            <?php } elseif ($tl8->status == 'cek in') { ?>
-              <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
-                <i class="fas fa-edit"></i></a>
+            <?php switch ($tl8->status) {
+              case 'pending': ?>
+                <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pembayaran ?>">
+                  <i class="fas fa-bell-concierge"></i></a>
+              <?php break;
 
-            <?php } elseif ($tl8->status == 'cek out') { ?>
-              <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url('pembayaran/hapus/' . $tl8->id_pembayaran) ?>">
-                <i class="fas fa-trash"></i></a>
+              case 'menungggu': ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
+                  <i class="fas fa-edit"></i></a>
+              <?php break;
+
+              case 'cek in': ?>
+                <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl8->id_pembayaran ?>">
+                  <i class="fas fa-edit"></i></a>
+              <?php break;
+
+              case 'cek out': ?>
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url('pembayaran/hapus/' . $tl8->id_pembayaran) ?>">
+                  <i class="fas fa-trash"></i></a>
+              <?php break;
+
+              default: ?>
             <?php } ?>
 
             <!-- tombol print, hasil print akan muncul di tab baru 
@@ -145,276 +180,120 @@
   </table>
 </div>
 
-<!-- modal ubah -->
-<?php foreach ($tabel8 as $tl8) : ?>
-  <div id="ubah<?= $tl8->id_pembayaran ?>" class="modal fade ubah">
-    <?php foreach ($tabel6 as $tl6) : ?>
-      <?php if ($tl6->id_spp === $tl8->id_spp) { ?>
-        <!-- <div class="modal-dialog"> -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Pesanan <?= $tl8->id_pembayaran ?></h5>
 
-              <button class="close" data-dismiss="modal">
-                <span>&times;</span>
-              </button>
-            </div>
+<div id="entri" class="modal fade bayar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tambah Entri</h5>
 
-            <!-- form untuk mengubah nilai status sebuah pembayaran -->
-            <form action="<?= site_url('pembayaran/update_status') ?>" method="post">
-              <div class="modal-body">
-                <div class="row">
+        <button class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+
+      <form action="<?= site_url('transaksi/tambah') ?>" method="post" enctype="multipart/form-data">
+
+        <div class="modal-body">
+          <div class="row">
+
+            <!-- Data siswa -->
+            <?php foreach ($tabel4 as $tl4) : ?>
+              <?php foreach ($tabel6 as $tl6) : ?>
+                <?php if ($tl4->id_spp == $tl6->id_spp) { ?>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label><?= $tabel8_field1_alias ?></label>
-                      <p><?= $tl8->id_pembayaran ?></p>
-                      <input type="hidden" name="id_pembayaran" value="<?= $tl8->id_pembayaran; ?>">
-                      <input type="hidden" name="id_spp" value="<?= $tl8->id_spp; ?>">
-
-                      <!-- input status berdasarkan nilai status -->
-                      <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pembayaran -->
-                      <?php if ($tl8->status == 'belum bayar') { ?>
-                        <input type="hidden" name="status" value="menunggu">
-                      <?php } elseif ($tl8->status == 'menunggu') { ?>
-                        <input type="hidden" name="status" value="cek in">
-                      <?php } elseif ($tl8->status == 'cek in') { ?>
-                        <input type="hidden" name="status" value="cek out">
-                      <?php } ?>
-
+                      <label><?= $tabel4_field1_alias ?></label>
+                      <p><?= $tl4->nisn ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label><?= $tabel8_field3_alias ?></label>
-                      <p><?= $tl8->pemesan ?></p>
+                      <label><?= $tabel4_field2_alias ?></label>
+                      <p><?= $tl4->nis ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label><?= $tabel8_field4_alias ?></label>
-                      <p><?= $tl8->email ?></p>
+                      <label><?= $tabel4_field3_alias ?></label>
+                      <p><?= $tl4->nama ?></p>
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label><?= $tabel8_field5_alias ?></label>
-                      <p><?= $tl8->hp ?></p>
+                      <label><?= $tabel4_field4_alias ?></label>
+                      <p><?= $tl4->id_kelas ?></p>
                     </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel4_field5_alias ?></label>
+                      <p><?= $tl4->alamat ?></p>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                      <label><?= $tabel4_field6_alias ?></label>
+                      <p><?= $tl4->no_telp ?></p>
+                    </div>
+                    <hr>
                   </div>
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label><?= $tabel8_field6_alias ?></label>
-                      <p><?= $tl8->tamu ?></p>
-                    </div>
-                    <hr>
 
+                  <!-- Data SPP -->
+
+                  <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tl6->tipe ?></p>
+                      <p><?= $tl6->tahun ?></p>
+                      <input type="hidden" name="id_spp" value="<?= $tl6->id_spp ?>">
                     </div>
                     <hr>
 
                     <div class="form-group">
-                      <label><?= $tabel8_field10_alias ?></label>
-                      <p><?= $tl8->cek_in ?></p>
+                      <label><?= $tabel6_field3_alias ?></label>
+                      <p>Rp <?= number_format($tl6->nominal, '2', ',', '.') ?></p>
                     </div>
                     <hr>
 
+
+
+                    <!-- Di bawah ini adalah form input pembayaran -->
                     <div class="form-group">
-                      <label><?= $tabel8_field11_alias ?></label>
-                      <p><?= $tl8->cek_out ?></p>
+                      <label><?= $tabel8_field4_alias ?> </label>
+                      <input class="form-control" type="date" required name="tgl_bayar" min="<?= date('Y-m-d'); ?>">
+                    </div>
+
+                    <div class="form-group">
+                      <label><?= $tabel8_field5_alias ?> </label>
+                      <input class="form-control" readonly type="number" required name="bulan" placeholder="Masukkan <?= $tabel8_field5_alias ?>">
+                    </div>
+
+                    <div class="form-group">
+                      <label><?= $tabel8_field6_alias ?> </label>
+                      <input class="form-control" readonly type="number" required name="tahun" placeholder="Masukkan <?= $tabel8_field6_alias ?>">
+                    </div>
+
+                    <div class="form-group">
+                      <label><?= $tabel8_field8_alias ?> </label>
+                      <input class="form-control" readonly type="number" required name="jumlah_bayar" placeholder="Masukkan <?= $tabel8_field8_alias ?>" value="<?= $tl6->nominal ?>">
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <!-- memunculkan notifikasi modal -->
-              <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
-
-              <div class="modal-footer">
-
-                <!-- pesan yg muncul berdasarkan nilai status -->
-                <?php if ($tl8->status == 'belum bayar') { ?>
-                  <p>Selesaikan Dulu Transaksi</p>
-                <?php } elseif ($tl8->status == 'menunggu') { ?>
-                  <p>Ubah Status Menjadi Cek In?</p>
-                  <button class="btn btn-success" type="submit">Ya</button>
-                <?php } elseif ($tl8->status == 'cek in') { ?>
-                  <p>Ubah Status Menjadi Cek Out?</p>
-                  <button class="btn btn-success" type="submit">Ya</button>
                 <?php } ?>
-
-              </div>
-            </form>
-
+              <?php endforeach; ?>
+            <?php endforeach; ?>
           </div>
-        <!-- </div> -->
-    <?php }
-    endforeach; ?>
+        </div>
+
+        <!-- pesan untuk pengguna yang sedang merubah password -->
+        <p id="p_bayar" class="small text-center text-danger"><?= $this->session->flashdata('pesan_bayar') ?></p>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Bayar</button>
+        </div>
+      </form>
+
+    </div>
   </div>
-<?php endforeach ?>
-
-<!-- modal book -->
-<?php foreach ($tabel8 as $tl8) : ?>
-  <div id="book<?= $tl8->id_pembayaran ?>" class="modal fade book">
-    <?php foreach ($tabel6 as $tl6) : ?>
-      <?php if ($tl6->id_spp === $tl8->id_spp) { ?>
-        <!-- <div class="modal-dialog"> -->
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title"><?= $tabel8_alias ?> <?= $tl8->id_pembayaran ?></h5>
-
-              <button class="close" data-dismiss="modal">
-                <span>&times;</span>
-              </button>
-            </div>
-
-            <!-- form untuk mengubah nilai status sebuah pembayaran -->
-            <form action="<?= site_url('pembayaran/book') ?>" method="post">
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label><?= $tabel8_field1_alias ?></label>
-                      <p><?= $tl8->id_pembayaran ?></p>
-                      <input type="hidden" name="id_pembayaran" value="<?= $tl8->id_pembayaran; ?>">
-                      <input type="hidden" name="id_spp" value="<?= $tl8->id_spp; ?>">
-
-                      <!-- input status berdasarkan nilai status -->
-                      <!-- seharusnya jika status masih belum bayar, resepsionis tidak bisa melakukan apa-apa terhadap pembayaran -->
-                      <?php if ($tl8->status == 'belum bayar') { ?>
-                        <input type="hidden" name="status" value="menunggu">
-                      <?php } elseif ($tl8->status == 'menunggu') { ?>
-                        <input type="hidden" name="status" value="cek in">
-                      <?php } elseif ($tl8->status == 'cek in') { ?>
-                        <input type="hidden" name="status" value="cek out">
-                      <?php } ?>
-
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field3_alias ?></label>
-                      <p><?= $tl8->pemesan ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field4_alias ?></label>
-                      <p><?= $tl8->email ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field5_alias ?></label>
-                      <p><?= $tl8->hp ?></p>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label><?= $tabel8_field6_alias ?></label>
-                      <p><?= $tl8->tamu ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel6_field2_alias ?></label>
-                      <p><?= $tl6->tipe ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field10_alias ?></label>
-                      <p><?= $tl8->cek_in ?></p>
-                    </div>
-                    <hr>
-
-                    <div class="form-group">
-                      <label><?= $tabel8_field11_alias ?></label>
-                      <p><?= $tl8->cek_out ?></p>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label>Pilih <?= $tabel5_field1_alias ?></label>
-
-                      <div class="row">
-
-                        <!-- <select class="form-control" required name="id_kelas"> -->
-                        <!-- menampilkan nilai id_spp kelas yang aktif -->
-                        <!-- <option selected hidden value="">Pilih No Kamar:</option> -->
-                        <!-- <option value="<?= $tl5->id_kelas ?>"><?= $tl5->id_kelas; ?> - <?= $tl6->tipe ?></option> -->
-                        <!-- </select> -->
-
-                        <?php foreach ($tabel5 as $tl5) :
-                          if ($tl8->id_spp == $tl5->id_spp) {
-                            if ($tl5->id_spp == $tl6->id_spp) {
-                              if ($tl5->status == 'Available') { ?>
-
-                                <div class="col-md-3 mb-4">
-
-                                  <div class="card bg-light">
-                                    <div class="card-body text-center">
-
-                                      <div class="checkbox-group">
-                                        <p class="card-text"><?= $tl5->id_kelas; ?></p>
-
-                                        <div class="btn-group-toggle" data-toggle="buttons">
-                                          <label class="btn btn-primary">
-
-                                            <input type="checkbox" name="id_kelas" id="option1" class="checkbox-option" value="<?= $tl5->id_kelas ?>" required>
-
-
-                                          </label>
-                                        </div>
-                                      </div>
-
-                                      <!-- <div style="margin-bottom: 20px;" class="form-check d-flex justify-content-center">
-                                        <input class="custom-radio form-check-input" type="radio" id="radio_1" name="id_kelas" value="<?= $tl5->id_kelas ?>" required>
-                                      </div> -->
-
-                                    </div>
-                                  </div>
-
-                                </div>
-
-
-                        <?php }
-                            }
-                          }
-                        endforeach; ?>
-
-                      </div>
-
-
-                      <p>*Jika tidak ada, berarti semua <?= $tabel5_alias ?> full</p>
-                      <input type="hidden" name="status" value="belum bayar">
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- memunculkan notifikasi modal -->
-              <p id="p_book" class="small text-center text-danger"><?= $this->session->flashdata('pesan_book') ?></p>
-
-              <div class="modal-footer">
-
-                <p>Pesan <?= $tabel5_alias ?>?</p>
-                <button class="btn btn-success" type="submit">Ya</button>
-
-              </div>
-            </form>
-
-          </div>
-        <!-- </div> -->
-
-    <?php }
-    endforeach ?>
-  </div>
-<?php endforeach ?>
+</div>

@@ -72,13 +72,7 @@ class Spp extends Welcome
 		$this->tabel6_v_input1_post = $this->input->post($this->tabel6_field1);
 		$this->tabel6_v_input1_alt = '';
 		$this->tabel6_v_input2_post = $this->input->post($this->tabel6_field2);
-		$this->tabel6_v_input3 = $this->tabel6_field3;
-		$this->tabel6_v_input3_upload_path = './assets/' . $this->tabel6_field3 . '/' . $this->tabel6 . '/';
-		$this->tabel6_v_input3_post = $this->input->post($this->tabel6_v_input3_post);
-		$this->tabel6_v_input3_alt = 'txt' . $this->tabel6_v_input3;
-
-		$this->tabel6_v_input4_post = $this->input->post($this->tabel6_field4);
-		$this->tabel6_v_input5_post = $this->input->post($this->tabel6_field5);
+		$this->tabel6_v_input3_post = $this->input->post($this->tabel6_field3);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel6_v_flashdata1_msg_1 = 'Data ' . $this->tabel6_alias . ' berhasil disimpan!';
@@ -87,10 +81,6 @@ class Spp extends Welcome
 		$this->tabel6_v_flashdata1_msg_4 = 'Data ' . $this->tabel6_alias . ' gagal diubah!';
 		$this->tabel6_v_flashdata1_msg_5 = 'Data ' . $this->tabel6_alias . ' berhasil dihapus!';
 		$this->tabel6_v_flashdata1_msg_6 = 'Data ' . $this->tabel6_alias . ' gagal dihapus!';
-
-		// deklarasi variabel menampilkan pesan modal
-		$this->tabel6_v_flashdata3_msg_1 =  $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
-		$this->tabel6_v_flashdata4_msg_1 = $this->tabel3_field4_alias . ' ' . $this->tabel3_alias . ' tidak bisa diupload';
 	}
 
 
@@ -116,30 +106,10 @@ class Spp extends Welcome
 	public function tambah()
 	{
 		$this->declare();
-		$config['upload_path'] = $this->tabel6_v_input3_upload_path;
-		$config['allowed_types'] = $this->file_type1;
-		$config['remove_spaces'] = TRUE;
-
-		$this->load->library('upload', $config);
-
-		if (!$this->upload->do_upload($this->tabel6_v_input3)) {
-			// Di sini seharusnya ada notifikasi modal kalau upload tidak berhasil
-			// Tapi karena formnya sudah required saya rasa tidak perlu
-
-			$this->session->set_flashdata($this->v_flashdata3, $this->tabel6_v_flashdata3_msg_1);
-			$this->session->set_flashdata($this->v_flashdata_c, $this->v_flashdata_c_func1);
-			redirect($_SERVER['HTTP_REFERER']);
-		} else {
-			// Di bawah ini adalah method untuk mengambil informasi dari hasil upload data
-			$upload = $this->upload->data();
-			$gambar = $upload['file_name'];
-		}
-
 		$data = array(
 			$this->tabel6_field1 => $this->tabel6_v_input1_alt,
 			$this->tabel6_field2 => $this->tabel6_v_input2_post,
-			$this->tabel6_field3 => $gambar,
-			$this->tabel6_field5 => $this->tabel6_v_input5_post,
+			$this->tabel6_field3 => $this->tabel6_v_input3_post,
 		);
 
 		// $query = 'INSERT INTO spp VALUES('.$data.')';
