@@ -32,7 +32,7 @@
         <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('history') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url('pembayaran') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
@@ -43,92 +43,95 @@
   </form>
 </table>
 
-<h1>Biodata Siswa<?= $phase ?></h1>
-<hr>
+<?php foreach ($tabel4 as $tl4) :
+  if ($tl4->nisn == '') { ?> <?php } else { ?>
 
-<div class="table-responsive">
-  <table class="table table-light" id="data">
-    <thead></thead>
-    <tbody>
-      <?php foreach ($tabel4 as $tl4) : ?>
-        <tr>
-          <td class="table-secondary table-active"><?= $tabel4_field1_alias ?></td>
-          <td class="table-light"><?= $tl4->nisn ?></td>
-        </tr>
+    <h1>Biodata Siswa<?= $phase ?></h1>
+    <hr>
 
-        <tr>
-          <td class="table-secondary table-active"><?= $tabel4_field2_alias ?></td>
-          <td class="table-light"><?= $tl4->nis ?></td>
-        </tr>
+    <div class="table-responsive">
+      <table class="table table-light" id="data">
+        <thead></thead>
+        <tbody>
+          <?php foreach ($tabel4 as $tl4) : ?>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field1_alias ?></td>
+              <td class="table-light"><?= $tl4->nisn ?></td>
+            </tr>
 
-        <tr>
-          <td class="table-secondary table-active"><?= $tabel4_field3_alias ?></td>
-          <td class="table-light"><?= $tl4->nama ?></td>
-        </tr>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field2_alias ?></td>
+              <td class="table-light"><?= $tl4->nis ?></td>
+            </tr>
 
-        <tr>
-          <td class="table-secondary table-active"><?= $tabel4_field4_alias ?></td>
-          <td class="table-light"><?= $tl4->id_kelas ?></td>
-        </tr>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field3_alias ?></td>
+              <td class="table-light"><?= $tl4->nama ?></td>
+            </tr>
 
-        <tr>
-          <td class="table-secondary table-active"><?= $tabel4_field5_alias ?></td>
-          <td class="table-light"><?= $tl4->alamat ?></td>
-        </tr>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field4_alias ?></td>
+              <td class="table-light"><?= $tl4->id_kelas ?></td>
+            </tr>
 
-        <tr>
-          <td class="table-secondary table-active"><?= $tabel4_field6_alias ?></td>
-          <td class="table-light"><?= $tl4->no_telp ?></td>
-        </tr>
-      <?php endforeach ?>
-    </tbody>
-    <tfoot></tfoot>
-  </table>
-</div>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field5_alias ?></td>
+              <td class="table-light"><?= $tl4->alamat ?></td>
+            </tr>
 
-<br><br>
-<h1>Pembayaran SPP<?= $phase ?></h1>
-<hr>
+            <tr>
+              <td class="table-secondary table-active"><?= $tabel4_field6_alias ?></td>
+              <td class="table-light"><?= $tl4->no_telp ?></td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+    </div>
 
-<div class="table-responsive">
-  <table class="table table-light" id="data">
-    <thead class="thead-light">
-      <tr class="table-info text-center">
-        <td colspan="9">
-          <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#entri">
-            + Tambah Entri</a>
-        </td>
-      </tr>
-      <tr>
-        <th><?= $tabel8_field1_alias ?></th>
-        <th><?= $tabel8_field2_alias ?></th>
-        <th><?= $tabel8_field3_alias ?></th>
-        <th><?= $tabel8_field4_alias ?></th>
-        <th><?= $tabel8_field5_alias ?></th>
-        <th><?= $tabel8_field6_alias ?></th>
-        <th><?= $tabel8_field7_alias ?></th>
-        <th><?= $tabel8_field8_alias ?></th>
-        <th>Aksi</th>
-      </tr>
-    </thead>
+    <br><br>
+    <h1>Pembayaran SPP<?= $phase ?></h1>
+    <hr>
 
-    <tbody>
+    <div class="table-responsive">
+      <table class="table table-light" id="data">
+        <thead class="thead-light">
+          <tr class="table-info text-center">
+            <td colspan="9">
+              <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#entri">
+                + Tambah Entri</a>
+            </td>
+          </tr>
+          <tr>
+            <th><?= $tabel8_field1_alias ?></th>
+            <th><?= $tabel8_field2_alias ?></th>
+            <th><?= $tabel8_field3_alias ?></th>
+            <th><?= $tabel8_field4_alias ?></th>
+            <th><?= $tabel8_field5_alias ?></th>
+            <th><?= $tabel8_field6_alias ?></th>
+            <th><?= $tabel8_field7_alias ?></th>
+            <th><?= $tabel8_field8_alias ?></th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
 
-      <?php foreach ($tabel8 as $tl8) : ?>
-        <tr>
-          <td><?= $tl8->id_pembayaran ?></td>
-          <td><?= $tl8->id_petugas ?></td>
-          <td><?= $tl8->nisn ?></td>
-          <td><?= $tl8->tgl_bayar ?></td>
-          <td><?= $tl8->bulan_dibayar ?></td>
-          <td><?= $tl8->tahun_dibayar ?></td>
-          <td><?= $tl8->id_spp ?></td>
-          <td><?= $tl8->jumlah_bayar ?></td>
+        <tbody>
 
-          <td>
+          <?php foreach ($tabel8 as $tl8) : ?>
+            <tr>
+              <td><?= $tl8->id_pembayaran ?></td>
+              <td><?= $tl8->id_petugas ?></td>
+              <td><?= $tl8->nisn ?></td>
+              <td><?= $tl8->tgl_bayar ?></td>
+              <td><?= $tl8->bulan_dibayar ?></td>
+              <td><?= $tl8->tahun_dibayar ?></td>
+              <td><?= $tl8->id_spp ?></td>
+              <td>Rp <?= number_format($tl8->jumlah_bayar, '2', ',', '.') ?></td>
 
-            <!-- tombol yang akan muncul berdasarkan nilai dari status -->
-            <!-- switch ($tl8->status) {
+              <td>
+
+                <!-- tombol yang akan muncul berdasarkan nilai dari status -->
+                <!-- switch ($tl8->status) {
               case 'pending': ?>
                 <a class="btn btn-light text-success" type="button" data-toggle="modal" data-target="#book<?= $tl8->id_pembayaran ?>">
                   <i class="fas fa-bell-concierge"></i></a>
@@ -152,35 +155,36 @@
               default: ?>
              } ?> -->
 
-            <!-- tombol print, hasil print akan muncul di tab baru 
+                <!-- tombol print, hasil print akan muncul di tab baru 
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-            <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
-              <i class="fas fa-print"></i></a>
+                <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
+                  <i class="fas fa-print"></i></a>
 
-          </td>
+              </td>
 
-        </tr>
-      <?php endforeach ?>
-    </tbody>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
 
-    <tfoot>
-      <tr>
-        <th><?= $tabel8_field1_alias ?></th>
-        <th><?= $tabel8_field2_alias ?></th>
-        <th><?= $tabel8_field3_alias ?></th>
-        <th><?= $tabel8_field4_alias ?></th>
-        <th><?= $tabel8_field5_alias ?></th>
-        <th><?= $tabel8_field6_alias ?></th>
-        <th><?= $tabel8_field7_alias ?></th>
-        <th><?= $tabel8_field8_alias ?></th>
-        <th>Aksi</th>
-      </tr>
-    </tfoot>
-  </table>
-</div>
-
+        <tfoot>
+          <tr>
+            <th><?= $tabel8_field1_alias ?></th>
+            <th><?= $tabel8_field2_alias ?></th>
+            <th><?= $tabel8_field3_alias ?></th>
+            <th><?= $tabel8_field4_alias ?></th>
+            <th><?= $tabel8_field5_alias ?></th>
+            <th><?= $tabel8_field6_alias ?></th>
+            <th><?= $tabel8_field7_alias ?></th>
+            <th><?= $tabel8_field8_alias ?></th>
+            <th>Aksi</th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  <?php } ?>
+<?php endforeach; ?>
 
 <div id="entri" class="modal fade bayar">
   <div class="modal-dialog">

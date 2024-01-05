@@ -26,17 +26,17 @@
             <thead class="thead-">
               <tr>
                 <th><?= $tabel8_field1_alias ?></th>
+                <th><?= $tabel8_field2_alias ?></th>
                 <th><?= $tabel8_field3_alias ?></th>
                 <th><?= $tabel8_field4_alias ?></th>
-                <th><?= $tabel8_field5_alias ?></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td width="25%"><?= $tl8->id_pembayaran ?></td>
-                <td width="25%"><?= $tl8->pemesan ?></a>
-                <td width="25%"><?= $tl8->email ?></td>
-                <td width="25%"><?= $tl8->hp ?></td>
+                <td width="25%"><?= $tl8->id_petugas ?></td>
+                <td width="25%"><?= $tl8->nisn ?></td>
+                <td width="25%"><?= $tl8->tgl_bayar ?></td>
                 </td>
               </tr>
             </tbody>
@@ -46,19 +46,18 @@
           <table class="table">
             <thead class="thead">
               <tr>
+                <th><?= $tabel8_field5_alias ?></th>
                 <th><?= $tabel8_field6_alias ?></th>
-                <th><?= $tabel6_field2_alias ?></th>
-                <th><?= $tabel8_field10_alias ?></th>
-                <th><?= $tabel8_field11_alias ?></th>
+                <th><?= $tabel8_field7_alias ?></th>
+                <th><?= $tabel8_field8_alias ?></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td width="25%"><?= $tl8->siswa ?></td>
-                <td width="25%"><?= $tl6->tipe ?></a>
-                <td width="25%"><?= $tl8->cek_in ?></td>
-                <td width="25%"><?= $tl8->cek_out ?></td>
-                </td>
+                <td width="25%"><?= $tl8->bulan_dibayar ?></td>
+                <td width="25%"><?= $tl8->tahun_dibayar ?></td>
+                <td width="25%"><?= $tl8->id_spp ?></td>
+                <td width="25%">Rp <?= number_format($tl8->jumlah_bayar, '2', ',', '.') ?></td>
               </tr>
             </tbody>
           </table>

@@ -16,6 +16,12 @@ class M_pembayaran extends CI_Model
 		return $this->db->get($this->tabel);
 	}
 
+	public function ambil_nisn($where)
+	{
+		$this->db->where('nisn', $where);
+		return $this->db->get($this->tabel);
+	}
+
 	public function ambil_id_petugas($where)
 	{
 		$this->db->where('id_petugas', $where);

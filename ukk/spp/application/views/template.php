@@ -52,19 +52,19 @@
     <!-- komponen berada tengah halaman -->
     <div class="container" id="konten">
 
-      <!-- modal cari data reservasi -->
+      <!-- modal cari data pembayaran -->
       <div id="cari" class="modal fade cari">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Cari daftar reservasi Anda</h5>
+              <h5 class="modal-title">Cari daftar pembayaran Anda</h5>
 
               <button class="close" data-dismiss="modal">
                 <span>&times;</span>
               </button>
             </div>
 
-            <!-- form mencari data reservasi, method get utk menampilkan apa yg diinput pengguna di halaman tujuan -->
+            <!-- form mencari data pembayaran, method get utk menampilkan apa yg diinput pengguna di halaman tujuan -->
             <form action="<?= site_url('pembayaran/cari') ?>" method="get">
               <div class="modal-body">
                 <div class="form-group">

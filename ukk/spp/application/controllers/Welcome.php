@@ -274,14 +274,14 @@ class Welcome extends CI_Controller
 	public $v_part4_msg4 = '';  // feature released
 
 	public $v1 = 'konfirmasi';
-	public $v1_title1 = 'Reservasi Berhasil';
+	public $v1_title1 = 'Pembayaran Berhasil';
 	public $v1_title2 = 'Transaksi Berhasil';
 	public $v2 = 'login';
 	public $v2_title = 'Login';
 	public $v3 = 'no-level';
 	public $v3_title = 'Anda tidak memiliki akses ke halaman ini';
 	public $v4 = 'print';
-	public $v4_title1 = 'Bukti Reservasi';
+	public $v4_title1 = 'Bukti Pembayaran';
 	public $v4_title2 = 'Bukti Transaksi';
 	public $v5 = 'receipt';
 	public $v5_title = 'Bukti Transaksi';
@@ -294,7 +294,7 @@ class Welcome extends CI_Controller
 	public $v9_title = 'Halaman Pemesanan';
 	public $v10 = 'v_profil';
 	public $v10_title = 'Profil';
-	public $v11 = 'v_reservasi';
+	public $v11 = 'v_pembayaran';
 	public $v11_title = 'Data Pemesanan';
 	public $v12 = 'receipt_history';
 	public $v13 = 'v_history';
@@ -576,7 +576,7 @@ class Welcome extends CI_Controller
 
 				$halaman = $this->v7;
 				break;
-				
+
 			default:
 				$data1 = array(
 					$this->v_part1 => $this->v2_title,

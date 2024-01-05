@@ -106,7 +106,7 @@
         </select>
       </div>
       <!-- keterangan * -->
-      <small>*Email dibutuhkan untuk melakukan reservasi dan transaksi</small>
+      <small>*Email dibutuhkan untuk melakukan pembayaran dan transaksi</small>
 
     </div>
     <div class="col-md-6">

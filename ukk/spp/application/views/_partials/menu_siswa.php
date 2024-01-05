@@ -14,12 +14,12 @@
         <h4><?= $this->session->userdata('nama') ?> <i class="fas fa-caret-down"></i></h4>
       </a>
       <div class="dropdown-menu dropdown-menu-right">
-        <h6 class="dropdown-header">Reservasi</h6>
+        <h6 class="dropdown-header">Pembayaran</h6>
         <a class="dropdown-item" href="<?= site_url('pembayaran/daftar') ?>">Daftar Pembayaran/div></a>
 
         <div class="dropdown-divider"></div>
         <h6 class="dropdown-header">History</h6>
-        <a class="dropdown-item" href="<?= site_url('history/daftar') ?>">History Reservasi</a>
+        <a class="dropdown-item" href="<?= site_url('history/daftar') ?>">History Pembayaran</a>
 
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="<?= site_url('siswa/profil') ?>">Profil</a>

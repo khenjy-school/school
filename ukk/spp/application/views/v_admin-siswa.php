@@ -12,7 +12,7 @@
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
-<a class="btn btn-info mb-4" href="<?= site_url('petugas/laporan') ?>" target="_blank">
+<a class="btn btn-info mb-4" href="<?= site_url('siswa/laporan') ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <div class="table-responsive">
@@ -166,62 +166,77 @@
 <?php foreach ($tabel4 as $tl4) : ?>
   <div id="ubah<?= $tl4->nisn; ?>" class="modal fade ubah">
     <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit <?= $tabel4_alias ?> <?= $tl4->nisn; ?></h5>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit <?= $tabel4_alias ?> <?= $tl4->nisn; ?></h5>
 
-        <button class="close" data-dismiss="modal">
-          <span>&times;</span>
-        </button>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <!-- administrator tidak dapat mengubah password akun lain -->
+        <form action="<?= site_url('siswa/update') ?>" method="post" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input class="form-control" type="text" required name="nis" placeholder="Masukkan nis" value="<?= $tl4->nis ?>">
+              <input type="hidden" name="nisn" value="<?= $tl4->nisn ?>">
+              <input type="hidden" name="id_spp" value="<?= $tl4->id_spp ?>">
+            </div>
+
+            <!-- administrator dapat menentukan password untuk akun baru -->
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input class="form-control" type="text" required name="nama" placeholder="Masukkan nama" value="<?= $tl4->nama ?>">
+            </div>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-school"></i></span>
+              </div>
+
+              <!-- hanya admin yang bisa menentukan level user -->
+              <select class="form-control" required name="id_kelas">
+                <?php foreach ($tabel5 as $tl5) :
+                  if ($tl4->id_kelas == $tl5->id_kelas) { ?>
+                    <option value="<?= $tl4->id_kelas ?>" selected hidden><?= $tl5->nama_kelas ?></option>
+                  <?php } ?>
+                <?php endforeach; ?>
+
+                <?php foreach ($tabel5 as $tl5) : ?>
+                  <option value="<?= $tl5->id_kelas ?>"><?= $tl5->nama_kelas ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+              </div>
+              <textarea class="form-control" name="alamat" id="inputAlamat" placeholder="Masukkan alamat"><?= $tl4->alamat ?></textarea>
+            </div>
+
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+              </div>
+              <input class="form-control" type="text" required name="no_telp" placeholder="Masukkan nomor telepon" value="<?= $tl4->no_telp ?>">
+            </div>
+          </div>
+
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
+
+          <div class="modal-footer">
+            <button class="btn btn-success" type="submit">Simpan Perubahan</button>
+          </div>
+        </form>
       </div>
-
-      <!-- administrator tidak dapat mengubah password akun lain -->
-      <form action="<?= site_url('siswa/update') ?>" method="post" enctype="multipart/form-data">
-        <div class="modal-body">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
-            </div>
-            <input class="form-control" type="text" required name="nama" value="<?= $tl4->nama; ?>">
-            <input type="hidden" name="nisn" value="<?= $tl4->nisn; ?>">
-          </div>
-
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-            </div>
-            <input class="form-control" type="email" required name="email" value="<?= $tl4->email; ?>">
-          </div>
-
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-phone"></i></span>
-            </div>
-            <input class="form-control" type="text" required name="hp" value="<?= $tl4->hp; ?>">
-          </div>
-
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-users"></i></span>
-            </div>
-            <select class="form-control" required name="level">
-              <option selected hidden><?= $tl4->level; ?></option>
-              <option value="siswa">siswa</option>
-              <option value="petugas">petugas</option>
-              <option value="accounting">accounting</option>
-              <option value="administrator">administrator</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- memunculkan notifikasi modal -->
-        <p id="p_ubah" class="small text-center text-danger"><?= $this->session->flashdata('pesan_ubah') ?></p>
-
-        <div class="modal-footer">
-          <button class="btn btn-success" type="submit">Simpan Perubahan</button>
-        </div>
-      </form>
-    </div>
     </div>
   </div>
 <?php endforeach; ?>
@@ -229,52 +244,70 @@
 <!-- modal lihat -->
 <?php foreach ($tabel4 as $tl4) : ?>
   <div id="lihat<?= $tl4->nisn; ?>" class="modal fade lihat" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"><?= $tabel4_alias ?> <?= $tl4->nisn; ?></h5>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><?= $tabel4_alias ?> <?= $tl4->nisn; ?></h5>
 
-        <button class="close" data-dismiss="modal">
-          <span>&times;</span>
-        </button>
+          <button class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+
+        <!-- administrator tidak bisa melihat password user lain -->
+        <form>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><?= $tabel4_field2_alias ?> : </label>
+                  <p><?= $tl4->nis; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel4_field3_alias ?> : </label>
+                  <p><?= $tl4->nama; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel4_field4_alias ?> : </label>
+                  <p><?= $tl4->id_kelas; ?></p>
+                </div>
+                <hr>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label><?= $tabel4_field5_alias ?> : </label>
+                  <p><?= $tl4->alamat; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel4_field6_alias ?> : </label>
+                  <p><?= $tl4->no_telp; ?></p>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label><?= $tabel4_field7_alias ?> : </label>
+                  <p><?= $tl4->id_spp; ?></p>
+                </div>
+                <hr>
+              </div>
+            </div>
+          </div>
+
+          <!-- memunculkan notifikasi modal -->
+          <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+          </div>
+        </form>
+
       </div>
-
-      <!-- administrator tidak bisa melihat password user lain -->
-      <form>
-        <div class="modal-body">
-          <div class="form-group">
-            <label><?= $tabel4_field2_alias ?> : </label>
-            <p><?= $tl4->nama; ?></p>
-          </div>
-          <hr>
-
-          <div class="form-group">
-            <label><?= $tabel4_field3_alias ?> : </label>
-            <p><?= $tl4->email; ?></p>
-          </div>
-          <hr>
-
-          <div class="form-group">
-            <label><?= $tabel4_field5_alias ?> : </label>
-            <p><?= $tl4->hp; ?></p>
-          </div>
-          <hr>
-
-          <div class="form-group">
-            <label><?= $tabel4_field6_alias ?> : </label>
-            <p><?= $tl4->level; ?></p>
-          </div>
-        </div>
-
-        <!-- memunculkan notifikasi modal -->
-        <p id="p_lihat" class="small text-center text-danger"><?= $this->session->flashdata('pesan_lihat') ?></p>
-
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        </div>
-      </form>
-
     </div>
-  </div>
   </div>
 <?php endforeach; ?>

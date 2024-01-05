@@ -185,7 +185,7 @@ class Pembayaran extends Welcome
 			$this->v_part3 => $this->tabel8_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel8' =>  $this->tl8->filter($param1)->result(),
+			'tabel8' =>  $this->tl8->ambil_nisn($param1)->result(),
 			// 'tabel9' =>  $this->tl9->ambildata()->result(),  // session sudah cukup
 			'tabel4' =>  $this->tl4->ambil($param1)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
@@ -303,11 +303,11 @@ class Pembayaran extends Welcome
 	}
 
 	// Di bawah ini adalah fitur yang ingin kutambahkan ketika ingin memasukkan fitur filter di halaman daftar
-	// Jika user menggunakan tombol cari untuk mencari pembayaran, namun pada views masih menggunakan v_reservasi, 
+	// Jika user menggunakan tombol cari untuk mencari pembayaran, namun pada views masih menggunakan v_pembayaran, 
 	// maka fitur ini dibutuhkan untuk membedakan user mana yang sedang mencari daftar pembayaran/history/transaksi 
 	// atau hanya membuka halaman saja
 	// Namun fitur di bawah tidak akan berguna jika halaman yang digunakan untuk menampilkan hasil cari berbeda dan
-	// bukan v_reservasi
+	// bukan v_pembayaran
 	// if (!$this->session->userdata('id_pembayaran')) {}
 	// 	} else {  -->
 	// 	 }  -->

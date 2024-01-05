@@ -22,25 +22,25 @@
     <table class="table">
       <thead class="thead">
         <tr>
-          <th><?= $tabel9_field1_alias ?></th>
-          <th><?= $tabel9_field2_alias ?></th>
-          <th><?= $tabel9_field3_alias ?></th>
-          <th><?= $tabel9_field4_alias ?></th>
-          <th><?= $tabel9_field5_alias ?></th>
-          <th><?= $tabel9_field6_alias ?></th>
-          <th><?= $tabel9_field7_alias ?></th>
+          <th><?= $tabel4_field1_alias ?></th>
+          <th><?= $tabel4_field2_alias ?></th>
+          <th><?= $tabel4_field3_alias ?></th>
+          <th><?= $tabel4_field4_alias ?></th>
+          <th><?= $tabel4_field5_alias ?></th>
+          <th><?= $tabel4_field6_alias ?></th>
+          <th><?= $tabel4_field7_alias ?></th>
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($tabel9 as $tl9) : ?>
+        <?php foreach ($tabel4 as $tl4) : ?>
           <tr>
-            <td width="10%"><?= $tl9->nisn; ?></td>
-            <td width="10%"><?= $tl9->nis ?></td>
-            <td width="20%"><?= $tl9->nama ?></td>
-            <td width="10%"><?= $tl9->id_kelas ?></td>
-            <td width="30%"><?= $tl9->alamat ?></td>
-            <td width="10%"><?= $tl9->no_telp ?></td>
-            <td width="10%"><?= $tl9->id_spp ?></td>
+            <td width="10%"><?= $tl4->nisn; ?></td>
+            <td width="10%"><?= $tl4->nis ?></td>
+            <td width="20%"><?= $tl4->nama ?></td>
+            <td width="10%"><?= $tl4->id_kelas ?></td>
+            <td width="20%"><?= $tl4->alamat ?></td>
+            <td width="20%"><?= $tl4->no_telp ?></td>
+            <td width="10%"><?= $tl4->id_spp ?></td>
           </tr>
         <?php endforeach ?>
       </tbody>

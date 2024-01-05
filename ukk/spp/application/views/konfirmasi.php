@@ -48,9 +48,9 @@
         <div class="col-md">
           <h1 class="text-center">Pesanan Berhasil</h1>
           <p class="text-center">Id Pesanan Anda adalah <?= $tabel8->id_pembayaran ?></p>
-          <p class="text-center">Cari data reservasi Anda dengan menggunakan <br>
+          <p class="text-center">Cari data pembayaran Anda dengan menggunakan <br>
             id pembayaran dan email anda <br>
-            untuk mencetak bukti reservasi</p>
+            untuk mencetak bukti pembayaran</p>
 
           <div class="d-flex justify-content-center">
             <a class="text-decoration-none" href="<?= site_url('welcome') ?>">
