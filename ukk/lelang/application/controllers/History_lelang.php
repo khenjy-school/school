@@ -70,6 +70,7 @@ class History_lelang extends Welcome
 
 	declare()
 	{
+		$this->declarew();
 
 		// deklarasi variabel mvc
 		// deklarasi variabel model
@@ -77,29 +78,29 @@ class History_lelang extends Welcome
 
 		// deklarasi variabel views
 
-		$this->tabel2_v1 = 'v_' . $this->tabel2;
+		$this->tabel2_v1 = 'v_' . $this->aliases['tabel2'];
 		$this->tabel2_v1_title = 'Daftar ' . $this->tabel2_alias;
-		$this->tabel2_v2 = 'v_admin-' . $this->tabel2;
+		$this->tabel2_v2 = 'v_admin-' . $this->aliases['tabel2'];
 		$this->tabel2_v2_title = 'Data ' . $this->tabel2_alias;
-		$this->tabel2_v3 = '_laporan/laporan_' . $this->tabel2;
+		$this->tabel2_v3 = '_laporan/laporan_' . $this->aliases['tabel2'];
 		$this->tabel2_v3_title = 'Laporan ' . $this->tabel2_alias;
 
 		// deklarasi variabel controller
-		$this->tabel2_c1 = $this->tabel2;
-		$this->tabel2_c2 = $this->tabel2 . '/tambah';
-		$this->tabel2_c3 = $this->tabel2 . '/update';
-		$this->tabel2_c4 = $this->tabel2 . '/hapus';
-		$this->tabel2_c5 = $this->tabel2 . '/laporan';
+		$this->tabel2_c1 = $this->aliases['tabel2'];
+		$this->tabel2_c2 = $this->aliases['tabel2'] . '/tambah';
+		$this->tabel2_c3 = $this->aliases['tabel2'] . '/update';
+		$this->tabel2_c4 = $this->aliases['tabel2'] . '/hapus';
+		$this->tabel2_c5 = $this->aliases['tabel2'] . '/laporan';
 
 
 
 		// tabel bagian input
-		$this->tabel2_v_input1_post = $this->input->post($this->tabel2_field1);
+		$this->tabel2_v_input1_post = $this->input->post($this->aliases['tabel2_field1']);
 		$this->tabel2_v_input1_alt = '';
-		$this->tabel2_v_input2_post = $this->input->post($this->tabel2_field2);
-		$this->tabel2_v_input3_post = $this->input->post($this->tabel2_field3);
-		$this->tabel2_v_input4_post = $this->input->post($this->tabel2_field4);
-		$this->tabel2_v_input5_post = $this->input->post($this->tabel2_field5);
+		$this->tabel2_v_input2_post = $this->input->post($this->aliases['tabel2_field2']);
+		$this->tabel2_v_input3_post = $this->input->post($this->aliases['tabel2_field3']);
+		$this->tabel2_v_input4_post = $this->input->post($this->aliases['tabel2_field4']);
+		$this->tabel2_v_input5_post = $this->input->post($this->aliases['tabel2_field5']);
 
 		// deklarasi variabel bagian v_flashdata
 		$this->tabel2_v_flashdata1_msg_1 = 'Data ' . $this->tabel2_alias . ' berhasil disimpan!';
@@ -135,11 +136,6 @@ class History_lelang extends Welcome
 	public function index($tabel7_field1 = 1)
 	{
 		$this->declare();
-		// nilai min dan max di sini belum ada
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel2_v2_title,
@@ -147,14 +143,8 @@ class History_lelang extends Welcome
 			$this->v_part3 => $this->tabel2_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->ambildata()->result(),
+			'tbl2' => $this->tl2->ambildata()->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
-
-			// menggunakan nilai $min dan $max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->declarew();
@@ -180,7 +170,7 @@ class History_lelang extends Welcome
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->ambil_id_petugas($where)->result(),
+			'tbl2' => $this->tl2->ambil_id_petugas($where)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
 
 			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
@@ -199,11 +189,6 @@ class History_lelang extends Welcome
 	public function filter($tabel7_field1 = 1)
 	{
 		$this->declare();
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->tabel2_v2_title,
@@ -211,14 +196,7 @@ class History_lelang extends Welcome
 			$this->v_part3 => $this->tabel2_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->filter($param1, $param2, $param3, $param4)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->declarew();
@@ -232,11 +210,6 @@ class History_lelang extends Welcome
 	{
 		$this->declare();
 		$where = $this->tabel9_userdata1;
-		// nilai min dan max sudah diinput sebelumnya
-		$param1 = $this->tabel2_v_input11_filter1_get;
-		$param2 = $this->tabel2_v_input11_filter2_get;
-		$param3 = $this->tabel2_v_input12_filter1_get;
-		$param4 = $this->tabel2_v_input12_filter2_get;
 
 		$data1 = array(
 			$this->v_part1 => $this->v11_title,
@@ -244,14 +217,7 @@ class History_lelang extends Welcome
 			$this->v_part3 => $this->tabel2_v1,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->filter_siswa($param1, $param2, $param3, $param4, $where)->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
-
-			// menggunakan nilai $cek_in_min, $cek_in_max, $cek_out_min dan $cek_out_max sebagai bagian dari $data
-			$this->tabel2_v_input11_filter1 => $param1,
-			$this->tabel2_v_input11_filter2 => $param2,
-			$this->tabel2_v_input12_filter1 => $param3,
-			$this->tabel2_v_input12_filter2 => $param4,
 		);
 
 		$this->declarew();
@@ -264,7 +230,7 @@ class History_lelang extends Welcome
 	{
 		$this->declare();
 		$hapus = $this->tl2->hapus($id_history);
-		redirect(site_url($this->tabel2));
+		redirect(site_url($this->aliases['tabel2']));
 	}
 
 	public function laporan($tabel7_field1 = 1)
@@ -275,7 +241,7 @@ class History_lelang extends Welcome
 			$this->v_part2 => $this->head,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel2' => $this->tl2->ambildata()->result(),
+			'tbl2' => $this->tl2->ambildata()->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result()
 		);
 

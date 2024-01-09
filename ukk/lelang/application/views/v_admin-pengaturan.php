@@ -22,41 +22,42 @@
       <a class="btn btn-warning mb-4" type="button" data-toggle="modal" data-target="#foto<?= $tl7->id ?>">
         <i class="fas fa-edit"></i> <?= $tabel7_field5_alias ?></a>
 
-      <form action="<?= site_url('pengaturan/update') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url($tabel7 . '/update') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label><?= $tabel7_field2_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="nama" value="<?= $tl7->nama; ?>">
+          <!-- kelas2 di bawah yang memiliki nama tabel akan diganti dengan tabel bernomor seperti tabel7  -->
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field2 ?>" value="<?= $tl7->nama; ?>">
           <input type="hidden" name="id" value="<?= $tl7->id; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field6_alias ?></label>
-          <textarea class="form-control pengaturan" required name="alamat" rows="3"><?= $tl7->alamat; ?></textarea>
+          <textarea class="form-control pengaturan" required name="<?= $tabel7_field6 ?>" rows="3"><?= $tl7->alamat; ?></textarea>
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field7_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="email" value="<?= $tl7->email; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field7 ?>" value="<?= $tl7->email; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field8_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="hp" value="<?= $tl7->hp; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel_field8 ?>" value="<?= $tl7->hp; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field9_alias ?></label>
-          <textarea class="form-control pengaturan" required name="metadesc" rows="5"><?= $tl7->metadesc; ?></textarea>
+          <textarea class="form-control pengaturan" required name="<?= $tabel7_field9 ?>" rows="5"><?= $tl7->metadesc; ?></textarea>
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field10_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="fb" placeholder="Masukkan <?= $tabel7_field10_alias ?>" value="<?= $tl7->fb; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field10 ?>" placeholder="Masukkan <?= $tabel7_field10_alias ?>" value="<?= $tl7->fb; ?>">
         </div>
 
         <div class="form-group">
           <label><?= $tabel7_field11_alias ?></label>
-          <input class="form-control pengaturan" required type="text" name="ig" placeholder="Masukkan <?= $tabel7_field11_alias ?>" value="<?= $tl7->ig; ?>">
+          <input class="form-control pengaturan" required type="text" name="<?= $tabel7_field11 ?>" placeholder="Masukkan <?= $tabel7_field11_alias ?>" value="<?= $tl7->ig; ?>">
         </div>
 
         <div class="form-group">
@@ -94,9 +95,9 @@
 
             <div class="form-group">
               <label>Ubah <?= $tabel7_field3_alias ?></label>
-              <input class="form-control-file" required type="file" name="favicon">
+              <input class="form-control-file" required type="file" name="<?= $tabel7_field3 ?>">
               <input type="hidden" name="id" value="<?= $tl7->id; ?>">
-              <input type="hidden" name="txtfavicon" value="<?= $tl7->favicon; ?>">
+              <input type="hidden" name="txt<?= $tabel7_field3 ?>" value="<?= $tl7->favicon; ?>">
             </div>
           </div>
 
@@ -125,7 +126,7 @@
           </button>
         </div>
 
-        <form action="<?= site_url('pengaturan/update_logo') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url($tabel7 . '/update_logo') ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
 
             <div class="form-group">

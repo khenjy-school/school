@@ -22,7 +22,7 @@
           <div class="card-body">
             <h5 class="card-title"><?= $tabel6_alias ?></h5>
             <p class="card-text" style="font-size: 32;"><?= $tabel6 ?></p>
-            <a class="text-white" href="<?= site_url('tb_barang') ?>">Lihat Detail >></a>
+            <a class="text-white" href="<?= site_url($tabel8) ?>">Lihat Detail >></a>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@
           <div class="card-body">
             <h5 class="card-title"><?= $tabel9_alias ?></h5>
             <p class="card-text" style="font-size: 32;"><?= $tabel9 ?></p>
-            <a class="text-white" href="<?= site_url('user') ?>">Lihat Detail >></a>
+            <a class="text-white" href="<?= site_url($tabel9) ?>">Lihat Detail >></a>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
           <div class="card-body">
             <h5 class="card-title"><?= $tabel4_alias ?></h5>
             <p class="card-text" style="font-size: 32;"><?= $tabel4 ?></p>
-            <a class="text-white" href="<?= site_url('tb_petugas') ?>">Lihat Detail >></a>
+            <a class="text-white" href="<?= site_url($tabel4) ?>">Lihat Detail >></a>
           </div>
         </div>
       </div>
@@ -52,7 +52,7 @@
           <div class="card-body">
             <h5 class="card-title"><?= $tabel5_alias ?></h5>
             <p class="card-text" style="font-size: 32;"><?= $tabel5 ?></p>
-            <a class="text-white" href="<?= site_url('tb_level') ?>">Lihat Detail >></a>
+            <a class="text-white" href="<?= site_url($tabel5) ?>">Lihat Detail >></a>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
           <div class="card-body">
             <h5 class="card-title"><?= $tabel8_alias ?></h5>
             <p class="card-text" style="font-size: 32;"><?= $tabel8 ?></p>
-            <a class="text-white" href="<?= site_url('tb_lelang') ?>">Lihat Detail >></a>
+            <a class="text-white" href="<?= site_url($tabel8) ?>">Lihat Detail >></a>
           </div>
         </div>
       </div>

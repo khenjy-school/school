@@ -18,7 +18,7 @@
         <h1 class="text-center"><?= $title ?><?= $phase ?></h1>
 
         <!-- form login -->
-        <form action="<?= site_url('tb_petugas/ceklogin') ?>" method="post">
+        <form action="<?= site_url() . $tabel9 . '/ceklogin' ?>" method="post">
           <!-- <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -30,14 +30,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input class="form-control" type="text" name="nama" placeholder="Masukkan nama">
+            <input class="form-control" type="text" name="<?= $tabel9_field2 ?>" placeholder="Masukkan <? $tabel9_field2_alias ?>">
           </div>
 
           <div class="input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-key"></i></span>
             </div>
-            <input class="form-control" type="password" name="password" placeholder="Masukkan password">
+            <input class="form-control" type="password" name="<?= $tabel9_field4 ?>" placeholder="Masukkan <?= $tabel9_field4_alias ?>">
           </div>
 
           <!-- pesan untuk pengguna yang login -->
@@ -46,7 +46,7 @@
           <!-- tombol login dan signup -->
           <div class="form-group d-flex justify-content-around">
             <button class="btn btn-success login" type="submit">Login</button>
-            <a class="btn btn-secondary login" type="button" href="<?= site_url('tb_petugas/signup') ?>">Sign Up</a>
+            <a class="btn btn-secondary login" type="button" href="<?= site_url() .  $tabel9 . '/signup' ?>">Sign Up</a>
           </div>
 
         </form>

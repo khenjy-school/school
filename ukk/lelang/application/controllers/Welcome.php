@@ -167,8 +167,8 @@ class Welcome extends CI_Controller
 	public $tabel9_field6_value1 = '';
 	public $tabel9_field6_value2 = 'accounting';
 	public $tabel9_field6_value3 = 'administrator';
-	public $tabel9_field6_value4 = 'tb_petugas';
-	public $tabel9_field6_value5 = 'tb_masyarakat';
+	public $tabel9_field6_value4 = 'petugas';
+	public $tabel9_field6_value5 = 'masyarakat';
 	public $tabel9_field7 = 'login_count';
 	public $tabel9_field7_alias = 'Jumlah Login';
 
@@ -423,7 +423,7 @@ class Welcome extends CI_Controller
 			'tabel2_field5' => 'penawaran_harga',
 			'tabel2_field5_alias' => 'Penawaran Harga',
 
-			'tabel4' => 'masyarakat',
+			'tabel4' => 'tb_masyarakat',
 			'tabel4_alias' => 'Masyarakat',
 			'tabel4_field1' => 'id_user',
 			'tabel4_field1_alias' => 'ID User',
@@ -436,14 +436,14 @@ class Welcome extends CI_Controller
 			'tabel4_field5' => 'telp',
 			'tabel4_field5_alias' => 'No HP',
 
-			'tabel5' => 'level',
+			'tabel5' => 'tb_level',
 			'tabel5_alias' => 'Level',
 			'tabel5_field1' => 'id_level',
 			'tabel5_field1_alias' => 'ID Level',
 			'tabel5_field2' => 'level',
 			'tabel5_field2_alias' => 'Level',
 
-			'tabel6' => 'barang',
+			'tabel6' => 'tb_barang',
 			'tabel6_field1' => 'id_barang',
 			'tabel6_alias' => 'Barang',
 			'tabel6_field1_alias' => 'ID Barang',
@@ -456,7 +456,7 @@ class Welcome extends CI_Controller
 			'tabel6_field5' => 'deskripsi_barang',
 			'tabel6_field5_alias' => 'Deskripsi Barang',
 
-			'tabel7' => 'pengaturan',
+			'tabel7' => 'tb_pengaturan',
 			'tabel7_field1' => 'id',
 			'tabel7_alias' => 'Pengaturan Website',
 			'tabel7_field1_alias' => 'ID Website',
@@ -481,7 +481,7 @@ class Welcome extends CI_Controller
 			'tabel7_field11' => 'ig',
 			'tabel7_field11_alias' => 'Akun Instagram',
 
-			'tabel8' => 'lelang',
+			'tabel8' => 'tb_lelang',
 			'tabel8_field1' => 'id_lelang',
 			'tabel8_alias' => 'Lelang',
 			'tabel8_field1_alias' => 'ID Lelang',
@@ -496,9 +496,11 @@ class Welcome extends CI_Controller
 			'tabel8_field6' => 'id_petugas',
 			'tabel8_field6_alias' => 'ID Petugas',
 			'tabel8_field7' => 'status',
+			'tabel8_field7_value1' => 'dibuka',
+			'tabel8_field7_value2' => 'ditutup',
 			'tabel8_field7_alias' => 'Status',
 
-			'tabel9' => 'petugas',
+			'tabel9' => 'tb_petugas',
 			'tabel9_field1' => 'petugas',
 			'tabel9_alias' => 'id_petugas',
 			'tabel9_field1_alias' => 'ID Petugas',
@@ -511,6 +513,11 @@ class Welcome extends CI_Controller
 			'tabel9_field5' => 'hp',
 			'tabel9_field5_alias' => 'No Hp',
 			'tabel9_field6' => 'level',
+			'tabel9_field6_field1' => '',
+			'tabel9_field6_field2' => 'accouting',
+			'tabel9_field6_field3' => 'administrator',
+			'tabel9_field6_field4' => 'petugas',
+			'tabel9_field6_field5' => 'masyarakat',
 			'tabel9_field6_alias' => 'Level User',
 			'tabel9_field7' => 'login_count',
 			'tabel9_field7_alias' => 'Jumlah Login',
