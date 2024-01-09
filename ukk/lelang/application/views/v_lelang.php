@@ -35,7 +35,6 @@
         <div class="modal-body">
           <img class="img-fluid" src="img/tabel8/<?= $tl8->img; ?>">
         </div>
-
         <div class="modal-footer">
           <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
         </div>

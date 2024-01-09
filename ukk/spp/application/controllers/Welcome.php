@@ -89,16 +89,6 @@ class Welcome extends CI_Controller
 	public $tabel4_field7_alias = 'id_spp';
 
 
-	// deklarasi tabel 5
-	public $tabel5 = 'kelas';
-	public $tabel5_alias = 'Kelas';
-	// deklarasi variabel bagian field
-	public $tabel5_field1 = 'id_kelas';
-	public $tabel5_field1_alias = 'ID Kelas';
-	public $tabel5_field2 = 'nama_kelas';
-	public $tabel5_field2_alias = 'Nama Kelas';
-	public $tabel5_field3 = 'kompetensi_keahlian';
-	public $tabel5_field3_alias = 'Kompetensi Keahlian';
 
 	// deklarasi tabel 6
 	public $tabel6 = 'spp';
@@ -426,7 +416,7 @@ class Welcome extends CI_Controller
 		$this->aliases = array(
 			'tabel2_alias' => 'History Pemesanan',
 			'tabel2_field1_alias' => 'ID History',
-			'tabel2_field2_alias' => 'ID Pesangan',
+			'tabel2_field2_alias' => 'ID Pesanan',
 			'tabel2_field3_alias' => 'ID User',
 			'tabel2_field4_alias' => 'Nama Pemesan',
 			'tabel2_field5_alias' => 'Email',
@@ -450,9 +440,13 @@ class Welcome extends CI_Controller
 			'tabel4_field6_alias' => 'No HP',
 			'tabel4_field7_alias' => 'ID SPP',
 
+			'tabel5' => 'kelas',
 			'tabel5_alias' => 'Kelas',
+			'tabel5_field1' => 'id_kelas',
 			'tabel5_field1_alias' => 'ID Kelas',
+			'tabel5_field2' => 'nama_kelas',
 			'tabel5_field2_alias' => 'Nama Kelas',
+			'tabel5_field3' => 'kompetensi_keahlian',
 			'tabel5_field3_alias' => 'Kompetensi Keahlian',
 
 			'tabel6_alias' => 'SPP',

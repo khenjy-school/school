@@ -42,39 +42,40 @@ class Kelas extends Welcome
 
 	declare()
 	{
+		$this->declarew();
 		// deklarasi variabel mvc
 		// deklarasi variabel model
 		$this->tabel5_m = 'tl5';
 
 		// deklarasi variabel views
-		$this->tabel5_v1 = 'v_' . $this->tabel5;
-		$this->tabel5_v1_title = 'Daftar ' . $this->tabel5_alias;
-		$this->tabel5_v2 = 'v_admin-' . $this->tabel5;
-		$this->tabel5_v2_title = 'Data ' . $this->tabel5_alias;
-		$this->tabel5_v3 = '_laporan/laporan_' . $this->tabel5;
-		$this->tabel5_v3_title = 'Laporan ' . $this->tabel5_alias;
+		$this->tabel5_v1 = 'v_' . $this->aliases['tabel5'];
+		$this->tabel5_v1_title = 'Daftar ' . $this->aliases['tabel5_alias'];
+		$this->tabel5_v2 = 'v_admin-' . $this->aliases['tabel5'];
+		$this->tabel5_v2_title = 'Data ' . $this->aliases['tabel5_alias'];
+		$this->tabel5_v3 = '_laporan/laporan_' . $this->aliases['tabel5'];
+		$this->tabel5_v3_title = 'Laporan ' . $this->aliases['tabel5_alias'];
 
 		// deklarasi variabel controller
-		$this->tabel5_c1 = $this->tabel5;
-		$this->tabel5_c2 = $this->tabel5 . '/tambah';
-		$this->tabel5_c3 = $this->tabel5 . '/update';
-		$this->tabel5_c4 = $this->tabel5 . '/hapus';
-		$this->tabel5_c5 = $this->tabel5 . '/laporan';
+		$this->tabel5_c1 = $this->aliases['tabel5'];
+		$this->tabel5_c2 = $this->aliases['tabel5'] . '/tambah';
+		$this->tabel5_c3 = $this->aliases['tabel5'] . '/update';
+		$this->tabel5_c4 = $this->aliases['tabel5'] . '/hapus';
+		$this->tabel5_c5 = $this->aliases['tabel5'] . '/laporan';
 
 
 		// tabel bagian input
-		$this->tabel5_v_input1_post = $this->input->post($this->tabel5_field1);
+		$this->tabel5_v_input1_post = $this->input->post($this->aliases['tabel5_field1']);
 		$this->tabel5_v_input1_alt = '';
-		$this->tabel5_v_input2_post = $this->input->post($this->tabel5_field2);
-		$this->tabel5_v_input3_post = $this->input->post($this->tabel5_field3);
+		$this->tabel5_v_input2_post = $this->input->post($this->aliases['tabel5_field2']);
+		$this->tabel5_v_input3_post = $this->input->post($this->aliases['tabel5_field3']);
 
 		// deklarasi variabel bagian v_flashdata
-		$this->tabel5_v_flashdata1_msg_1 = 'Data ' . $this->tabel5_alias . ' berhasil disimpan!';
-		$this->tabel5_v_flashdata1_msg_2 = 'Data ' . $this->tabel5_alias . ' gagal disimpan!';
-		$this->tabel5_v_flashdata1_msg_3 = 'Data ' . $this->tabel5_alias . ' berhasil diubah!';
-		$this->tabel5_v_flashdata1_msg_4 = 'Data ' . $this->tabel5_alias . ' gagal diubah!';
-		$this->tabel5_v_flashdata1_msg_5 = 'Data ' . $this->tabel5_alias . ' berhasil dihapus!';
-		$this->tabel5_v_flashdata1_msg_6 = 'Data ' . $this->tabel5_alias . ' gagal dihapus!';
+		$this->tabel5_v_flashdata1_msg_1 = 'Data ' . $this->aliases['tabel5_alias'] . ' berhasil disimpan!';
+		$this->tabel5_v_flashdata1_msg_2 = 'Data ' . $this->aliases['tabel5_alias'] . ' gagal disimpan!';
+		$this->tabel5_v_flashdata1_msg_3 = 'Data ' . $this->aliases['tabel5_alias'] . ' berhasil diubah!';
+		$this->tabel5_v_flashdata1_msg_4 = 'Data ' . $this->aliases['tabel5_alias'] . ' gagal diubah!';
+		$this->tabel5_v_flashdata1_msg_5 = 'Data ' . $this->aliases['tabel5_alias'] . ' berhasil dihapus!';
+		$this->tabel5_v_flashdata1_msg_6 = 'Data ' . $this->aliases['tabel5_alias'] . ' gagal dihapus!';
 	}
 
 
@@ -88,7 +89,7 @@ class Kelas extends Welcome
 			$this->v_part3 => $this->tabel5_v2,
 			$this->v_part4 => $this->v_part4_msg1,
 			'tabel7' => $this->tl7->ambil($tabel7_field1)->result(),
-			'tabel5' =>  $this->tl5->ambildata()->result(),
+			'tbl5' =>  $this->tl5->ambildata()->result(),
 			'tabel6' =>  $this->tl6->ambildata()->result(),
 			'tabel4' =>  $this->tl4->ambildata()->result()
 		);
@@ -103,9 +104,9 @@ class Kelas extends Welcome
 	{
 		$this->declare();
 		$data = array(
-			$this->tabel5_field1 => $this->tabel5_v_input1_alt,
-			$this->tabel5_field2 => $this->tabel5_v_input2_post,
-			$this->tabel5_field3 => $this->tabel5_v_input3_post,
+			$this->aliases['tabel5_field1'] => $this->tabel5_v_input1_alt,
+			$this->aliases['tabel5_field2'] => $this->tabel5_v_input2_post,
+			$this->aliases['tabel5_field3'] => $this->tabel5_v_input3_post,
 		);
 
 		$simpan = $this->tl5->simpan($data);
@@ -126,8 +127,8 @@ class Kelas extends Welcome
 		$this->declare();
 		$where = $this->tabel5_v_input1_post;
 		$data = array(
-			$this->tabel5_field2 => $this->tabel5_v_input2_post,
-			$this->tabel5_field3 => $this->tabel5_v_input3_post,
+			$this->aliases['tabel5_field2'] => $this->tabel5_v_input2_post,
+			$this->aliases['tabel5_field3'] => $this->tabel5_v_input3_post,
 		);
 
 		$update = $this->tl5->update($data, $where);

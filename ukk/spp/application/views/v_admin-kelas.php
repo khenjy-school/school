@@ -1,10 +1,10 @@
 <?php switch ($this->session->userdata('level')) {
   case 'administrator':
-    // case 'kelas':
+    // case 'petugas':
     break;
 
   default:
-    redirect(site_url('welcome/no_level'));
+    redirect(site_url() . 'welcome/no_level');
 }
 ?>
 
@@ -12,7 +12,7 @@
 <hr>
 
 <button class="btn btn-primary mb-4" type="button" data-toggle="modal" data-target="#tambah">+ Tambah</button>
-<a class="btn btn-info mb-4" href="<?= site_url('kelas/laporan') ?>" target="_blank">
+<a class="btn btn-info mb-4" href="<?= site_url() . $tabel5 . '/laporan' ?>" target="_blank">
   <i class="fas fa-print"></i> Cetak Laporan</a>
 
 <div class="table-responsive">
@@ -27,7 +27,7 @@
     </thead>
 
     <tbody>
-      <?php foreach ($tabel5 as $tl5) : ?>
+      <?php foreach ($tbl5 as $tl5) : ?>
         <tr>
           <td><?= $tl5->id_kelas; ?></td>
           <td><?= $tl5->nama_kelas ?></td>
@@ -63,19 +63,19 @@
         </button>
       </div>
 
-      <form action="<?= site_url('kelas/tambah') ?>" method="post">
+      <form action="<?= site_url() . $tabel5 . '/tambah' ?>" method="post">
         <div class="modal-body">
           <div class="form-group">
             <label><?= $tabel5_field2_alias ?></label>
-            <input class="form-control" type="text" required name="nama_kelas" placeholder="Masukkan <?= $tabel5_field2_alias ?>">
+            <input class="form-control" type="text" required name="<?= $tabel5_field2 ?>" placeholder="Masukkan <?= $tabel5_field2_alias ?>">
           </div>
 
           <div class="form-group">
             <label><?= $tabel5_field3_alias ?></label>
-            <input class="form-control" type="text" required name="kompetensi_keahlian" placeholder="Masukkan <?= $tabel5_field3_alias ?>">
+            <input class="form-control" type="text" required name="<?= $tabel5_field3 ?>" placeholder="Masukkan <?= $tabel5_field3_alias ?>">
           </div>
 
-          
+
         </div>
 
         <!-- memunculkan notifikasi modal -->
@@ -90,7 +90,7 @@
 </div>
 
 <!-- modal edit -->
-<?php foreach ($tabel5 as $tl5) : ?>
+<?php foreach ($tbl5 as $tl5) : ?>
   <div id="ubah<?= $tl5->id_kelas; ?>" class="modal fade ubah">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -103,17 +103,17 @@
         </div>
 
         <!-- administrator tidak dapat mengubah password akun lain -->
-        <form action="<?= site_url('kelas/update') ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= site_url() . $tabel5 . '/update' ?>" method="post" enctype="multipart/form-data">
           <div class="modal-body">
             <div class="form-group">
               <label><?= $tabel5_field2_alias ?></label>
-              <input class="form-control" type="text" required name="nama_kelas" value="<?= $tl5->nama_kelas; ?>">
-              <input type="hidden" name="id_kelas" value="<?= $tl5->id_kelas; ?>">
+              <input class="form-control" type="text" required name="<?= $tabel5_field2 ?>" value="<?= $tl5->nama_kelas; ?>">
+              <input type="hidden" name="<?= $tabel5_field1 ?>" value="<?= $tl5->id_kelas; ?>">
             </div>
 
             <div class="form-group">
               <label><?= $tabel5_field3_alias ?></label>
-              <input class="form-control" type="text" required name="kompetensi_keahlian" value="<?= $tl5->kompetensi_keahlian; ?>">
+              <input class="form-control" type="text" required name="<?= $tabel5_field3 ?>" value="<?= $tl5->kompetensi_keahlian; ?>">
             </div>
           </div>
 
@@ -131,7 +131,7 @@
 <?php endforeach; ?>
 
 <!-- modal lihat -->
-<?php foreach ($tabel5 as $tl5) : ?>
+<?php foreach ($tbl5 as $tl5) : ?>
   <div id="lihat<?= $tl5->id_kelas; ?>" class="modal fade lihat" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

@@ -22,6 +22,8 @@
         <th><?= $tabel6_field1_alias ?></th>
         <th><?= $tabel6_field2_alias ?></th>
         <th><?= $tabel6_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel6_field5_alias ?></th>
         <th>Aksi</th>
       </tr>
     </thead>
@@ -29,8 +31,10 @@
       <?php foreach ($tabel6 as $tl6) : ?>
         <tr>
           <td><?= $tl6->id_barang; ?></td>
-          <td><?= $tl6->tahun ?></td>
-          <td>Rp <?= number_format($tl6->nominal, '2', ',', '.') ?></td>
+          <td><?= $tl6->nama_barang ?></td>
+          <td><?= $tl6->tgl ?></td>
+          <td>Rp <?= number_format($tl6->harga_awal, '2', ',', '.') ?></td>
+          <td><?= $tl6->deskripsi_barang ?></td>
           <td><a class="btn btn-light text-info" type="button" data-toggle="modal" data-target="#lihat<?= $tl6->id_barang; ?>">
               <i class="fas fa-eye"></i></a>
             <a class="btn btn-light text-warning" type="button" data-toggle="modal" data-target="#ubah<?= $tl6->id_barang; ?>">
@@ -55,6 +59,8 @@
         <th><?= $tabel6_field1_alias ?></th>
         <th><?= $tabel6_field2_alias ?></th>
         <th><?= $tabel6_field3_alias ?></th>
+        <th><?= $tabel6_field4_alias ?></th>
+        <th><?= $tabel6_field5_alias ?></th>
         <th>Aksi</th>
       </tr>
     </tfoot>
