@@ -1,6 +1,6 @@
 <?php switch ($this->session->userdata('level')) {
   case 'administrator':
-  case 'petugas':
+  case 'tb_petugas':
     break;
 
   default:
@@ -11,12 +11,12 @@
 <h1><?= $title ?><?= $phase ?></h1>
 <hr>
 
-<!-- tabel fiter history -->
+<!-- tabel fiter history_lelang -->
 <table class="mb-8">
 
   <!-- method get supaya nilai dari filter bisa tampil nanti -->
   <!-- Mengecek data menggunakan tanggal cek in -->
-  <form action="<?= site_url('pembayaran') ?>" method="get">
+  <form action="<?= site_url('tb_lelang') ?>" method="get">
     <tr>
 
       <td class="pr-2"><?= $tabel8_field3_alias ?></td>
@@ -25,14 +25,14 @@
           <div class="input-group-prepend">
             <span class="input-group-text">Masukkan</span>
           </div>
-          <input type="text" class="form-control" name="nisn" value="<?= $nisn ?>">
+          <input type="text" class="form-control" name="id_user" value="<?= $id_user ?>">
         </div>
       </td>
       <td>
         <button class="btn btn-success" type="submit">
           <a type="submit"><i class="fas fa-search"></i></a>
         </button>
-        <a class="btn btn-danger" type="button" href="<?= site_url('pembayaran') ?>">
+        <a class="btn btn-danger" type="button" href="<?= site_url('tb_lelang') ?>">
           <i class="fas fa-redo"></i></a>
       </td>
 
@@ -44,7 +44,7 @@
 </table>
 
 <?php foreach ($tabel4 as $tl4) :
-  if ($tl4->nisn == '') { ?> <?php } else { ?>
+  if ($tl4->id_user == '') { ?> <?php } else { ?>
 
     <h1>Biodata Siswa<?= $phase ?></h1>
     <hr>
@@ -56,7 +56,7 @@
           <?php foreach ($tabel4 as $tl4) : ?>
             <tr>
               <td class="table-secondary table-active"><?= $tabel4_field1_alias ?></td>
-              <td class="table-light"><?= $tl4->nisn ?></td>
+              <td class="table-light"><?= $tl4->id_user ?></td>
             </tr>
 
             <tr>
@@ -90,7 +90,7 @@
     </div>
 
     <br><br>
-    <h1>Pembayaran SPP<?= $phase ?></h1>
+    <h1>Lelang SPP<?= $phase ?></h1>
     <hr>
 
     <div class="table-responsive">
@@ -121,11 +121,11 @@
             <tr>
               <td><?= $tl8->id_pembayaran ?></td>
               <td><?= $tl8->id_petugas ?></td>
-              <td><?= $tl8->nisn ?></td>
+              <td><?= $tl8->id_user ?></td>
               <td><?= $tl8->tgl_bayar ?></td>
               <td><?= $tl8->bulan_dibayar ?></td>
               <td><?= $tl8->tahun_dibayar ?></td>
-              <td><?= $tl8->id_spp ?></td>
+              <td><?= $tl8->id_barang ?></td>
               <td>Rp <?= number_format($tl8->jumlah_bayar, '2', ',', '.') ?></td>
 
               <td>
@@ -148,7 +148,7 @@
                break;
 
               case 'cek out': ?>
-                <a class="btn btn-light text-danger" onclick="return confirm('Hapus pembayaran?')" href="<?= site_url('pembayaran/hapus/' . $tl8->id_pembayaran) ?>">
+                <a class="btn btn-light text-danger" onclick="return confirm('Hapus tb_lelang?')" href="<?= site_url('tb_lelang/hapus/' . $tl8->id_pembayaran) ?>">
                   <i class="fas fa-trash"></i></a>
                break;
 
@@ -159,7 +159,7 @@
         https://stackoverflow.com/questions/32778670/codeigniter-load-view-in-new-tab#:~:text=Say%20you%20want%20it%20to,_blank%22%20in%20the%20form%20tag.&text=That%27s%20all.
         terimakasih pada link di atas
         -->
-                <a class="btn btn-light text-info" href="<?= site_url('pembayaran/print/' . $tl8->id_pembayaran) ?>" target="_blank">
+                <a class="btn btn-light text-info" href="<?= site_url('tb_lelang/print/' . $tl8->id_pembayaran) ?>" target="_blank">
                   <i class="fas fa-print"></i></a>
 
               </td>
@@ -197,20 +197,20 @@
         </button>
       </div>
 
-      <form action="<?= site_url('pembayaran/tambah') ?>" method="post" enctype="multipart/form-data">
+      <form action="<?= site_url('tb_lelang/tambah') ?>" method="post" enctype="multipart/form-data">
 
         <div class="modal-body">
           <div class="row">
 
-            <!-- Data siswa -->
+            <!-- Data tb_masyarakat -->
             <?php foreach ($tabel4 as $tl4) : ?>
               <?php foreach ($tabel6 as $tl6) : ?>
-                <?php if ($tl4->id_spp == $tl6->id_spp) { ?>
+                <?php if ($tl4->id_barang == $tl6->id_barang) { ?>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label><?= $tabel4_field1_alias ?></label>
-                      <p><?= $tl4->nisn ?></p>
-                      <input type="hidden" name="nisn" value="<?= $tl4->nisn ?>">
+                      <p><?= $tl4->id_user ?></p>
+                      <input type="hidden" name="id_user" value="<?= $tl4->id_user ?>">
                       <input type="hidden" name="id_petugas" value="<?= $this->session->userdata('id_petugas') ?>">
                     </div>
                     <hr>
@@ -253,7 +253,7 @@
                     <div class="form-group">
                       <label><?= $tabel6_field2_alias ?></label>
                       <p><?= $tl6->tahun ?></p>
-                      <input type="hidden" name="id_spp" value="<?= $tl6->id_spp ?>">
+                      <input type="hidden" name="id_barang" value="<?= $tl6->id_barang ?>">
                     </div>
                     <hr>
 
@@ -265,7 +265,7 @@
 
 
 
-                    <!-- Di bawah ini adalah form input pembayaran -->
+                    <!-- Di bawah ini adalah form input tb_lelang -->
                     <div class="form-group">
                       <label><?= $tabel8_field4_alias ?> </label>
                       <input class="form-control" type="date" required name="tgl_bayar" min="<?= date('Y-m-d'); ?>">
